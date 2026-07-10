@@ -1,0 +1,18 @@
+# NationRise Resourcepack
+
+Ресурспак сервера NationRise (АнПрим). Генерируется Python-скриптами.
+
+## Сборка
+Нужен Python 3.13 (`py -3.13`) с Pillow (`py -3.13 -m pip install pillow`).
+
+```bat
+py -3.13 build_builditems.py   & rem иконки меню + миньоны (CMD в items/paper.json)
+py -3.13 build_ahfont.py       & rem шрифт-оверлей аукциона
+py -3.13 build_effpick.py      & rem донат-кирка из ../model.bbmodel
+py -3.13 pack_zip.py           & rem собрать NationRise-Resourcepack.zip
+```
+
+Готовый zip кладётся игрокам в `.minecraft/resourcepacks/`.
+
+ВАЖНО: `items/paper.json` целиком генерирует `build_builditems.py` (в нём же CMD миньонов 70xxx/71xxx) —
+не редактировать руками. Углы поворотов моделей: только 0 / ±22.5 / ±45.

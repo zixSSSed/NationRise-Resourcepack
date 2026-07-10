@@ -1,0 +1,1026 @@
+{
+  "providers": [
+    {
+      "type": "reference",
+      "id": "minecraft:include/space"
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_logo.png",
+      "ascent": 15,
+      "height": 18,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_crown.png",
+      "ascent": 7,
+      "height": 11,
+      "chars": [
+        "♛"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_crystal.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "❖"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_sun.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "☀"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_house.png",
+      "ascent": 9,
+      "height": 10,
+      "chars": [
+        "⌂"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_star4.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "✦"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_bank.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "⛁"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_flag.png",
+      "ascent": 9,
+      "height": 10,
+      "chars": [
+        "⚑"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_bolt.png",
+      "ascent": 7,
+      "height": 11,
+      "chars": [
+        "⚡"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_diamond.png",
+      "ascent": 6,
+      "height": 9,
+      "chars": [
+        "◆"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_diamond_hollow.png",
+      "ascent": 6,
+      "height": 9,
+      "chars": [
+        "◇"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_star_circle.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "✪"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_star5.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "★"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_flower.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "✿"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_florette.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "❀"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_skull.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "☠"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_snowflake.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "❄"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_fire.png",
+      "ascent": 7,
+      "height": 11,
+      "chars": [
+        "🔥"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_biohazard.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "☣"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_yinyang.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "☯"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_badge.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": [
+        "⚜"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_admin.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_curator.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_ss_curator.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_teamlead.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_alpha.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_moder.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_beta.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_jrmoder.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_omega.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_helper.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_jrhelper.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_role_junior.png",
+      "ascent": 7,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_rank_octavian.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_rank_archon.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_rank_king.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_rank_elite.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_rank_prince.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_rank_noble.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_sym_cross.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "✝"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_sym_maltese.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "✠"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_sym_crown_m.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "♕"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_sym_scales.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⚖"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_sym_hammer.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "☭"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_sym_crescent.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "☪"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_sym_wheel.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "☸"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_sym_hexagram.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "✡"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_sym_torii.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⛩"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_sym_om.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "ॐ"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_swords.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⚔"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_anchor.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⚓"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_hammerpick.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⚒"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_chains.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⛓"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_pickaxe.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⛏"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_noentry.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⛔"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_peace.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "☮"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_warning.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⚠"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_gear.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⚙"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_comet.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "☄"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_envelope.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "✉"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_heart.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "❤"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_hourglass.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⌛"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_pause.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "⏸"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_info.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "ℹ"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_fishpole.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🎣"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_trophy.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🏆"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_construction.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🏗"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_slot.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🎰"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_key.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🔑"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_shop.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🏪"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_blood.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🩸"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_package.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "📦"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_worm.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🪱"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_web.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🕸"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_squid.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🦑"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_book.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "📖"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_crystalball.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🔮"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_lock.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🔒"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_compass.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🧭"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_lockkey.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🔐"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_fish.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🐟"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_milkyway.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🌌"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_masks.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🎭"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_bread.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🍞"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_boom.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "💥"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_loud.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "📢"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_cityscape.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🏙"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_trash.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🗑"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_gift.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🎁"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_chart.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "📊"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_wave.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "👋"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_castle.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🏰"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_moneybag.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "💰"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_busts.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "👥"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_bust.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "👤"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_earth.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🌍"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_die.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🎲"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_mute.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🔇"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_magnify.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🔍"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_backpack.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🎒"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_gem.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "💎"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_sleep.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "💤"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_medal1.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🥇"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_medal2.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🥈"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_medal3.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🥉"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_handshake.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🤝"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_check.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "✅"
+      ]
+    },
+    {
+      "type": "space",
+      "advances": {
+        "": 1,
+        "": -1,
+        "": 2,
+        "": -2,
+        "": 4,
+        "": -4,
+        "": 8,
+        "": -8,
+        "": 16,
+        "": -16,
+        "": 32,
+        "": -32,
+        "": 64,
+        "": -64,
+        "": 128,
+        "": -128,
+        "": 256,
+        "": -256
+      }
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_ahbar.png",
+      "ascent": -94,
+      "height": 18,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_ahdig.png",
+      "ascent": -97,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "ttf",
+      "file": "minecraft:nationrise.ttf",
+      "size": 9.0,
+      "oversample": 8.0,
+      "shift": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "type": "reference",
+      "id": "minecraft:include/default"
+    }
+  ]
+}

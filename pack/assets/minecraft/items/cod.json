@@ -1,0 +1,195 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/cod"
+    },
+    "entries": [
+      {
+        "threshold": 1001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_common_a"
+        }
+      },
+      {
+        "threshold": 1004,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_common_b"
+        }
+      },
+      {
+        "threshold": 1007,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_common_c"
+        }
+      },
+      {
+        "threshold": 2001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_uncommon_a"
+        }
+      },
+      {
+        "threshold": 2005,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_uncommon_b"
+        }
+      },
+      {
+        "threshold": 2010,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_uncommon_c"
+        }
+      },
+      {
+        "threshold": 3001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_rare_a"
+        }
+      },
+      {
+        "threshold": 3005,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_rare_b"
+        }
+      },
+      {
+        "threshold": 3010,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_rare_c"
+        }
+      },
+      {
+        "threshold": 4001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_epic_a"
+        }
+      },
+      {
+        "threshold": 4007,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_epic_b"
+        }
+      },
+      {
+        "threshold": 5001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_legend_a"
+        }
+      },
+      {
+        "threshold": 5007,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_legend_b"
+        }
+      },
+      {
+        "threshold": 6001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_relic_a"
+        }
+      },
+      {
+        "threshold": 7001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_mythic_a"
+        }
+      },
+      {
+        "threshold": 99999,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_mystery"
+        }
+      },
+      {
+        "threshold": 103001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_rare_nether_a"
+        }
+      },
+      {
+        "threshold": 103004,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_rare_nether_b"
+        }
+      },
+      {
+        "threshold": 104001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_epic_nether"
+        }
+      },
+      {
+        "threshold": 105001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_legend_nether"
+        }
+      },
+      {
+        "threshold": 106001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_relic_nether"
+        }
+      },
+      {
+        "threshold": 203001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_rare_end_a"
+        }
+      },
+      {
+        "threshold": 203004,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_rare_end_b"
+        }
+      },
+      {
+        "threshold": 204001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_epic_end"
+        }
+      },
+      {
+        "threshold": 205001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_legend_end"
+        }
+      },
+      {
+        "threshold": 206001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_fish_relic_end"
+        }
+      }
+    ]
+  }
+}

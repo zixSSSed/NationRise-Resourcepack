@@ -1,0 +1,17 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:condition",
+      "property": "minecraft:fishing_rod/cast",
+      "on_true": { "type": "minecraft:model", "model": "minecraft:item/fishing_rod_cast" },
+      "on_false": { "type": "minecraft:model", "model": "minecraft:item/fishing_rod" }
+    },
+    "entries": [
+      { "threshold": 9001, "model": { "type": "minecraft:model", "model": "minecraft:item/nr_rod_nether" } },
+      { "threshold": 9002, "model": { "type": "minecraft:model", "model": "minecraft:item/nr_rod_end" } }
+    ]
+  }
+}

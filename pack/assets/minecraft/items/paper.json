@@ -1,0 +1,685 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/paper"
+    },
+    "entries": [
+      {
+        "threshold": 60000,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_blank"
+        }
+      },
+      {
+        "threshold": 60001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_filler"
+        }
+      },
+      {
+        "threshold": 60101,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_cat_state"
+        }
+      },
+      {
+        "threshold": 60102,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_cat_economic"
+        }
+      },
+      {
+        "threshold": 60103,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_cat_military"
+        }
+      },
+      {
+        "threshold": 60104,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_cat_tech"
+        }
+      },
+      {
+        "threshold": 60105,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_cat_production"
+        }
+      },
+      {
+        "threshold": 60106,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_cat_civil"
+        }
+      },
+      {
+        "threshold": 60107,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_cat_bonus"
+        }
+      },
+      {
+        "threshold": 60201,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_ratusha"
+        }
+      },
+      {
+        "threshold": 60202,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_meriya"
+        }
+      },
+      {
+        "threshold": 60203,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_bank"
+        }
+      },
+      {
+        "threshold": 60204,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_cadastre"
+        }
+      },
+      {
+        "threshold": 60205,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_garrison"
+        }
+      },
+      {
+        "threshold": 60206,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_auction"
+        }
+      },
+      {
+        "threshold": 60207,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_nation_hall"
+        }
+      },
+      {
+        "threshold": 60208,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_ptu"
+        }
+      },
+      {
+        "threshold": 60209,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_barracks"
+        }
+      },
+      {
+        "threshold": 60210,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_wall"
+        }
+      },
+      {
+        "threshold": 60211,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_sklad"
+        }
+      },
+      {
+        "threshold": 60212,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_depository"
+        }
+      },
+      {
+        "threshold": 60213,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_konzlager"
+        }
+      },
+      {
+        "threshold": 60214,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_nether_gate"
+        }
+      },
+      {
+        "threshold": 60215,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_end_gate"
+        }
+      },
+      {
+        "threshold": 60216,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_doska"
+        }
+      },
+      {
+        "threshold": 60217,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_monument"
+        }
+      },
+      {
+        "threshold": 60218,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_workshop"
+        }
+      },
+      {
+        "threshold": 60219,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_trade_empire"
+        }
+      },
+      {
+        "threshold": 60220,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_mall"
+        }
+      },
+      {
+        "threshold": 60221,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_casino"
+        }
+      },
+      {
+        "threshold": 60222,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_embassy"
+        }
+      },
+      {
+        "threshold": 60223,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_temple"
+        }
+      },
+      {
+        "threshold": 60224,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_b_peace_council"
+        }
+      },
+      {
+        "threshold": 60301,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rar_common"
+        }
+      },
+      {
+        "threshold": 60302,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rar_uncommon"
+        }
+      },
+      {
+        "threshold": 60303,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rar_rare"
+        }
+      },
+      {
+        "threshold": 60304,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rar_epic"
+        }
+      },
+      {
+        "threshold": 60305,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rar_legendary"
+        }
+      },
+      {
+        "threshold": 60306,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rar_relic"
+        }
+      },
+      {
+        "threshold": 60307,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rar_mythic"
+        }
+      },
+      {
+        "threshold": 60311,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_renv_nether"
+        }
+      },
+      {
+        "threshold": 60312,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_renv_end"
+        }
+      },
+      {
+        "threshold": 60401,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_info"
+        }
+      },
+      {
+        "threshold": 60402,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_spawn"
+        }
+      },
+      {
+        "threshold": 60403,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_bank"
+        }
+      },
+      {
+        "threshold": 60404,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_storage"
+        }
+      },
+      {
+        "threshold": 60405,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_residents"
+        }
+      },
+      {
+        "threshold": 60406,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_jobs"
+        }
+      },
+      {
+        "threshold": 60407,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_map"
+        }
+      },
+      {
+        "threshold": 60408,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_switches"
+        }
+      },
+      {
+        "threshold": 60409,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_level"
+        }
+      },
+      {
+        "threshold": 60410,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_buildings"
+        }
+      },
+      {
+        "threshold": 60411,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_ideology"
+        }
+      },
+      {
+        "threshold": 60412,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_outposts"
+        }
+      },
+      {
+        "threshold": 60413,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_sanctions"
+        }
+      },
+      {
+        "threshold": 60414,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_religion"
+        }
+      },
+      {
+        "threshold": 60415,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_notown"
+        }
+      },
+      {
+        "threshold": 60416,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_tm_close"
+        }
+      },
+      {
+        "threshold": 60501,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rtp_europe"
+        }
+      },
+      {
+        "threshold": 60502,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rtp_asia"
+        }
+      },
+      {
+        "threshold": 60503,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rtp_namerica"
+        }
+      },
+      {
+        "threshold": 60504,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rtp_samerica"
+        }
+      },
+      {
+        "threshold": 60505,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rtp_africa"
+        }
+      },
+      {
+        "threshold": 60506,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rtp_australia"
+        }
+      },
+      {
+        "threshold": 60507,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_rtp_random"
+        }
+      },
+      {
+        "threshold": 60601,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_refresh"
+        }
+      },
+      {
+        "threshold": 60602,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_storage"
+        }
+      },
+      {
+        "threshold": 60603,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_prev"
+        }
+      },
+      {
+        "threshold": 60604,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_page"
+        }
+      },
+      {
+        "threshold": 60605,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_next"
+        }
+      },
+      {
+        "threshold": 60606,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_categories"
+        }
+      },
+      {
+        "threshold": 60607,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_emblem"
+        }
+      },
+      {
+        "threshold": 60608,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_exit"
+        }
+      },
+      {
+        "threshold": 60609,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_prev_off"
+        }
+      },
+      {
+        "threshold": 60610,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_next_off"
+        }
+      },
+      {
+        "threshold": 60611,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_cat_all"
+        }
+      },
+      {
+        "threshold": 60612,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_cat_gear"
+        }
+      },
+      {
+        "threshold": 60613,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_cat_tools"
+        }
+      },
+      {
+        "threshold": 60614,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_cat_food"
+        }
+      },
+      {
+        "threshold": 60615,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_cat_blocks"
+        }
+      },
+      {
+        "threshold": 60616,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_cat_brew"
+        }
+      },
+      {
+        "threshold": 60617,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_cat_res"
+        }
+      },
+      {
+        "threshold": 60618,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_cat_misc"
+        }
+      },
+      {
+        "threshold": 60621,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_page_l"
+        }
+      },
+      {
+        "threshold": 60622,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_page_c"
+        }
+      },
+      {
+        "threshold": 60623,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_ah_page_r"
+        }
+      },
+      {
+        "threshold": 70001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_homeboby"
+        }
+      },
+      {
+        "threshold": 70002,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_lelouch"
+        }
+      },
+      {
+        "threshold": 70003,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_cc"
+        }
+      },
+      {
+        "threshold": 70004,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_nekmeng"
+        }
+      },
+      {
+        "threshold": 70005,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_minion"
+        }
+      },
+      {
+        "threshold": 70006,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_pudge"
+        }
+      },
+      {
+        "threshold": 71001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minhead_miner"
+        }
+      },
+      {
+        "threshold": 71002,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minhead_farmer"
+        }
+      },
+      {
+        "threshold": 71003,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minhead_lumberjack"
+        }
+      },
+      {
+        "threshold": 71004,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minhead_digger"
+        }
+      }
+    ]
+  }
+}
