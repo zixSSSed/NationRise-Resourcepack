@@ -1,0 +1,14 @@
+{
+ "parent": "minecraft:item/handheld",
+ "textures": {
+  "layer0": "minecraft:item/netherite_pickaxe"
+ },
+ "overrides": [
+  {
+   "predicate": {
+    "custom_model_data": 60701
+   },
+   "model": "minecraft:item/nr_pick_ef10"
+  }
+ ]
+}

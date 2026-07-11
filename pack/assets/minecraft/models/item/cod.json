@@ -1,0 +1,164 @@
+{
+ "parent": "minecraft:item/generated",
+ "textures": {
+  "layer0": "minecraft:item/cod"
+ },
+ "overrides": [
+  {
+   "predicate": {
+    "custom_model_data": 1001
+   },
+   "model": "minecraft:item/nr_fish_common_a"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 1004
+   },
+   "model": "minecraft:item/nr_fish_common_b"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 1007
+   },
+   "model": "minecraft:item/nr_fish_common_c"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 2001
+   },
+   "model": "minecraft:item/nr_fish_uncommon_a"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 2005
+   },
+   "model": "minecraft:item/nr_fish_uncommon_b"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 2010
+   },
+   "model": "minecraft:item/nr_fish_uncommon_c"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 3001
+   },
+   "model": "minecraft:item/nr_fish_rare_a"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 3005
+   },
+   "model": "minecraft:item/nr_fish_rare_b"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 3010
+   },
+   "model": "minecraft:item/nr_fish_rare_c"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 4001
+   },
+   "model": "minecraft:item/nr_fish_epic_a"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 4007
+   },
+   "model": "minecraft:item/nr_fish_epic_b"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 5001
+   },
+   "model": "minecraft:item/nr_fish_legend_a"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 5007
+   },
+   "model": "minecraft:item/nr_fish_legend_b"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 6001
+   },
+   "model": "minecraft:item/nr_fish_relic_a"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 7001
+   },
+   "model": "minecraft:item/nr_fish_mythic_a"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 99999
+   },
+   "model": "minecraft:item/nr_fish_mystery"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 103001
+   },
+   "model": "minecraft:item/nr_fish_rare_nether_a"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 103004
+   },
+   "model": "minecraft:item/nr_fish_rare_nether_b"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 104001
+   },
+   "model": "minecraft:item/nr_fish_epic_nether"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 105001
+   },
+   "model": "minecraft:item/nr_fish_legend_nether"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 106001
+   },
+   "model": "minecraft:item/nr_fish_relic_nether"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 203001
+   },
+   "model": "minecraft:item/nr_fish_rare_end_a"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 203004
+   },
+   "model": "minecraft:item/nr_fish_rare_end_b"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 204001
+   },
+   "model": "minecraft:item/nr_fish_epic_end"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 205001
+   },
+   "model": "minecraft:item/nr_fish_legend_end"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 206001
+   },
+   "model": "minecraft:item/nr_fish_relic_end"
+  }
+ ]
+}

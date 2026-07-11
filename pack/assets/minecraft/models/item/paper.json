@@ -1,0 +1,584 @@
+{
+ "parent": "minecraft:item/generated",
+ "textures": {
+  "layer0": "minecraft:item/paper"
+ },
+ "overrides": [
+  {
+   "predicate": {
+    "custom_model_data": 60000
+   },
+   "model": "minecraft:item/nr_blank"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60001
+   },
+   "model": "minecraft:item/nr_filler"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60101
+   },
+   "model": "minecraft:item/nr_cat_state"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60102
+   },
+   "model": "minecraft:item/nr_cat_economic"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60103
+   },
+   "model": "minecraft:item/nr_cat_military"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60104
+   },
+   "model": "minecraft:item/nr_cat_tech"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60105
+   },
+   "model": "minecraft:item/nr_cat_production"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60106
+   },
+   "model": "minecraft:item/nr_cat_civil"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60107
+   },
+   "model": "minecraft:item/nr_cat_bonus"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60201
+   },
+   "model": "minecraft:item/nr_b_ratusha"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60202
+   },
+   "model": "minecraft:item/nr_b_meriya"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60203
+   },
+   "model": "minecraft:item/nr_b_bank"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60204
+   },
+   "model": "minecraft:item/nr_b_cadastre"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60205
+   },
+   "model": "minecraft:item/nr_b_garrison"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60206
+   },
+   "model": "minecraft:item/nr_b_auction"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60207
+   },
+   "model": "minecraft:item/nr_b_nation_hall"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60208
+   },
+   "model": "minecraft:item/nr_b_ptu"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60209
+   },
+   "model": "minecraft:item/nr_b_barracks"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60210
+   },
+   "model": "minecraft:item/nr_b_wall"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60211
+   },
+   "model": "minecraft:item/nr_b_sklad"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60212
+   },
+   "model": "minecraft:item/nr_b_depository"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60213
+   },
+   "model": "minecraft:item/nr_b_konzlager"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60214
+   },
+   "model": "minecraft:item/nr_b_nether_gate"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60215
+   },
+   "model": "minecraft:item/nr_b_end_gate"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60216
+   },
+   "model": "minecraft:item/nr_b_doska"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60217
+   },
+   "model": "minecraft:item/nr_b_monument"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60218
+   },
+   "model": "minecraft:item/nr_b_workshop"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60219
+   },
+   "model": "minecraft:item/nr_b_trade_empire"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60220
+   },
+   "model": "minecraft:item/nr_b_mall"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60221
+   },
+   "model": "minecraft:item/nr_b_casino"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60222
+   },
+   "model": "minecraft:item/nr_b_embassy"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60223
+   },
+   "model": "minecraft:item/nr_b_temple"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60224
+   },
+   "model": "minecraft:item/nr_b_peace_council"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60301
+   },
+   "model": "minecraft:item/nr_rar_common"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60302
+   },
+   "model": "minecraft:item/nr_rar_uncommon"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60303
+   },
+   "model": "minecraft:item/nr_rar_rare"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60304
+   },
+   "model": "minecraft:item/nr_rar_epic"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60305
+   },
+   "model": "minecraft:item/nr_rar_legendary"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60306
+   },
+   "model": "minecraft:item/nr_rar_relic"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60307
+   },
+   "model": "minecraft:item/nr_rar_mythic"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60311
+   },
+   "model": "minecraft:item/nr_renv_nether"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60312
+   },
+   "model": "minecraft:item/nr_renv_end"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60401
+   },
+   "model": "minecraft:item/nr_tm_info"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60402
+   },
+   "model": "minecraft:item/nr_tm_spawn"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60403
+   },
+   "model": "minecraft:item/nr_tm_bank"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60404
+   },
+   "model": "minecraft:item/nr_tm_storage"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60405
+   },
+   "model": "minecraft:item/nr_tm_residents"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60406
+   },
+   "model": "minecraft:item/nr_tm_jobs"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60407
+   },
+   "model": "minecraft:item/nr_tm_map"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60408
+   },
+   "model": "minecraft:item/nr_tm_switches"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60409
+   },
+   "model": "minecraft:item/nr_tm_level"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60410
+   },
+   "model": "minecraft:item/nr_tm_buildings"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60411
+   },
+   "model": "minecraft:item/nr_tm_ideology"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60412
+   },
+   "model": "minecraft:item/nr_tm_outposts"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60413
+   },
+   "model": "minecraft:item/nr_tm_sanctions"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60414
+   },
+   "model": "minecraft:item/nr_tm_religion"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60415
+   },
+   "model": "minecraft:item/nr_tm_notown"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60416
+   },
+   "model": "minecraft:item/nr_tm_close"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60501
+   },
+   "model": "minecraft:item/nr_rtp_europe"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60502
+   },
+   "model": "minecraft:item/nr_rtp_asia"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60503
+   },
+   "model": "minecraft:item/nr_rtp_namerica"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60504
+   },
+   "model": "minecraft:item/nr_rtp_samerica"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60505
+   },
+   "model": "minecraft:item/nr_rtp_africa"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60506
+   },
+   "model": "minecraft:item/nr_rtp_australia"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60507
+   },
+   "model": "minecraft:item/nr_rtp_random"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60601
+   },
+   "model": "minecraft:item/nr_ah_refresh"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60602
+   },
+   "model": "minecraft:item/nr_ah_storage"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60603
+   },
+   "model": "minecraft:item/nr_ah_prev"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60604
+   },
+   "model": "minecraft:item/nr_ah_page"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60605
+   },
+   "model": "minecraft:item/nr_ah_next"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60606
+   },
+   "model": "minecraft:item/nr_ah_categories"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60607
+   },
+   "model": "minecraft:item/nr_ah_emblem"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60608
+   },
+   "model": "minecraft:item/nr_ah_exit"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60609
+   },
+   "model": "minecraft:item/nr_ah_prev_off"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60610
+   },
+   "model": "minecraft:item/nr_ah_next_off"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60611
+   },
+   "model": "minecraft:item/nr_ah_cat_all"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60612
+   },
+   "model": "minecraft:item/nr_ah_cat_gear"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60613
+   },
+   "model": "minecraft:item/nr_ah_cat_tools"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60614
+   },
+   "model": "minecraft:item/nr_ah_cat_food"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60615
+   },
+   "model": "minecraft:item/nr_ah_cat_blocks"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60616
+   },
+   "model": "minecraft:item/nr_ah_cat_brew"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60617
+   },
+   "model": "minecraft:item/nr_ah_cat_res"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60618
+   },
+   "model": "minecraft:item/nr_ah_cat_misc"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60621
+   },
+   "model": "minecraft:item/nr_ah_page_l"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60622
+   },
+   "model": "minecraft:item/nr_ah_page_c"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60623
+   },
+   "model": "minecraft:item/nr_ah_page_r"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 70001
+   },
+   "model": "minecraft:item/nr_minion_homeboby"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 70002
+   },
+   "model": "minecraft:item/nr_minion_lelouch"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 70003
+   },
+   "model": "minecraft:item/nr_minion_cc"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 70004
+   },
+   "model": "minecraft:item/nr_minion_nekmeng"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 70005
+   },
+   "model": "minecraft:item/nr_minion_minion"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 70006
+   },
+   "model": "minecraft:item/nr_minion_pudge"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 71001
+   },
+   "model": "minecraft:item/nr_minhead_miner"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 71002
+   },
+   "model": "minecraft:item/nr_minhead_farmer"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 71003
+   },
+   "model": "minecraft:item/nr_minhead_lumberjack"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 71004
+   },
+   "model": "minecraft:item/nr_minhead_digger"
+  }
+ ]
+}
