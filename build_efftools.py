@@ -8,12 +8,37 @@ import json, os, base64, re
 ROOT = os.path.dirname(os.path.abspath(__file__))
 MC = os.path.join(ROOT, "pack", "assets", "minecraft")
 
-# (bbmodel, CMD, имя модели, базовый предмет)
+# (bbmodel, CMD, имя модели, базовый предмет, флип)
+# flip="y180" — поворот геометрии на 180° вокруг вертикали (рабочая сторона смотрит в другую сторону):
+#   топор — лезвие от игрока, лопата — совок к игроку.
 TOOLS = [
-    ("model.bbmodel",  60701, "nr_pick_ef10",   "netherite_pickaxe"),
-    ("axe.bbmodel",    60702, "nr_axe_ef10",    "netherite_axe"),
-    ("shovel.bbmodel", 60703, "nr_shovel_ef10", "netherite_shovel"),
+    ("model.bbmodel",  60701, "nr_pick_ef10",   "netherite_pickaxe", None),
+    ("axe.bbmodel",    60702, "nr_axe_ef10",    "netherite_axe",    "y180"),
+    ("shovel.bbmodel", 60703, "nr_shovel_ef10", "netherite_shovel", "y180"),
 ]
+
+# --- флип элемента на 180° вокруг Y относительно центра куба (8,8,8) ---
+def flip_y180(el):
+    f, t = el["from"], el["to"]
+    el["from"] = [round(16 - t[0], 4), f[1], round(16 - t[2], 4)]
+    el["to"]   = [round(16 - f[0], 4), t[1], round(16 - f[2], 4)]
+    r = el.get("rotation")
+    if r:
+        o = r["origin"]
+        r["origin"] = [round(16 - o[0], 4), o[1], round(16 - o[2], 4)]
+        if r["axis"] in ("x", "z"): r["angle"] = -r["angle"]
+    faces = el.get("faces", {})
+    swap = {"north": "south", "south": "north", "east": "west", "west": "east"}
+    nf = {}
+    for fn, fo in faces.items():
+        nn = swap.get(fn, fn)
+        if fn in swap:  # боковые грани при 180° по горизонтали зеркалятся — флипаем U
+            u = fo["uv"]; fo = {**fo, "uv": [u[2], u[1], u[0], u[3]]}
+        else:  # up/down поворачиваются на 180°
+            fo = {**fo, "rotation": ((fo.get("rotation", 0) + 180) % 360)}
+        nf[nn] = fo
+    el["faces"] = nf
+    return el
 
 # стандартные хват-трансформы ручного инструмента (расчёт на нормализованную ~14-модель)
 DISPLAY = {
@@ -29,7 +54,7 @@ VALID_ANGLES = (-45.0, -22.5, 0.0, 22.5, 45.0)
 TARGET = 14.0  # длиннейшую сторону подгоняем к этому размеру (запас в 16-кубе)
 
 
-def build_tool(bbfile, cmd, name, base):
+def build_tool(bbfile, cmd, name, base, flip=None):
     d = json.load(open(os.path.join(ROOT, "..", bbfile), encoding="utf-8"))
     res = d.get("resolution", {"width": 16, "height": 16})
     rw, rh = res.get("width", 16), res.get("height", 16)
@@ -74,6 +99,9 @@ def build_tool(bbfile, cmd, name, base):
             faces[fn] = fo
         el["faces"] = faces
         els.append(el)
+
+    if flip == "y180":
+        els = [flip_y180(el) for el in els]
 
     model = {
         "credit": f"NationRise — донат-инструмент ({bbfile}), нормализован в 16-куб",
