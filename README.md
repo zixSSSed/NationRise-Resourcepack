@@ -8,6 +8,7 @@
 ```bat
 py -3.13 build_builditems.py   & rem иконки меню + миньоны (CMD в items/paper.json)
 py -3.13 build_ahfont.py       & rem шрифт-оверлей аукциона
+py -3.13 build_earn_gui.py     & rem отдельный marketplace-фон меню /earn
 py -3.13 build_effpick.py      & rem донат-кирка из ../model.bbmodel
 py -3.13 pack_zip.py           & rem собрать NationRise-Resourcepack.zip
 ```

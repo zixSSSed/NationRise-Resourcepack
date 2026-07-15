@@ -1,2 +1,3 @@
 logo/_*.png
 _base/
+__pycache__/
