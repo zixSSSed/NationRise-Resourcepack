@@ -1,0 +1,44 @@
+{
+ "parent": "minecraft:item/generated",
+ "textures": {
+  "layer0": "minecraft:item/feather"
+ },
+ "overrides": [
+  {
+   "predicate": {
+    "custom_model_data": 60801
+   },
+   "model": "minecraft:item/nr_head_boss"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60802
+   },
+   "model": "minecraft:item/nr_head_koth"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60803
+   },
+   "model": "minecraft:item/nr_head_loot"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60804
+   },
+   "model": "minecraft:item/nr_head_fish"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60805
+   },
+   "model": "minecraft:item/nr_head_br"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60806
+   },
+   "model": "minecraft:item/nr_head_tnt"
+  }
+ ]
+}

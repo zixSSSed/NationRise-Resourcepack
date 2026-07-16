@@ -47,7 +47,12 @@ PALETTE = {
 
 
 def scale_box(box: tuple[int, int, int, int]) -> tuple[int, int, int, int]:
-    return tuple(value * SUPERSAMPLE for value in box)
+    # PIL-боксы инклюзивны: масштабируем размах, а не координату конца,
+    # иначе каждый прямоугольник рисуется на 0.75 px короче (right/bottom
+    # уезжали ПОД иконку предмета вместо рамки вокруг неё).
+    x0, y0, x1, y1 = box
+    return (x0 * SUPERSAMPLE, y0 * SUPERSAMPLE,
+            (x1 + 1) * SUPERSAMPLE - 1, (y1 + 1) * SUPERSAMPLE - 1)
 
 
 def color(hex_color: str, alpha: int = 255) -> tuple[int, int, int, int]:
