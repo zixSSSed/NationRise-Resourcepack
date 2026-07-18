@@ -1,0 +1,108 @@
+{
+  "providers": [
+    {
+      "type": "space",
+      "advances": {
+        "": -1,
+        "": 1,
+        "": -2,
+        "": 2,
+        "": -4,
+        "": 4,
+        "": -8,
+        "": 8,
+        "": -16,
+        "": 16,
+        "": -32,
+        "": 32,
+        "": -64,
+        "": 64,
+        "": -128,
+        "": 128,
+        "": -256,
+        "": 256
+      }
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/auction_market_bg.png",
+      "ascent": 13,
+      "height": 125,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/auction_storage_bg.png",
+      "ascent": 13,
+      "height": 125,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/auction_categories_bg.png",
+      "ascent": 13,
+      "height": 107,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/donate_bg.png",
+      "ascent": 13,
+      "height": 125,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/events_bg.png",
+      "ascent": 13,
+      "height": 71,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/casino_bg.png",
+      "ascent": 13,
+      "height": 125,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/jobs_bg.png",
+      "ascent": 13,
+      "height": 71,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/job_targets_bg.png",
+      "ascent": 13,
+      "height": 125,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/town_storage_bg.png",
+      "ascent": 13,
+      "height": 125,
+      "chars": [
+        ""
+      ]
+    }
+  ]
+}
