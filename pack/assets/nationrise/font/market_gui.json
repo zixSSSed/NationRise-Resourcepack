@@ -1,0 +1,81 @@
+{
+  "providers": [
+    {
+      "type": "space",
+      "advances": {
+        "": -1,
+        "": 1,
+        "": -2,
+        "": 2,
+        "": -4,
+        "": 4,
+        "": -8,
+        "": 8,
+        "": -16,
+        "": 16,
+        "": -32,
+        "": 32,
+        "": -64,
+        "": 64,
+        "": -128,
+        "": 128,
+        "": -256,
+        "": 256
+      }
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/shop_root_bg.png",
+      "ascent": 13,
+      "height": 71,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/shop_money_bg.png",
+      "ascent": 13,
+      "height": 71,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/shop_donate_bg.png",
+      "ascent": 13,
+      "height": 71,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/shop_listing_bg.png",
+      "ascent": 13,
+      "height": 125,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/buyer_categories_bg.png",
+      "ascent": 13,
+      "height": 71,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/buyer_listing_bg.png",
+      "ascent": 13,
+      "height": 125,
+      "chars": [
+        ""
+      ]
+    }
+  ]
+}

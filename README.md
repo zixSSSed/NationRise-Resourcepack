@@ -10,6 +10,7 @@ py -3.13 build_builditems.py   & rem иконки меню + миньоны (CMD
 py -3.13 build_ahfont.py       & rem шрифт-оверлей аукциона
 py -3.13 build_earn_gui.py     & rem отдельный marketplace-фон меню /earn
 py -3.13 build_town_gui.py     & rem отдельные фоны /t и /t builds
+py -3.13 build_market_gui.py   & rem отдельные фоны /shop и /buyer
 py -3.13 build_effpick.py      & rem донат-кирка из ../model.bbmodel
 py -3.13 pack_zip.py           & rem собрать NationRise-Resourcepack.zip
 py -3.13 build_lite_zip.py     & rem lite ZIP без font/textures/font
