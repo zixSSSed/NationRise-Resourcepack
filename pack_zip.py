@@ -22,13 +22,28 @@ if _bad:
 print(f"JSON ok: {len(_jsons)} files validated")
 
 entries = []
+files = []
+for dp, dirs, names in os.walk(PACK):
+    dirs.sort()
+    for fn in sorted(names):
+        full = os.path.join(dp, fn)
+        arc = os.path.relpath(full, PACK).replace(os.sep, "/")
+        files.append((arc, full))
+
 with zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED) as z:
-    for dp, _, files in os.walk(PACK):
-        for fn in files:
-            full = os.path.join(dp, fn)
-            arc = os.path.relpath(full, PACK).replace(os.sep, "/")
-            z.write(full, arc)
-            entries.append(arc)
+    for arc, full in sorted(files):
+        # Stable filename order and timestamp make equal source trees byte-for-byte reproducible.
+        info = zipfile.ZipInfo(arc, date_time=(1980, 1, 1, 0, 0, 0))
+        info.compress_type = zipfile.ZIP_DEFLATED
+        info.external_attr = 0o100644 << 16
+        with open(full, "rb") as source:
+            data = source.read()
+        # Git may check text files out as CRLF on Windows. The pack semantics are
+        # identical, but raw ZIP bytes and SHA-1 would otherwise differ by OS.
+        if arc.endswith((".json", ".mcmeta")):
+            data = data.replace(b"\r\n", b"\n")
+        z.writestr(info, data)
+        entries.append(arc)
 
 sha1 = hashlib.sha1(open(OUT, "rb").read()).hexdigest()
 print("\nzip:", OUT)
