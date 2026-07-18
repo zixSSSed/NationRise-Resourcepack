@@ -10,6 +10,7 @@ py -3.13 build_builditems.py   & rem иконки меню + миньоны (CMD
 py -3.13 build_ahfont.py       & rem шрифт-оверлей аукциона
 py -3.13 build_earn_gui.py     & rem отдельный marketplace-фон меню /earn
 py -3.13 build_town_gui.py     & rem отдельные фоны /t и /t builds
+py -3.13 build_turtlehead.py   & rem PLAYER_HEAD Донателло, CMD 72001
 py -3.13 build_effpick.py      & rem донат-кирка из ../model.bbmodel
 py -3.13 pack_zip.py           & rem собрать NationRise-Resourcepack.zip
 py -3.13 build_lite_zip.py     & rem lite ZIP без font/textures/font
@@ -19,6 +20,10 @@ py -3.13 build_lite_zip.py     & rem lite ZIP без font/textures/font
 
 ВАЖНО: `items/paper.json` целиком генерирует `build_builditems.py` (в нём же CMD миньонов 70xxx/71xxx) —
 не редактировать руками. Углы поворотов моделей: только 0 / ±22.5 / ±45.
+
+Голова Донателло использует отдельный носитель `PLAYER_HEAD`: её CMD 72001
+генерирует `build_turtlehead.py` из `incoming/nr_turtlehead_concept.png`.
+В `build_builditems.py`/`paper.json` этот CMD добавлять нельзя.
 
 `pack_zip.py` сортирует пути, использует фиксированные timestamp/mode и нормализует
 переводы строк JSON/mcmeta в LF: одинаковое дерево `pack/` на Windows/Linux даёт
