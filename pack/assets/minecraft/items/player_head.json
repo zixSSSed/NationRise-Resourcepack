@@ -1,0 +1,33 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:special",
+      "base": "minecraft:item/template_skull",
+      "model": {
+        "type": "minecraft:player_head"
+      }
+    },
+    "entries": [
+      {
+        "threshold": 72001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_turtlehead"
+        }
+      },
+      {
+        "threshold": 72002,
+        "model": {
+          "type": "minecraft:special",
+          "base": "minecraft:item/template_skull",
+          "model": {
+            "type": "minecraft:player_head"
+          }
+        }
+      }
+    ]
+  }
+}
