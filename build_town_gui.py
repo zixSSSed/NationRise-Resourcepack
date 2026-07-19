@@ -29,37 +29,41 @@ GLYPHS = {
 }
 
 PALETTE = {
-    "shell": "#17121f",
-    "inner": "#282132",
-    "outline": "#c9b8f2",
-    "cream": "#f7fadb",
-    "ink": "#241e2b",
-    "header": "#dedce3",
-    "header_shadow": "#777383",
-    "violet": "#985be0",
-    "violet_dark": "#54317d",
-    "cyan": "#35c8d8",
-    "cyan_dark": "#1d7788",
-    "lime": "#7ed84b",
-    "lime_dark": "#467b2a",
-    "amber": "#f1a928",
-    "amber_dark": "#915e11",
-    "red": "#db5a6b",
-    "red_dark": "#7f2d3a",
-    "blue": "#478ec6",
-    "blue_dark": "#265273",
-    "slate": "#736b80",
-    "slate_dark": "#3c3746",
+    # Approved NationRise UI palette.  The legacy color names remain as
+    # compatibility aliases for the older generators, but none maps to purple.
+    "shell": "#121720",
+    "inner": "#20252E",
+    "outline": "#8B95A3",
+    "cream": "#F2F5F8",
+    "ink": "#111820",
+    "header": "#3B82C4",
+    "header_shadow": "#24527A",
+    "violet": "#3B82C4",
+    "violet_dark": "#24527A",
+    "cyan": "#5AA8D6",
+    "cyan_dark": "#2B638B",
+    "lime": "#3CA76A",
+    "lime_dark": "#22653F",
+    "amber": "#E0A93C",
+    "amber_dark": "#8B6420",
+    "red": "#CF4E4E",
+    "red_dark": "#7C2D32",
+    "blue": "#3B82C4",
+    "blue_dark": "#24527A",
+    "slate": "#5F6977",
+    "slate_dark": "#343B46",
+    "muted": "#8B95A3",
+    "text": "#CBD3DD",
 }
 
 CATEGORY_COLORS = (
-    ("violet", "violet_dark"),
-    ("amber", "amber_dark"),
-    ("red", "red_dark"),
-    ("cyan", "cyan_dark"),
     ("blue", "blue_dark"),
+    ("amber", "amber_dark"),
     ("lime", "lime_dark"),
-    ("slate", "slate_dark"),
+    ("red", "red_dark"),
+    ("blue", "blue_dark"),
+    ("amber", "amber_dark"),
+    ("lime", "lime_dark"),
 )
 
 
@@ -82,6 +86,31 @@ def font(size: int) -> ImageFont.FreeTypeFont:
     return ImageFont.truetype(str(ROOT / "_mont800.ttf"), size * SUPERSAMPLE)
 
 
+def clear_text(
+    draw: ImageDraw.ImageDraw,
+    xy: tuple[int, int],
+    value: str,
+    face: ImageFont.FreeTypeFont,
+    fill: str = "cream",
+    outline: str = "ink",
+    stroke: int = 1,
+) -> None:
+    """Draw compact GUI copy with a real outline instead of a soft shadow.
+
+    The outline survives Minecraft's nearest-neighbour GUI scaling and keeps
+    Cyrillic glyphs readable on coloured cards at small resolutions.
+    """
+    x, y = xy
+    draw.text(
+        (x, y),
+        value,
+        font=face,
+        fill=rgba(PALETTE[fill]),
+        stroke_width=max(1, stroke * SUPERSAMPLE),
+        stroke_fill=rgba(PALETTE[outline]),
+    )
+
+
 def rounded(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int], radius: int,
             fill: str, outline: str | None = None, width: int = 1) -> None:
     draw.rounded_rectangle(
@@ -99,31 +128,25 @@ def base(height: int, heading: str) -> tuple[Image.Image, ImageDraw.ImageDraw]:
     )
     draw = ImageDraw.Draw(image, "RGBA")
     rounded(draw, (0, 0, WIDTH - 1, height - 1), 5, "shell", "outline")
-    rounded(draw, (3, 3, WIDTH - 4, height - 2), 4, "inner", "cream")
+    rounded(draw, (3, 3, WIDTH - 4, height - 2), 4, "inner", "slate_dark")
 
-    rounded(draw, (9, 2, 167, 18), 2, "header_shadow", "ink")
-    rounded(draw, (11, 1, 165, 16), 2, "header", "cream")
+    rounded(draw, (8, 2, 168, 18), 2, "header_shadow", "ink")
+    rounded(draw, (10, 1, 166, 16), 2, "header", "outline")
     draw.line(
         [(14 * SUPERSAMPLE, 3 * SUPERSAMPLE), (162 * SUPERSAMPLE, 3 * SUPERSAMPLE)],
-        fill=rgba("#ffffff", 135),
+        fill=rgba(PALETTE["cream"], 150),
         width=SUPERSAMPLE,
     )
-    heading_font = font(7)
+    draw.line(
+        [(15 * SUPERSAMPLE, 15 * SUPERSAMPLE), (161 * SUPERSAMPLE, 15 * SUPERSAMPLE)],
+        fill=rgba(PALETTE["amber"], 220),
+        width=SUPERSAMPLE,
+    )
+    heading_font = font(8)
     bounds = draw.textbbox((0, 0), heading, font=heading_font)
     text_width = bounds[2] - bounds[0]
     x = (WIDTH * SUPERSAMPLE - text_width) // 2
-    draw.text(
-        (x + SUPERSAMPLE, 5 * SUPERSAMPLE),
-        heading,
-        font=heading_font,
-        fill=rgba(PALETTE["header_shadow"]),
-    )
-    draw.text(
-        (x, 4 * SUPERSAMPLE),
-        heading,
-        font=heading_font,
-        fill=rgba(PALETTE["ink"]),
-    )
+    clear_text(draw, (x, 3 * SUPERSAMPLE), heading, heading_font)
     return image, draw
 
 
@@ -186,11 +209,12 @@ def buildings_background() -> Image.Image:
     hint = "ВЫБЕРИТЕ НАПРАВЛЕНИЕ РАЗВИТИЯ"
     bounds = draw.textbbox((0, 0), hint, font=hint_font)
     x = (WIDTH * SUPERSAMPLE - (bounds[2] - bounds[0])) // 2
-    draw.text(
+    clear_text(
+        draw,
         (x, 57 * SUPERSAMPLE),
         hint,
-        font=hint_font,
-        fill=rgba(PALETTE["cream"], 190),
+        hint_font,
+        stroke=1,
     )
     return image.resize((WIDTH, 89), Image.Resampling.LANCZOS)
 

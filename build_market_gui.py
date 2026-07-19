@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import json
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 from build_town_gui import (
     CATEGORY_COLORS,
@@ -20,6 +20,7 @@ from build_town_gui import (
     WIDTH,
     band,
     base,
+    clear_text,
     plaque,
     rgba,
 )
@@ -27,8 +28,11 @@ from build_town_gui import (
 
 FONT_JSON = FONT_DIR / "market_gui.json"
 PREVIEW = FONT_DIR.parents[3] / "logo" / "_market_gui_preview.png"
+SHOP_PREVIEW = FONT_DIR.parents[3] / "logo" / "_shop_root_preview.png"
+SHOP_OVERLAY_PREVIEW = FONT_DIR.parents[3] / "logo" / "_shop_root_overlay_preview.png"
+ITEM_TEXTURE_DIR = FONT_DIR.parents[3] / "pack" / "assets" / "minecraft" / "textures" / "item"
 GLYPHS = {
-    "\uf8d1": ("shop_root_bg.png", 71),
+    "\uf8d1": ("shop_root_bg.png", 89),
     "\uf8d2": ("shop_money_bg.png", 71),
     "\uf8d3": ("shop_donate_bg.png", 71),
     "\uf8d4": ("shop_listing_bg.png", 125),
@@ -43,54 +47,181 @@ INNER = (
 )
 
 
+def _text(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int], value: str,
+          size: int, color: str, y: int) -> None:
+    from build_town_gui import SUPERSAMPLE, font
+
+    x0, _, x1, _ = box
+    face = font(size)
+    bounds = draw.textbbox((0, 0), value, font=face)
+    width = bounds[2] - bounds[0]
+    x = ((x0 + x1 + 1) * SUPERSAMPLE - width) // 2
+    clear_text(
+        draw,
+        (x, y * SUPERSAMPLE),
+        value,
+        face,
+        fill=color,
+        outline="ink",
+        stroke=1,
+    )
+
+
+def _pixel_coin_art(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int]) -> None:
+    from build_town_gui import SUPERSAMPLE, scale_box
+
+    x0, y0, x1, y1 = box
+    for dx, dy in ((4, 24), (9, 27), (42, 25)):
+        draw.ellipse(
+            scale_box((x0 + dx, y0 + dy, x0 + dx + 7, y0 + dy + 5)),
+            fill=rgba(PALETTE["amber"]),
+            outline=rgba(PALETTE["cream"]),
+            width=SUPERSAMPLE,
+        )
+    draw.rectangle(
+        scale_box((x0 + 4, y0 + 11, x0 + 12, y0 + 24)),
+        fill=rgba(PALETTE["amber_dark"]),
+        outline=rgba(PALETTE["amber"]),
+        width=SUPERSAMPLE,
+    )
+    draw.line(
+        [(x0 + 6) * SUPERSAMPLE, (y0 + 14) * SUPERSAMPLE,
+         (x0 + 10) * SUPERSAMPLE, (y0 + 14) * SUPERSAMPLE],
+        fill=rgba(PALETTE["cream"]),
+        width=SUPERSAMPLE,
+    )
+
+
+def _pixel_crystal_art(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int]) -> None:
+    from build_town_gui import SUPERSAMPLE
+
+    x0, y0, x1, y1 = box
+    crystals = (
+        ((x0 + 4, y0 + 29), (x0 + 8, y0 + 15), (x0 + 12, y0 + 29)),
+        ((x1 - 12, y0 + 29), (x1 - 8, y0 + 18), (x1 - 4, y0 + 29)),
+    )
+    for points in crystals:
+        draw.polygon(
+            [(x * SUPERSAMPLE, y * SUPERSAMPLE) for x, y in points],
+            fill=rgba(PALETTE["cyan"]),
+            outline=rgba(PALETTE["cream"]),
+        )
+    draw.line(
+        [(x0 + 8) * SUPERSAMPLE, (y0 + 17) * SUPERSAMPLE,
+         (x0 + 8) * SUPERSAMPLE, (y0 + 27) * SUPERSAMPLE],
+        fill=rgba(PALETTE["cream"]),
+        width=SUPERSAMPLE,
+    )
+
+
+def _pixel_war_art(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int]) -> None:
+    from build_town_gui import SUPERSAMPLE, scale_box
+
+    x0, y0, x1, y1 = box
+    for x in (x0 + 4, x1 - 11):
+        draw.rectangle(
+            scale_box((x, y0 + 18, x + 7, y0 + 30)),
+            fill=rgba(PALETTE["slate_dark"]),
+            outline=rgba(PALETTE["red"]),
+            width=SUPERSAMPLE,
+        )
+        draw.rectangle(
+            scale_box((x - 1, y0 + 15, x + 8, y0 + 19)),
+            fill=rgba(PALETTE["slate"]),
+        )
+    draw.line(
+        [(x0 + 7) * SUPERSAMPLE, (y0 + 28) * SUPERSAMPLE,
+         (x0 + 15) * SUPERSAMPLE, (y0 + 20) * SUPERSAMPLE],
+        fill=rgba(PALETTE["cream"]),
+        width=2 * SUPERSAMPLE,
+    )
+    draw.line(
+        [(x1 - 7) * SUPERSAMPLE, (y0 + 28) * SUPERSAMPLE,
+         (x1 - 15) * SUPERSAMPLE, (y0 + 20) * SUPERSAMPLE],
+        fill=rgba(PALETTE["cream"]),
+        width=2 * SUPERSAMPLE,
+    )
+
+
+def _shop_plate(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int],
+                fill: str, dark: str, title: str, subtitle: str, art) -> None:
+    from build_town_gui import rounded
+
+    x0, y0, x1, y1 = box
+    rounded(draw, (x0 + 1, y0 + 2, x1 + 1, y1 + 2), 3, "shell")
+    rounded(draw, box, 3, dark, "outline")
+    rounded(draw, (x0 + 2, y0 + 2, x1 - 2, y1 - 2), 2, "inner")
+    rounded(draw, (x0 + 3, y0 + 3, x1 - 3, y0 + 13), 2, fill)
+    _text(draw, box, title, 5, "cream", y0 + 4)
+    art(draw, box)
+    _text(draw, box, subtitle, 4, "cream", y1 - 9)
+
+
 def shop_root() -> Image.Image:
-    image, draw = base(71, "MARKETPLACE")
-    plaque(draw, 11, "amber", "amber_dark")
-    plaque(draw, 15, "cyan", "cyan_dark")
-    plaque(draw, 22, "slate", "slate_dark")
-    return image.resize((WIDTH, 71), Image.Resampling.LANCZOS)
+    image, draw = base(89, "МАГАЗИН NATIONRISE")
+    _shop_plate(draw, (5, 20, 57, 68), "amber", "amber_dark",
+                "МОНЕТЫ", "РЕСУРСЫ", _pixel_coin_art)
+    _shop_plate(draw, (62, 20, 114, 68), "blue", "blue_dark",
+                "КРИСТАЛЛЫ", "РЕДКОЕ", _pixel_crystal_art)
+    _shop_plate(draw, (119, 20, 171, 68), "red", "red_dark",
+                "ВОЕННОЕ", "ВОЙНА", _pixel_war_art)
+    plaque(draw, 31, "slate", "slate_dark")
+    return image.resize((WIDTH, 89), Image.Resampling.LANCZOS)
 
 
 def shop_money() -> Image.Image:
-    image, draw = base(71, "МАГАЗИН ЗА МОНЕТЫ")
+    image, draw = base(71, "МАГАЗИН · ЗА МОНЕТЫ")
     plaque(draw, 4, "amber", "amber_dark")
     for index, slot in enumerate((10, 12, 14, 16)):
-        fill, dark = CATEGORY_COLORS[index]
+        fill, dark = (
+            ("blue", "blue_dark"),
+            ("amber", "amber_dark"),
+            ("blue", "blue_dark"),
+            ("lime", "lime_dark"),
+        )[index]
         plaque(draw, slot, fill, dark)
-    plaque(draw, 22, "violet", "violet_dark")
+    plaque(draw, 22, "slate", "slate_dark")
     plaque(draw, 18, "slate", "slate_dark")
     return image.resize((WIDTH, 71), Image.Resampling.LANCZOS)
 
 
 def shop_donate() -> Image.Image:
-    image, draw = base(71, "МАГАЗИН ЗА КРИСТАЛЛЫ")
-    plaque(draw, 4, "cyan", "cyan_dark")
-    plaque(draw, 10, "violet", "violet_dark")
-    plaque(draw, 13, "lime", "lime_dark")
-    plaque(draw, 16, "red", "red_dark")
+    image, draw = base(71, "ВОЕННЫЙ РЫНОК")
+    plaque(draw, 4, "blue", "blue_dark")
+    band(draw, (23, 33, 78, 54), "lime", "lime_dark")
+    band(draw, (97, 33, 152, 54), "red", "red_dark")
+    plaque(draw, 11, "lime", "lime_dark")
+    plaque(draw, 15, "red", "red_dark")
     plaque(draw, 22, "slate", "slate_dark")
     return image.resize((WIDTH, 71), Image.Resampling.LANCZOS)
 
 
+def _market_slot_well(draw: ImageDraw.ImageDraw, slot: int, accent: str) -> None:
+    from build_town_gui import rounded
+
+    col, row = slot % 9, slot // 9
+    x, y = 7 + 18 * col, 17 + 18 * row
+    rounded(draw, (x + 1, y + 2, x + 18, y + 19), 2, "shell")
+    rounded(draw, (x, y, x + 17, y + 17), 2, "slate_dark", accent)
+    rounded(draw, (x + 2, y + 2, x + 15, y + 14), 1, "inner")
+
+
 def shop_listing() -> Image.Image:
     image, draw = base(125, "МАГАЗИН: ТОВАРЫ")
-    band(draw, (23, 34, 153, 107), "violet", "violet_dark")
     plaque(draw, 4, "amber", "amber_dark")
-    for index, slot in enumerate(INNER):
-        fill, dark = CATEGORY_COLORS[index % len(CATEGORY_COLORS)]
-        plaque(draw, slot, fill, dark)
-    plaque(draw, 45, "blue", "blue_dark")
+    for slot in INNER:
+        _market_slot_well(draw, slot, "amber")
+    plaque(draw, 45, "amber", "amber_dark")
     plaque(draw, 49, "slate", "slate_dark")
-    plaque(draw, 53, "blue", "blue_dark")
+    plaque(draw, 53, "amber", "amber_dark")
     return image.resize((WIDTH, 125), Image.Resampling.LANCZOS)
 
 
 def buyer_categories() -> Image.Image:
     image, draw = base(71, "СКУПЩИК: КАТЕГОРИИ")
     plaque(draw, 4, "lime", "lime_dark")
-    for index, slot in enumerate((10, 12, 14, 16)):
-        fill, dark = CATEGORY_COLORS[(index + 1) % len(CATEGORY_COLORS)]
-        plaque(draw, slot, fill, dark)
+    for slot in (10, 12, 14, 16):
+        plaque(draw, slot, "blue", "blue_dark")
     plaque(draw, 13, "amber", "amber_dark")
     plaque(draw, 22, "slate", "slate_dark")
     return image.resize((WIDTH, 71), Image.Resampling.LANCZOS)
@@ -98,11 +229,9 @@ def buyer_categories() -> Image.Image:
 
 def buyer_listing() -> Image.Image:
     image, draw = base(125, "СКУПЩИК: ПРОДАЖА")
-    band(draw, (23, 34, 153, 107), "lime", "lime_dark")
     plaque(draw, 4, "lime", "lime_dark")
-    for index, slot in enumerate(INNER):
-        fill, dark = (("lime", "lime_dark"), ("cyan", "cyan_dark"))[index % 2]
-        plaque(draw, slot, fill, dark)
+    for slot in INNER:
+        _market_slot_well(draw, slot, "lime")
     plaque(draw, 48, "blue", "blue_dark")
     plaque(draw, 50, "slate", "slate_dark")
     return image.resize((WIDTH, 125), Image.Resampling.LANCZOS)
@@ -144,6 +273,28 @@ def main() -> None:
             )
         image.save(TEXTURE_DIR / filename)
 
+    root = generated[0]
+    root.resize(
+        (root.width * 4, root.height * 4), Image.Resampling.NEAREST
+    ).save(SHOP_PREVIEW)
+
+    overlay = root.copy()
+    # Exact Minecraft item render bounds (16x16 inside an 18x18 slot).
+    for slot, filename in (
+        (10, "nr_shop_money.png"),
+        (13, "nr_shop_crystal.png"),
+        (16, "nr_shop_war.png"),
+    ):
+        col, row = slot % 9, slot // 9
+        x, y = 8 + col * 18, 18 + row * 18
+        icon = Image.open(ITEM_TEXTURE_DIR / filename).convert("RGBA").resize(
+            (16, 16), Image.Resampling.LANCZOS
+        )
+        overlay.alpha_composite(icon, (x, y))
+    overlay.resize(
+        (overlay.width * 4, overlay.height * 4), Image.Resampling.NEAREST
+    ).save(SHOP_OVERLAY_PREVIEW)
+
     FONT_JSON.write_text(
         json.dumps(font_definition(), ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
@@ -174,6 +325,8 @@ def main() -> None:
     for glyph, (filename, height) in GLYPHS.items():
         print(f"  U+{ord(glyph):04X}: {filename} ({WIDTH}x{height})")
     print(f"preview: {PREVIEW}")
+    print(f"shop background preview: {SHOP_PREVIEW}")
+    print(f"shop item-overlay preview: {SHOP_OVERLAY_PREVIEW}")
 
 
 if __name__ == "__main__":

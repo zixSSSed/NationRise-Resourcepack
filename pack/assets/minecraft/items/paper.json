@@ -611,6 +611,27 @@
         }
       },
       {
+        "threshold": 60701,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_shop_money"
+        }
+      },
+      {
+        "threshold": 60702,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_shop_crystal"
+        }
+      },
+      {
+        "threshold": 60703,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_shop_war"
+        }
+      },
+      {
         "threshold": 70001,
         "model": {
           "type": "minecraft:model",

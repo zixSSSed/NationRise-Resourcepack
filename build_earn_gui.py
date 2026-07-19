@@ -26,23 +26,23 @@ SUPERSAMPLE = 4
 GLYPH = "\uf8c0"
 
 PALETTE = {
-    "shell": "#17121f",
-    "shell_inner": "#282132",
-    "outline": "#c9b8f2",
-    "cream": "#f7fadb",
-    "header": "#d9d9dc",
-    "header_shadow": "#777783",
-    "cyan": "#35c8d8",
-    "cyan_dark": "#1d7788",
-    "lime": "#7ed84b",
-    "lime_dark": "#467b2a",
-    "violet": "#9a5de0",
-    "violet_dark": "#553180",
-    "amber": "#f1a928",
-    "amber_dark": "#915e11",
-    "blue": "#4089bd",
-    "blue_dark": "#234e70",
-    "ink": "#241e2b",
+    "shell": "#121720",
+    "shell_inner": "#20252E",
+    "outline": "#8B95A3",
+    "cream": "#F2F5F8",
+    "header": "#3B82C4",
+    "header_shadow": "#24527A",
+    "cyan": "#3B82C4",
+    "cyan_dark": "#24527A",
+    "lime": "#3CA76A",
+    "lime_dark": "#22653F",
+    "violet": "#5F6977",
+    "violet_dark": "#343B46",
+    "amber": "#E0A93C",
+    "amber_dark": "#8B6420",
+    "blue": "#3B82C4",
+    "blue_dark": "#24527A",
+    "ink": "#111820",
 }
 
 
@@ -98,9 +98,14 @@ def panel(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int], main: str, 
 def label(draw: ImageDraw.ImageDraw, xy: tuple[int, int], text: str, dark: str) -> None:
     x, y = xy
     f = font("_mont800.ttf", 6)
-    # One-pixel dark extrusion gives the same chunky shelf-label feel as the reference.
-    draw.text((x * SUPERSAMPLE, (y + 1) * SUPERSAMPLE), text, font=f, fill=color(dark, 210))
-    draw.text((x * SUPERSAMPLE, y * SUPERSAMPLE), text, font=f, fill=color(PALETTE["cream"]))
+    draw.text(
+        (x * SUPERSAMPLE, y * SUPERSAMPLE),
+        text,
+        font=f,
+        fill=color(PALETTE["cream"]),
+        stroke_width=SUPERSAMPLE,
+        stroke_fill=color(dark),
+    )
 
 
 def slot_plaque(draw: ImageDraw.ImageDraw, slot: int, dark: str) -> None:
@@ -131,17 +136,15 @@ def draw_background() -> Image.Image:
         fill=color("#ffffff", 135), width=SUPERSAMPLE,
     )
     title = "КАК ЗАРАБОТАТЬ"
-    title_font = font("_mont800.ttf", 7)
+    title_font = font("_mont800.ttf", 8)
     title_box = draw.textbbox((0, 0), title, font=title_font)
     title_width = title_box[2] - title_box[0]
     title_x = ((150 * SUPERSAMPLE) - title_width) // 2
     draw.text(
-        (title_x + SUPERSAMPLE, 5 * SUPERSAMPLE), title, font=title_font,
-        fill=color(PALETTE["header_shadow"]),
-    )
-    draw.text(
-        (title_x, 4 * SUPERSAMPLE), title, font=title_font,
-        fill=color(PALETTE["ink"]),
+        (title_x, 3 * SUPERSAMPLE), title, font=title_font,
+        fill=color(PALETTE["cream"]),
+        stroke_width=SUPERSAMPLE,
+        stroke_fill=color(PALETTE["ink"]),
     )
 
     # Original NationRise composition inspired by the reference, not copied from it.
@@ -173,8 +176,8 @@ def draw_background() -> Image.Image:
     crown = [
         (153, 11), (153, 6), (156, 9), (159, 5), (162, 9), (165, 6), (165, 11),
     ]
-    draw.polygon([(x * SUPERSAMPLE, y * SUPERSAMPLE) for x, y in crown], fill=color(PALETTE["violet"]))
-    draw.rectangle(scale_box((153, 11, 165, 13)), fill=color(PALETTE["violet_dark"]))
+    draw.polygon([(x * SUPERSAMPLE, y * SUPERSAMPLE) for x, y in crown], fill=color(PALETTE["amber"]))
+    draw.rectangle(scale_box((153, 11, 165, 13)), fill=color(PALETTE["amber_dark"]))
 
     return canvas.resize((WIDTH, HEIGHT), Image.Resampling.LANCZOS)
 

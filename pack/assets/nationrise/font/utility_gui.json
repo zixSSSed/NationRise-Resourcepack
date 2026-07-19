@@ -103,6 +103,15 @@
       "chars": [
         ""
       ]
+    },
+    {
+      "type": "bitmap",
+      "file": "nationrise:font/rtp_bg.png",
+      "ascent": 13,
+      "height": 125,
+      "chars": [
+        ""
+      ]
     }
   ]
 }

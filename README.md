@@ -11,7 +11,9 @@ py -3.13 build_ahfont.py       & rem шрифт-оверлей аукциона
 py -3.13 build_earn_gui.py     & rem отдельный marketplace-фон меню /earn
 py -3.13 build_town_gui.py     & rem отдельные фоны /t и /t builds
 py -3.13 build_market_gui.py   & rem отдельные фоны /shop и /buyer
+py -3.13 build_utility_gui.py  & rem /ah, /rtp и служебные меню
 py -3.13 build_effpick.py      & rem донат-кирка из ../model.bbmodel
+py -3.13 build_dualformat.py   & rem CMD-модели для клиентов 1.14–1.21.3
 py -3.13 pack_zip.py           & rem собрать NationRise-Resourcepack.zip
 py -3.13 build_lite_zip.py     & rem lite ZIP без font/textures/font
 ```
@@ -20,6 +22,9 @@ py -3.13 build_lite_zip.py     & rem lite ZIP без font/textures/font
 
 ВАЖНО: `items/paper.json` целиком генерирует `build_builditems.py` (в нём же CMD миньонов 70xxx/71xxx) —
 не редактировать руками. Углы поворотов моделей: только 0 / ±22.5 / ±45.
+
+`default.json` намеренно не содержит `type: ttf`: основной текст остаётся ванильным.
+Фирменные логотипы, значки и GUI-фоны подключены отдельными bitmap-провайдерами.
 
 `pack_zip.py` сортирует пути, использует фиксированные timestamp/mode и нормализует
 переводы строк JSON/mcmeta в LF: одинаковое дерево `pack/` на Windows/Linux даёт

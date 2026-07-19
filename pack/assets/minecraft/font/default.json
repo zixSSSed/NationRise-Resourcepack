@@ -1009,16 +1009,6 @@
    ]
   },
   {
-   "type": "ttf",
-   "file": "minecraft:nationrise.ttf",
-   "size": 9.0,
-   "oversample": 8.0,
-   "shift": [
-    0.0,
-    1.0
-   ]
-  },
-  {
    "type": "reference",
    "id": "minecraft:include/default"
   }

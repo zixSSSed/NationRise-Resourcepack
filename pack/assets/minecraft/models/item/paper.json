@@ -522,6 +522,24 @@
   },
   {
    "predicate": {
+    "custom_model_data": 60701
+   },
+   "model": "minecraft:item/nr_shop_money"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60702
+   },
+   "model": "minecraft:item/nr_shop_crystal"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 60703
+   },
+   "model": "minecraft:item/nr_shop_war"
+  },
+  {
+   "predicate": {
     "custom_model_data": 70001
    },
    "model": "minecraft:item/nr_minion_homeboby"
