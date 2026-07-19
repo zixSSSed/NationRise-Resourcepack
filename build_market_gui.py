@@ -10,17 +10,19 @@ from __future__ import annotations
 
 import json
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter, ImageOps
 
 from build_town_gui import (
     CATEGORY_COLORS,
     FONT_DIR,
     PALETTE,
+    SUPERSAMPLE,
     TEXTURE_DIR,
     WIDTH,
     band,
     base,
     clear_text,
+    font,
     plaque,
     rgba,
 )
@@ -31,8 +33,9 @@ PREVIEW = FONT_DIR.parents[3] / "logo" / "_market_gui_preview.png"
 SHOP_PREVIEW = FONT_DIR.parents[3] / "logo" / "_shop_root_preview.png"
 SHOP_OVERLAY_PREVIEW = FONT_DIR.parents[3] / "logo" / "_shop_root_overlay_preview.png"
 ITEM_TEXTURE_DIR = FONT_DIR.parents[3] / "pack" / "assets" / "minecraft" / "textures" / "item"
+SHOP_ROOT_ARTWORK = FONT_DIR.parents[3] / "artwork" / "shop_root_hero.png"
 GLYPHS = {
-    "\uf8d1": ("shop_root_bg.png", 89),
+    "\uf8d1": ("shop_root_bg.png", 71),
     "\uf8d2": ("shop_money_bg.png", 71),
     "\uf8d3": ("shop_donate_bg.png", 71),
     "\uf8d4": ("shop_listing_bg.png", 125),
@@ -158,15 +161,23 @@ def _shop_plate(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int],
 
 
 def shop_root() -> Image.Image:
-    image, draw = base(89, "МАГАЗИН NATIONRISE")
-    _shop_plate(draw, (5, 20, 57, 68), "amber", "amber_dark",
-                "МОНЕТЫ", "РЕСУРСЫ", _pixel_coin_art)
-    _shop_plate(draw, (62, 20, 114, 68), "blue", "blue_dark",
-                "КРИСТАЛЛЫ", "РЕДКОЕ", _pixel_crystal_art)
-    _shop_plate(draw, (119, 20, 171, 68), "red", "red_dark",
-                "ВОЕННОЕ", "ВОЙНА", _pixel_war_art)
-    plaque(draw, 31, "slate", "slate_dark")
-    return image.resize((WIDTH, 89), Image.Resampling.LANCZOS)
+    if not SHOP_ROOT_ARTWORK.exists():
+        raise FileNotFoundError(
+            f"approved /shop artwork is missing: {SHOP_ROOT_ARTWORK}"
+        )
+    source = Image.open(SHOP_ROOT_ARTWORK).convert("RGBA")
+    # The approved artwork ratio is almost exactly 176:71. Fit at 4x first,
+    # then reduce once so the frame and all three illustrated panels stay
+    # intact while tiny subpixels collapse into readable Minecraft pixels.
+    canvas = ImageOps.fit(
+        source,
+        (WIDTH * SUPERSAMPLE, 71 * SUPERSAMPLE),
+        method=Image.Resampling.LANCZOS,
+        centering=(0.5, 0.5),
+    )
+    return canvas.resize(
+        (WIDTH, 71), Image.Resampling.LANCZOS
+    ).filter(ImageFilter.UnsharpMask(radius=0.8, percent=145, threshold=1))
 
 
 def shop_money() -> Image.Image:
