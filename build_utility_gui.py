@@ -174,89 +174,94 @@ def town_storage() -> Image.Image:
     return image.resize((WIDTH, 125), Image.Resampling.LANCZOS)
 
 
-def _map_poly(
+def _schematic_poly(
     draw: ImageDraw.ImageDraw,
     points: tuple[tuple[int, int], ...],
-    fill: tuple[int, int, int, int],
 ) -> None:
     scaled = [(x * SUPERSAMPLE, y * SUPERSAMPLE) for x, y in points]
-    draw.polygon(scaled, fill=fill)
+    closed = scaled + [scaled[0]]
+    draw.polygon(scaled, fill=rgba(PALETTE["slate_dark"]))
     draw.line(
-        scaled + [scaled[0]],
-        fill=(17, 24, 32, 255),
-        width=2 * SUPERSAMPLE,
+        closed,
+        fill=rgba(PALETTE["ink"]),
+        width=3 * SUPERSAMPLE,
+        joint="curve",
+    )
+    draw.line(
+        closed,
+        fill=rgba(PALETTE["cream"], 225),
+        width=SUPERSAMPLE,
         joint="curve",
     )
 
 
 def rtp_map() -> Image.Image:
-    image, draw = base(125, "ТЕЛЕПОРТАЦИЯ")
+    image, draw = base(125, "КАРТА МИРА · RTP")
 
-    # Bright coherent world map, intentionally close in composition to the
-    # approved reference: cyan ocean, coloured terrain and heavy pixel outline.
-    rounded(draw, (4, 19, 171, 108), 3, "shell")
-    draw.rounded_rectangle(
-        (6 * SUPERSAMPLE, 21 * SUPERSAMPLE,
-         169 * SUPERSAMPLE, 106 * SUPERSAMPLE),
-        radius=2 * SUPERSAMPLE,
-        fill=(74, 190, 216, 255),
-        outline=(203, 211, 221, 255),
-        width=2 * SUPERSAMPLE,
-    )
+    # Restore the owners' original dark schematic direction. The geometry is
+    # tied to the real 16x16 item hitboxes instead of merely their centre
+    # points, so every location pin remains fully inside its continent.
+    rounded(draw, (4, 19, 171, 98), 3, "shell")
+    rounded(draw, (5, 20, 170, 96), 3, "slate_dark", "outline")
+    rounded(draw, (7, 22, 168, 94), 2, "inner", "blue_dark")
 
-    ice = (226, 239, 235, 255)
-    grass = (71, 177, 105, 255)
-    forest = (42, 128, 76, 255)
-    desert = (208, 170, 67, 255)
-    tundra = (130, 183, 128, 255)
+    for x in (47, 87, 127):
+        draw.line(
+            [(x * SUPERSAMPLE, 23 * SUPERSAMPLE),
+             (x * SUPERSAMPLE, 93 * SUPERSAMPLE)],
+            fill=rgba(PALETTE["blue"], 75),
+            width=SUPERSAMPLE,
+        )
+    for y in (45, 68):
+        draw.line(
+            [(8 * SUPERSAMPLE, y * SUPERSAMPLE),
+             (167 * SUPERSAMPLE, y * SUPERSAMPLE)],
+            fill=rgba(PALETTE["blue"], 75),
+            width=SUPERSAMPLE,
+        )
 
-    # North America + Greenland.
-    _map_poly(draw, ((11, 38), (19, 30), (34, 27), (48, 31), (58, 39),
-                     (55, 49), (46, 52), (40, 61), (29, 57), (24, 49),
-                     (15, 50)), grass)
-    _map_poly(draw, ((42, 33), (49, 29), (58, 36), (54, 42), (47, 40)), ice)
-    _map_poly(draw, ((61, 27), (70, 23), (78, 27), (74, 35), (66, 36)), ice)
-    _map_poly(draw, ((17, 42), (30, 34), (44, 37), (38, 48), (24, 51)), tundra)
-    _map_poly(draw, ((31, 50), (43, 49), (48, 58), (40, 61)), desert)
+    _schematic_poly(draw, (
+        (12, 33), (20, 26), (34, 25), (48, 29), (60, 38), (58, 48),
+        (51, 53), (46, 58), (37, 60), (30, 55), (20, 55), (13, 47),
+    ))
+    _schematic_poly(draw, (
+        (40, 57), (54, 55), (64, 63), (63, 72), (59, 82), (54, 92),
+        (47, 89), (44, 80), (45, 72), (39, 64),
+    ))
+    _schematic_poly(draw, (
+        (72, 34), (80, 27), (91, 27), (99, 31), (105, 37), (102, 46),
+        (96, 50), (91, 54), (83, 52), (78, 47), (72, 44),
+    ))
+    _schematic_poly(draw, (
+        (77, 50), (91, 47), (101, 53), (103, 63), (99, 73), (93, 85),
+        (85, 90), (80, 82), (81, 72), (76, 62),
+    ))
+    _schematic_poly(draw, (
+        (95, 34), (106, 27), (120, 27), (133, 25), (149, 29), (163, 38),
+        (161, 48), (153, 53), (143, 59), (131, 57), (121, 61),
+        (111, 56), (101, 52), (94, 43),
+    ))
+    _schematic_poly(draw, (
+        (124, 76), (135, 69), (149, 69), (160, 77), (158, 87),
+        (149, 92), (136, 91), (126, 85),
+    ))
 
-    # South America.
-    _map_poly(draw, ((43, 60), (55, 58), (65, 65), (63, 76), (57, 84),
-                     (54, 96), (49, 102), (45, 91), (47, 78), (40, 69)), grass)
-    _map_poly(draw, ((47, 64), (57, 63), (61, 73), (56, 82), (51, 76)), forest)
-    _map_poly(draw, ((47, 82), (55, 86), (53, 97), (49, 99)), desert)
-
-    # Europe and Africa.
-    _map_poly(draw, ((74, 35), (79, 29), (87, 31), (91, 28), (98, 33),
-                     (103, 39), (98, 46), (89, 45), (84, 49), (77, 45)), tundra)
-    _map_poly(draw, ((78, 49), (91, 47), (101, 54), (99, 67), (93, 78),
-                     (87, 88), (82, 78), (83, 67), (76, 58)), grass)
-    _map_poly(draw, ((79, 53), (98, 54), (99, 64), (83, 63)), desert)
-    _map_poly(draw, ((86, 67), (97, 65), (93, 79), (87, 85)), forest)
-
-    # Asia.
-    _map_poly(draw, ((98, 32), (109, 25), (124, 27), (134, 24), (151, 30),
-                     (164, 38), (161, 49), (150, 52), (143, 61), (132, 59),
-                     (124, 65), (115, 57), (105, 53), (99, 43)), forest)
-    _map_poly(draw, ((101, 34), (113, 28), (128, 30), (123, 42), (111, 46)), tundra)
-    _map_poly(draw, ((116, 45), (132, 38), (148, 42), (143, 54), (129, 58)), grass)
-    _map_poly(draw, ((106, 49), (121, 47), (126, 57), (115, 57)), desert)
-    _map_poly(draw, ((151, 53), (158, 57), (153, 64), (147, 60)), grass)
-
-    # Australia and small islands.
-    _map_poly(draw, ((132, 75), (140, 69), (152, 72), (160, 80),
-                     (157, 91), (146, 96), (136, 92), (129, 84)), desert)
-    _map_poly(draw, ((141, 73), (154, 76), (156, 86), (148, 92), (139, 87)), grass)
-    _map_poly(draw, ((162, 90), (166, 93), (163, 98), (159, 95)), forest)
-
-    # Antarctica mirrors the reference and visually anchors random teleport.
-    _map_poly(draw, ((21, 101), (39, 100), (52, 103), (70, 101),
-                     (88, 104), (106, 101), (126, 103), (145, 100),
-                     (158, 102), (150, 106), (31, 106)), ice)
-
-    # Random teleport has its own lower-row control; there is no text under it
-    # that an item sprite could cover.
-    band(draw, (71, 109, 105, 124), "lime", "lime_dark")
-    return image.resize((WIDTH, 125), Image.Resampling.NEAREST)
+    # Slot 49 is exactly 18px wide. The captions have dedicated clear zones,
+    # so neither the background nor the compass can overlap their letters.
+    rounded(draw, (78, 106, 97, 124), 2, "lime_dark", "outline")
+    hint_font = font(4)
+    for hint, x0, x1 in (("СЛУЧАЙНО", 12, 72), ("ПО МИРУ", 103, 164)):
+        bounds = draw.textbbox((0, 0), hint, font=hint_font)
+        text_width = bounds[2] - bounds[0]
+        x = ((x0 + x1) * SUPERSAMPLE - text_width) // 2
+        clear_text(
+            draw,
+            (x, 111 * SUPERSAMPLE),
+            hint,
+            hint_font,
+            stroke=1,
+        )
+    return image.resize((WIDTH, 125), Image.Resampling.LANCZOS)
 
 
 def font_definition() -> dict:

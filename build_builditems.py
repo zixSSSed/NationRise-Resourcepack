@@ -171,7 +171,7 @@ def shop_token(kind, size=64, ss=4):
     )
 
 def rtp_pin(name, size=64, ss=4):
-    """Large gold teleport badges inspired by the approved pixel-map reference."""
+    """Compact location pins that stay readable inside a 16px inventory slot."""
     S=size*ss
     img=Image.new("RGBA",(S,S),(0,0,0,0))
     d=ImageDraw.Draw(img)
@@ -184,17 +184,23 @@ def rtp_pin(name, size=64, ss=4):
     outline=max(3,int(S*.035))
 
     if name == "random":
-        d.ellipse([int(S*.13),int(S*.13),int(S*.87),int(S*.87)],
-                  fill=graphite,outline=emerald,width=outline*2)
-        d.ellipse([int(S*.24),int(S*.24),int(S*.76),int(S*.76)],
+        # Exactly one-slot-wide green control, so it cannot cover the labels
+        # painted on either side of slot 49.
+        d.rounded_rectangle(
+            [int(S*.08),int(S*.08),int(S*.92),int(S*.92)],
+            radius=int(S*.14),fill=graphite,outline=white,width=outline)
+        d.rounded_rectangle(
+            [int(S*.14),int(S*.14),int(S*.86),int(S*.86)],
+            radius=int(S*.10),fill=emerald,outline=(34,101,63,255),width=outline)
+        d.ellipse([int(S*.25),int(S*.25),int(S*.75),int(S*.75)],
                   fill=(18,23,32,255),outline=white,width=outline)
-        d.polygon([(int(S*.50),int(S*.19)),(int(S*.60),int(S*.50)),
-                   (int(S*.50),int(S*.81)),(int(S*.40),int(S*.50))],
+        d.polygon([(int(S*.50),int(S*.20)),(int(S*.59),int(S*.50)),
+                   (int(S*.50),int(S*.80)),(int(S*.41),int(S*.50))],
                   fill=gold)
-        d.polygon([(int(S*.19),int(S*.50)),(int(S*.50),int(S*.40)),
-                   (int(S*.81),int(S*.50)),(int(S*.50),int(S*.60))],
+        d.polygon([(int(S*.20),int(S*.50)),(int(S*.50),int(S*.41)),
+                   (int(S*.80),int(S*.50)),(int(S*.50),int(S*.59))],
                   fill=steel)
-        d.ellipse([int(S*.43),int(S*.43),int(S*.57),int(S*.57)],fill=white)
+        d.ellipse([int(S*.44),int(S*.44),int(S*.56),int(S*.56)],fill=white)
     else:
         accent = {
             "europe": steel,
@@ -204,40 +210,28 @@ def rtp_pin(name, size=64, ss=4):
             "africa": gold,
             "australia": carmine,
         }[name]
-        # Framed ticket with a small location point, sized to remain bold when
-        # Minecraft renders the 64px source into a 16px inventory slot.
-        d.rounded_rectangle(
-            [int(S*.10),int(S*.08),int(S*.90),int(S*.78)],
-            radius=int(S*.11),fill=graphite,outline=white,width=outline)
-        d.rounded_rectangle(
-            [int(S*.15),int(S*.12),int(S*.85),int(S*.73)],
-            radius=int(S*.08),fill=gold,outline=(139,100,32,255),width=outline)
-        d.rounded_rectangle(
-            [int(S*.23),int(S*.21),int(S*.77),int(S*.62)],
-            radius=int(S*.06),fill=emerald,outline=white,width=outline)
-
-        # White gamepad symbol.
-        pad=[(int(S*.31),int(S*.36)),(int(S*.37),int(S*.28)),
-             (int(S*.63),int(S*.28)),(int(S*.69),int(S*.36)),
-             (int(S*.74),int(S*.53)),(int(S*.66),int(S*.58)),
-             (int(S*.58),int(S*.50)),(int(S*.42),int(S*.50)),
-             (int(S*.34),int(S*.58)),(int(S*.26),int(S*.53))]
-        d.polygon(pad,fill=white)
-        d.rectangle(
-            [int(S*.34),int(S*.38),int(S*.47),int(S*.43)],fill=graphite)
-        d.rectangle(
-            [int(S*.38),int(S*.34),int(S*.43),int(S*.47)],fill=graphite)
-        d.ellipse(
-            [int(S*.58),int(S*.35),int(S*.65),int(S*.42)],fill=carmine)
-        d.ellipse(
-            [int(S*.65),int(S*.42),int(S*.72),int(S*.49)],fill=steel)
-
-        # Point and continent colour key.
-        d.polygon([(int(S*.38),int(S*.76)),(int(S*.62),int(S*.76)),
-                   (int(S*.50),int(S*.94))],
-                  fill=graphite,outline=white)
-        d.ellipse([int(S*.44),int(S*.71),int(S*.56),int(S*.83)],
+        # A symmetrical teardrop pin: dark structural outline, gold rim and a
+        # single clear colour key. No tiny pictograms that turn into noise.
+        d.polygon([(int(S*.19),int(S*.47)),(int(S*.81),int(S*.47)),
+                   (int(S*.50),int(S*.96))],fill=graphite)
+        d.ellipse([int(S*.15),int(S*.07),int(S*.85),int(S*.74)],
+                  fill=graphite)
+        d.polygon([(int(S*.27),int(S*.49)),(int(S*.73),int(S*.49)),
+                   (int(S*.50),int(S*.88))],fill=gold)
+        d.ellipse([int(S*.21),int(S*.12),int(S*.79),int(S*.70)],
+                  fill=gold,outline=white,width=outline)
+        d.ellipse([int(S*.30),int(S*.21),int(S*.70),int(S*.61)],
+                  fill=graphite,outline=(139,100,32,255),width=outline)
+        d.ellipse([int(S*.37),int(S*.28),int(S*.63),int(S*.54)],
                   fill=accent,outline=white,width=max(2,outline//2))
+        d.ellipse([int(S*.44),int(S*.35),int(S*.51),int(S*.42)],
+                  fill=white)
+        if name == "europe":
+            # Keep the click target in slot 13, but lift the visible pin by
+            # roughly one in-game pixel so its tail clears Africa's contour.
+            shifted=Image.new("RGBA",(S,S),(0,0,0,0))
+            shifted.alpha_composite(img,(0,-int(S*.07)))
+            img=shifted
     return img.resize((size,size),Image.LANCZOS).filter(
         ImageFilter.UnsharpMask(radius=1.0,percent=95,threshold=0)
     )
