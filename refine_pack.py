@@ -49,8 +49,8 @@ providers = [
 for name, cp, asc, h in icons:
     providers.append({"type": "bitmap", "file": f"minecraft:font/{name}.png",
                       "ascent": asc, "height": h, "chars": [chr(cp)]})
-providers.append({"type": "ttf", "file": "minecraft:nationrise.ttf",
-                  "size": 9.0, "oversample": 8.0, "shift": [0.0, 1.0]})
+# Deliberately no global TTF provider: players keep the vanilla text face while
+# bitmap wordmarks, symbols and GUI backgrounds remain available.
 providers.append({"type": "reference", "id": "minecraft:include/default"})
 json.dump({"providers": providers}, open(DEFAULT, "w", encoding="utf-8"),
           ensure_ascii=False, indent=2)

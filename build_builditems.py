@@ -22,6 +22,17 @@ SECT = {  # § код -> RGB (насыщенные для плиток)
  '0':(45,45,52),'1':(50,70,170),'2':(50,160,70),'3':(50,165,175),'4':(190,55,55),
  '5':(150,75,195),'6':(255,180,60),'7':(150,150,162),'8':(95,95,108),'9':(80,130,240),
  'a':(110,210,95),'b':(95,205,238),'c':(236,90,90),'d':(222,120,236),'e':(245,216,92),'f':(225,225,232)}
+SECT.update({
+ 'S':(59,130,196),   # steel blue
+ 'G':(224,169,60),   # warm gold
+ 'E':(60,167,106),   # emerald
+ 'R':(207,78,78),    # carmine
+ 'N':(95,105,119),   # neutral slate
+})
+APPROVED_CODE = {
+ '0':'N','1':'S','2':'E','3':'S','4':'R','5':'S','6':'G','7':'N','8':'N',
+ '9':'S','a':'E','b':'S','c':'R','d':'S','e':'G','f':'N',
+}
 
 def sym_white(cp, S):
     big = max(48, S*7)
@@ -81,10 +92,149 @@ def filler(size=64, ss=3):
     """Фон-панель меню (замена чёрному стеклу): тёмный бренд-слейт, ненавязчиво."""
     S=size*ss; img=Image.new("RGBA",(S,S),(0,0,0,0)); d=ImageDraw.Draw(img)
     rad=int(S*0.15); m=int(S*0.035)
-    d.rounded_rectangle([m,m,S-m,S-m],radius=rad,fill=(40,32,55,255))
-    d.rounded_rectangle([m,m,S-m,S-m],radius=rad,outline=(64,52,86,255),width=max(2,int(S*0.025)))
-    d.line([(m+rad,m+int(S*0.07)),(S-m-rad,m+int(S*0.07))],fill=(82,66,108,150),width=max(1,int(S*0.02)))
+    d.rounded_rectangle([m,m,S-m,S-m],radius=rad,fill=(32,37,46,255))
+    d.rounded_rectangle([m,m,S-m,S-m],radius=rad,outline=(95,105,119,255),width=max(2,int(S*0.025)))
+    d.line([(m+rad,m+int(S*0.07)),(S-m-rad,m+int(S*0.07))],fill=(139,149,163,150),width=max(1,int(S*0.02)))
     return img.resize((size,size),Image.LANCZOS)
+
+def shop_token(kind, size=64, ss=4):
+    """Approved-palette floating icons for the three large /shop plates."""
+    S=size*ss
+    img=Image.new("RGBA",(S,S),(0,0,0,0))
+    d=ImageDraw.Draw(img)
+    graphite=(32,37,46,255)
+    steel=(59,130,196,255)
+    gold=(224,169,60,255)
+    emerald=(60,167,106,255)
+    carmine=(207,78,78,255)
+    white=(242,245,248,255)
+    outline=max(3,int(S*0.035))
+
+    if kind == "money":
+        # Three offset coins and a compact ingot: legible at the 16px GUI size.
+        for x,y in ((0.19,0.50),(0.34,0.57),(0.49,0.48)):
+            box=[int(S*x),int(S*y),int(S*(x+0.31)),int(S*(y+0.19))]
+            d.ellipse(box,fill=graphite)
+            inset=outline
+            d.ellipse([box[0]+inset,box[1]+inset,box[2]-inset,box[3]-inset],
+                      fill=gold,outline=white,width=max(2,outline//2))
+        d.polygon(
+            [(int(S*.30),int(S*.31)),(int(S*.66),int(S*.31)),
+             (int(S*.77),int(S*.48)),(int(S*.19),int(S*.48))],
+            fill=graphite,
+        )
+        d.polygon(
+            [(int(S*.33),int(S*.34)),(int(S*.64),int(S*.34)),
+             (int(S*.70),int(S*.44)),(int(S*.27),int(S*.44))],
+            fill=gold,
+        )
+        d.line([(int(S*.38),int(S*.37)),(int(S*.59),int(S*.37))],
+               fill=white,width=max(2,outline//2))
+    elif kind == "crystal":
+        pts=[(int(S*.50),int(S*.12)),(int(S*.78),int(S*.39)),
+             (int(S*.62),int(S*.83)),(int(S*.38),int(S*.83)),
+             (int(S*.22),int(S*.39))]
+        d.polygon(pts,fill=graphite)
+        inner=[(int(S*.50),int(S*.18)),(int(S*.72),int(S*.41)),
+               (int(S*.58),int(S*.77)),(int(S*.42),int(S*.77)),
+               (int(S*.28),int(S*.41))]
+        d.polygon(inner,fill=steel,outline=white,width=outline)
+        d.polygon([(int(S*.50),int(S*.20)),(int(S*.50),int(S*.74)),
+                   (int(S*.30),int(S*.41))],fill=(90,168,214,255))
+        d.line([(int(S*.31),int(S*.41)),(int(S*.69),int(S*.41))],
+               fill=white,width=max(2,outline//2))
+        d.ellipse([int(S*.43),int(S*.34),int(S*.55),int(S*.46)],fill=white)
+    elif kind == "war":
+        # Steel shield with carmine field and two bright crossed blades.
+        shield=[(int(S*.23),int(S*.18)),(int(S*.77),int(S*.18)),
+                (int(S*.72),int(S*.62)),(int(S*.50),int(S*.86)),
+                (int(S*.28),int(S*.62))]
+        d.polygon(shield,fill=graphite)
+        inset=[(int(S*.29),int(S*.24)),(int(S*.71),int(S*.24)),
+               (int(S*.66),int(S*.58)),(int(S*.50),int(S*.77)),
+               (int(S*.34),int(S*.58))]
+        d.polygon(inset,fill=carmine,outline=white,width=outline)
+        for flip in (-1,1):
+            x0=int(S*(.34 if flip<0 else .66))
+            x1=int(S*(.66 if flip<0 else .34))
+            d.line([(x0,int(S*.65)),(x1,int(S*.31))],
+                   fill=graphite,width=outline*3)
+            d.line([(x0,int(S*.65)),(x1,int(S*.31))],
+                   fill=white,width=outline)
+        d.rectangle([int(S*.28),int(S*.62),int(S*.42),int(S*.69)],fill=gold)
+        d.rectangle([int(S*.58),int(S*.62),int(S*.72),int(S*.69)],fill=gold)
+    else:
+        raise ValueError("unknown shop token: "+kind)
+
+    return img.resize((size,size),Image.LANCZOS).filter(
+        ImageFilter.UnsharpMask(radius=1.0,percent=95,threshold=0)
+    )
+
+def rtp_pin(name, size=64, ss=4):
+    """Compact location pins that stay readable inside a 16px inventory slot."""
+    S=size*ss
+    img=Image.new("RGBA",(S,S),(0,0,0,0))
+    d=ImageDraw.Draw(img)
+    graphite=(32,37,46,255)
+    steel=(59,130,196,255)
+    gold=(224,169,60,255)
+    emerald=(60,167,106,255)
+    carmine=(207,78,78,255)
+    white=(242,245,248,255)
+    outline=max(3,int(S*.035))
+
+    if name == "random":
+        # Exactly one-slot-wide green control, so it cannot cover the labels
+        # painted on either side of slot 49.
+        d.rounded_rectangle(
+            [int(S*.08),int(S*.08),int(S*.92),int(S*.92)],
+            radius=int(S*.14),fill=graphite,outline=white,width=outline)
+        d.rounded_rectangle(
+            [int(S*.14),int(S*.14),int(S*.86),int(S*.86)],
+            radius=int(S*.10),fill=emerald,outline=(34,101,63,255),width=outline)
+        d.ellipse([int(S*.25),int(S*.25),int(S*.75),int(S*.75)],
+                  fill=(18,23,32,255),outline=white,width=outline)
+        d.polygon([(int(S*.50),int(S*.20)),(int(S*.59),int(S*.50)),
+                   (int(S*.50),int(S*.80)),(int(S*.41),int(S*.50))],
+                  fill=gold)
+        d.polygon([(int(S*.20),int(S*.50)),(int(S*.50),int(S*.41)),
+                   (int(S*.80),int(S*.50)),(int(S*.50),int(S*.59))],
+                  fill=steel)
+        d.ellipse([int(S*.44),int(S*.44),int(S*.56),int(S*.56)],fill=white)
+    else:
+        accent = {
+            "europe": steel,
+            "asia": gold,
+            "namerica": steel,
+            "samerica": emerald,
+            "africa": gold,
+            "australia": carmine,
+        }[name]
+        # A symmetrical teardrop pin: dark structural outline, gold rim and a
+        # single clear colour key. No tiny pictograms that turn into noise.
+        d.polygon([(int(S*.19),int(S*.47)),(int(S*.81),int(S*.47)),
+                   (int(S*.50),int(S*.96))],fill=graphite)
+        d.ellipse([int(S*.15),int(S*.07),int(S*.85),int(S*.74)],
+                  fill=graphite)
+        d.polygon([(int(S*.27),int(S*.49)),(int(S*.73),int(S*.49)),
+                   (int(S*.50),int(S*.88))],fill=gold)
+        d.ellipse([int(S*.21),int(S*.12),int(S*.79),int(S*.70)],
+                  fill=gold,outline=white,width=outline)
+        d.ellipse([int(S*.30),int(S*.21),int(S*.70),int(S*.61)],
+                  fill=graphite,outline=(139,100,32,255),width=outline)
+        d.ellipse([int(S*.37),int(S*.28),int(S*.63),int(S*.54)],
+                  fill=accent,outline=white,width=max(2,outline//2))
+        d.ellipse([int(S*.44),int(S*.35),int(S*.51),int(S*.42)],
+                  fill=white)
+        if name == "europe":
+            # Keep the click target in slot 13, but lift the visible pin by
+            # roughly one in-game pixel so its tail clears Africa's contour.
+            shifted=Image.new("RGBA",(S,S),(0,0,0,0))
+            shifted.alpha_composite(img,(0,-int(S*.07)))
+            img=shifted
+    return img.resize((size,size),Image.LANCZOS).filter(
+        ImageFilter.UnsharpMask(radius=1.0,percent=95,threshold=0)
+    )
 
 # ---- данные: (file, code, cp, cmd) ----
 CATS = [  # порядок и cmd должны совпадать с MenuService
@@ -127,15 +277,17 @@ AH = [
  ("cat_all","f",0x1F4CB,60611),("cat_gear","c",0x2694,60612),("cat_tools","e",0x26CF,60613),
  ("cat_food","6",0x1F356,60614),("cat_blocks","a",0x1F9F1,60615),("cat_brew","d",0x2697,60616),
  ("cat_res","b",0x1F48E,60617),("cat_misc","7",0x1F381,60618)]
+SHOP = [
+ ("money",60701),("crystal",60702),("war",60703)]
 
 def panel3(size=64, ss=4):
     """Утопленная рамка-индикатор страниц на 3 слота (как «1/3172» в референсе). Возвращает (left,center,right)."""
     W=3*size*ss; H=size*ss; img=Image.new("RGBA",(W,H),(0,0,0,0)); d=ImageDraw.Draw(img)
     m=int(H*0.09); rad=int(H*0.20)
-    d.rounded_rectangle([m,m,W-m,H-m],radius=rad,fill=(34,28,46,255),outline=(150,128,190,255),width=max(2,int(H*0.055)))
+    d.rounded_rectangle([m,m,W-m,H-m],radius=rad,fill=(32,37,46,255),outline=(139,149,163,255),width=max(2,int(H*0.055)))
     ins=int(H*0.22)
-    d.rounded_rectangle([m+ins,m+ins,W-m-ins,H-m-ins],radius=int(rad*0.55),fill=(17,14,24,255),outline=(70,58,94,255),width=max(1,int(H*0.03)))
-    d.line([(m+ins+rad,m+ins+int(H*0.06)),(W-m-ins-rad,m+ins+int(H*0.06))],fill=(96,80,126,120),width=max(1,int(H*0.02)))
+    d.rounded_rectangle([m+ins,m+ins,W-m-ins,H-m-ins],radius=int(rad*0.55),fill=(18,23,32,255),outline=(59,130,196,255),width=max(1,int(H*0.03)))
+    d.line([(m+ins+rad,m+ins+int(H*0.06)),(W-m-ins-rad,m+ins+int(H*0.06))],fill=(224,169,60,120),width=max(1,int(H*0.02)))
     img=img.resize((3*size,size),Image.LANCZOS)
     return [img.crop((i*size,0,(i+1)*size,size)) for i in range(3)]
 
@@ -153,14 +305,31 @@ def emit(prefix, rows):
         out.append((cmd, fn, im))
     return out
 
+def emit_approved(prefix, rows):
+    recolored = [(name, APPROVED_CODE[code], cp, cmd) for name, code, cp, cmd in rows]
+    return emit(prefix, recolored)
+
 made = []
-made += emit("cat", CATS)
-made += emit("b", BUILDS)
+made += emit_approved("cat", CATS)
+made += emit_approved("b", BUILDS)
 made += emit("rar", RARS)
 made += emit("renv", ENVS)
-made += emit("tm", TMENU)
-made += emit("rtp", RTP)
-made += emit("ah", AH)
+made += emit_approved("tm", TMENU)
+for name, code, cp, cmd in RTP:
+    fn = f"nr_rtp_{name}"
+    im = rtp_pin(name)
+    im.save(os.path.join(TEX, fn+".png"))
+    json.dump({"parent":"minecraft:item/generated","textures":{"layer0":f"minecraft:item/{fn}"}},
+              open(os.path.join(MODELS, fn+".json"),"w",encoding="utf-8"), indent=2)
+    made.append((cmd, fn, im))
+made += emit_approved("ah", AH)
+for name, cmd in SHOP:
+    fn = f"nr_shop_{name}"
+    im = shop_token(name)
+    im.save(os.path.join(TEX, fn+".png"))
+    json.dump({"parent":"minecraft:item/generated","textures":{"layer0":f"minecraft:item/{fn}"}},
+              open(os.path.join(MODELS, fn+".json"),"w",encoding="utf-8"), indent=2)
+    made.append((cmd, fn, im))
 # индикатор страниц на 3 слота (рамка): nr_ah_page_l/c/r, CMD 60621-60623
 for fn, imn, cmd in zip(("nr_ah_page_l","nr_ah_page_c","nr_ah_page_r"), panel3(), (60621,60622,60623)):
     imn.save(os.path.join(TEX, fn+".png"))
