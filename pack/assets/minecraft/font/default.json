@@ -1012,7 +1012,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_balance.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1021,7 +1021,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_crystals.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1030,7 +1030,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_rank.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1039,7 +1039,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_town.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1048,7 +1048,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_town_role.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1057,7 +1057,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_town_bank.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1066,7 +1066,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_nation.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1075,7 +1075,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_ideology.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1084,7 +1084,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_zone.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1093,7 +1093,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_kills.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1102,7 +1102,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_deaths.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1111,7 +1111,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_kd.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1120,7 +1120,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_streak.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1129,7 +1129,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_best_streak.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1138,7 +1138,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_damage_dealt.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1147,7 +1147,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_damage_taken.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1156,7 +1156,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_wins.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1165,7 +1165,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_job.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1174,7 +1174,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_fish_level.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1183,7 +1183,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_anchors.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1192,7 +1192,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_playtime.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1201,7 +1201,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_playtime_today.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1210,7 +1210,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_ping.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1219,7 +1219,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_tps.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1228,7 +1228,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_online.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1237,7 +1237,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_time_msk.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1246,7 +1246,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_coords.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1255,7 +1255,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_biome.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1264,7 +1264,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_ideology_communism.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1273,7 +1273,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_ideology_fascism.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1282,7 +1282,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_ideology_monarchy.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1291,7 +1291,7 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_ideology_democracy.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
    ]
@@ -1300,9 +1300,18 @@
    "type": "bitmap",
    "file": "minecraft:font/nr_sb_ideology_theocracy.png",
    "ascent": 8,
-   "height": 9,
+   "height": 10,
    "chars": [
     ""
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "minecraft:font/nr_sb_ping_bad.png",
+   "ascent": 8,
+   "height": 10,
+   "chars": [
+    ""
    ]
   },
   {
