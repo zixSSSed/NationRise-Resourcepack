@@ -29,6 +29,36 @@ DISPLAY = {
 }
 VALID_ANGLES = (-45.0, -22.5, 0.0, 22.5, 45.0)
 TARGET = 14.0
+# Насколько крупной должна выглядеть иконка в слоте (в «блоковых» единицах, слот = 16).
+# Раньше все модели просто ужимались в 14-куб — но в GUI видна ПРОЕКЦИЯ, и голова,
+# у которой длинный хвост/перо по глубине, выглядела мелкой, а компактная — крупной.
+# Поэтому scale в display.gui считаем по реальному экранному размеру каждой модели.
+GUI_TARGET = 13.0
+
+
+def gui_projected_size(elements, rot_deg):
+    """Ширина/высота модели ТАК, КАК ЕЁ ВИДНО в слоте: поворот display.gui + ортопроекция.
+    Minecraft крутит углы как rotationXYZ (сначала X, потом Y, потом Z)."""
+    import math
+    rx, ry, rz = (math.radians(a) for a in rot_deg)
+
+    def rotate(v):
+        x, y, z = v
+        y, z = y * math.cos(rx) - z * math.sin(rx), y * math.sin(rx) + z * math.cos(rx)
+        x, z = x * math.cos(ry) + z * math.sin(ry), -x * math.sin(ry) + z * math.cos(ry)
+        x, y = x * math.cos(rz) - y * math.sin(rz), x * math.sin(rz) + y * math.cos(rz)
+        return x, y, z
+
+    xs = [c for e in elements for c in (e["from"][0], e["to"][0])]
+    ys = [c for e in elements for c in (e["from"][1], e["to"][1])]
+    zs = [c for e in elements for c in (e["from"][2], e["to"][2])]
+    px, py = [], []
+    for cx in (min(xs), max(xs)):
+        for cy in (min(ys), max(ys)):
+            for cz in (min(zs), max(zs)):
+                sx, sy, _ = rotate((cx - 8, cy - 8, cz - 8))
+                px.append(sx); py.append(sy)
+    return max(px) - min(px), max(py) - min(py)
 
 
 def build_head(bbfile, cmd, name):
@@ -73,15 +103,22 @@ def build_head(bbfile, cmd, name):
         el["faces"] = faces
         els.append(el)
 
+    # свой gui-scale, чтобы ВСЕ головы смотрелись одинаково крупно в слоте
+    disp = json.loads(json.dumps(DISPLAY))  # копия, иначе правки утекут в следующую модель
+    gw, gh = gui_projected_size(els, disp["gui"]["rotation"])
+    gs = round(GUI_TARGET / max(gw, gh, 0.001), 3)
+    disp["gui"]["scale"] = [gs, gs, gs]
+
     model = {
         "credit": f"NationRise — голова меню ивентов ({bbfile}), нормализована в 16-куб",
         "textures": {"0": f"minecraft:item/{name}", "particle": f"minecraft:item/{name}"},
         "elements": els,
-        "display": DISPLAY,
+        "display": disp,
     }
     json.dump(model, open(os.path.join(MC, "models", "item", name + ".json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
-    print(f"  {name}: elems={len(els)} maxdim={maxdim:.1f} fit={fit:.3f} CMD={cmd}")
+    print(f"  {name}: elems={len(els)} maxdim={maxdim:.1f} fit={fit:.3f} "
+          f"экран={gw:.1f}x{gh:.1f} gui-scale={gs} CMD={cmd}")
 
 
 print("build_eventheads:")
