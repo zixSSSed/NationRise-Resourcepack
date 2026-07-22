@@ -205,7 +205,12 @@ for fid,cp,fp in SYMS:
 # ---- default.json (идемпотентно) ----
 data=json.load(open(DEFAULT,encoding="utf-8"))
 provs=[p for p in data["providers"] if not any(p.get("file","").startswith(x) for x in ("minecraft:font/nr_role_","minecraft:font/nr_media_","minecraft:font/nr_rank_","minecraft:font/nr_voice_","minecraft:font/nr_sym_"))]
-ti=next(i for i,p in enumerate(provs) if p.get("type")=="ttf")
+# куда вставлять: перед ttf-провайдером, иначе перед подключением ванильного шрифта
+# (в паке после правок ChatGPT ttf больше нет — только reference include/space и include/default)
+ti=next((i for i,p in enumerate(provs) if p.get("type")=="ttf"), None)
+if ti is None:
+    ti=next((i for i,p in enumerate(provs)
+             if p.get("type")=="reference" and "space" not in str(p.get("id",""))), len(provs))
 ins=[{"type":"bitmap","file":f"minecraft:font/nr_role_{fid}.png","ascent":7,"height":9,"chars":[chr(cp)]} for fid,_,_,cp in STAFF]
 ins+=[{"type":"bitmap","file":f"minecraft:font/nr_media_{fid}.png","ascent":7,"height":9,"chars":[chr(cp)]} for fid,_,_,cp in MEDIA]
 ins+=[{"type":"bitmap","file":f"minecraft:font/nr_rank_{fid}.png","ascent":8,"height":10,"chars":[chr(cp)]} for fid,_,cp in RANK]
