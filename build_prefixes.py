@@ -32,7 +32,11 @@ SCH = {
     "gold": dict(top=(255,212,80), bot=(198,142,44), border=(108,74,16), text=(255,255,255), shadow=(80,50,8)),
     "purple": dict(top=(157,107,234), bot=(77,34,178), border=(46,21,104), text=(247,250,219), shadow=(28,12,64)),
     "gray": dict(top=(178,178,186), bot=(108,108,118), border=(56,56,64), text=(255,255,255), shadow=(40,40,46)),
+    "yt": dict(top=(255,86,74), bot=(198,18,18), border=(94,8,8), text=(255,255,255), shadow=(58,6,6)),
+    "tt": dict(top=(70,74,88), bot=(20,22,28), border=(4,4,6), text=(37,244,238), shadow=(8,8,12)),
 }
+# медиа-роли: те же плашки, что у стаффа, но своя палитра (ниже стаффа по приоритету показа)
+MEDIA = [("youtube","YOUTUBE","yt",0xE037), ("tiktok","TIKTOK","tt",0xE038)]
 STAFF = [("admin","ADMIN","red",0xE020),("curator","КУРАТОР","red",0xE021),("ss_curator","SS-КУРАТОР","red",0xE022),
          ("teamlead","TEAM LEAD","gold",0xE023),("alpha","α-INSP","purple",0xE024),("moder","MODER","blue",0xE025),
          ("beta","β-INSP","purple",0xE026),("jrmoder","JR.MODER","blue",0xE027),("omega","Ω-INSP","purple",0xE028),
@@ -138,7 +142,28 @@ def i_sunburst(base):
         d.ellipse([cx-R*0.30,cy-R*0.38,cx+R*0.02,cy-R*0.06],fill=C(hl))   # блик
     return supersample(draw)
 
-RANK = [("octavian",lambda: i_crown((255,205,90),(214,46,72)),0xE030),
+def i_mic(on=True):
+    """Значок голосового чата: микрофон (зелёный — подключён, серый с перечёркиванием — нет)."""
+    base = (108,226,120) if on else (128,132,140)
+    dk, md, bc, lt, hl = shades(base)
+    def draw(d, S):
+        cx = S*0.5
+        # капсула микрофона
+        d.rounded_rectangle([cx-S*0.17, S*0.10, cx+S*0.17, S*0.56], radius=S*0.17, fill=C(bc), outline=C(dk,255), width=max(2,int(S*0.03)))
+        d.rounded_rectangle([cx-S*0.10, S*0.16, cx-S*0.02, S*0.44], radius=S*0.05, fill=C(hl))  # блик
+        # дуга-держатель
+        d.arc([cx-S*0.32, S*0.30, cx+S*0.32, S*0.76], start=0, end=180, fill=C(md), width=max(3,int(S*0.055)))
+        # ножка + подставка
+        d.line([(cx, S*0.72), (cx, S*0.86)], fill=C(md), width=max(3,int(S*0.055)))
+        d.line([(cx-S*0.20, S*0.88), (cx+S*0.20, S*0.88)], fill=C(md), width=max(3,int(S*0.055)))
+        if not on:  # перечёркивание
+            d.line([(S*0.12,S*0.88),(S*0.88,S*0.10)], fill=C((228,66,66),255), width=max(3,int(S*0.075)))
+    return supersample(draw)
+
+VOICE = [("mic_on", lambda: i_mic(True), 0xE039), ("mic_off", lambda: i_mic(False), 0xE03A)]
+
+RANK = [("custom",  lambda: i_star((196,132,255)),0xE036),
+        ("octavian",lambda: i_crown((255,205,90),(214,46,72)),0xE030),
         ("archon",  lambda: i_shield((236,72,72)),0xE031),
         ("king",    lambda: i_sunburst((255,198,72)),0xE032),
         ("elite",   lambda: i_star((255,228,96)),0xE033),
@@ -164,8 +189,12 @@ SYMS = [("cross",0x271D,SEGUI),("maltese",0x2720,SEGUI),("crown_m",0x2655,SEGUI)
 prev_plaques, prev_icons = [], []
 for fid,label,sch,cp in STAFF:
     im=plaque(label,SCH[sch]); im.save(os.path.join(FONTTEX,f"nr_role_{fid}.png")); prev_plaques.append(im)
+for fid,label,sch,cp in MEDIA:
+    im=plaque(label,SCH[sch]); im.save(os.path.join(FONTTEX,f"nr_media_{fid}.png")); prev_plaques.append(im)
 for fid,maker,cp in RANK:
     im=maker(); im.save(os.path.join(FONTTEX,f"nr_rank_{fid}.png")); prev_icons.append(im)
+for fid,maker,cp in VOICE:
+    im=maker(); im.save(os.path.join(FONTTEX,f"nr_voice_{fid}.png")); prev_icons.append(im)
 done_syms=[]
 for fid,cp,fp in SYMS:
     try:
@@ -175,10 +204,12 @@ for fid,cp,fp in SYMS:
 
 # ---- default.json (идемпотентно) ----
 data=json.load(open(DEFAULT,encoding="utf-8"))
-provs=[p for p in data["providers"] if not any(p.get("file","").startswith(x) for x in ("minecraft:font/nr_role_","minecraft:font/nr_rank_","minecraft:font/nr_sym_"))]
+provs=[p for p in data["providers"] if not any(p.get("file","").startswith(x) for x in ("minecraft:font/nr_role_","minecraft:font/nr_media_","minecraft:font/nr_rank_","minecraft:font/nr_voice_","minecraft:font/nr_sym_"))]
 ti=next(i for i,p in enumerate(provs) if p.get("type")=="ttf")
 ins=[{"type":"bitmap","file":f"minecraft:font/nr_role_{fid}.png","ascent":7,"height":9,"chars":[chr(cp)]} for fid,_,_,cp in STAFF]
+ins+=[{"type":"bitmap","file":f"minecraft:font/nr_media_{fid}.png","ascent":7,"height":9,"chars":[chr(cp)]} for fid,_,_,cp in MEDIA]
 ins+=[{"type":"bitmap","file":f"minecraft:font/nr_rank_{fid}.png","ascent":8,"height":10,"chars":[chr(cp)]} for fid,_,cp in RANK]
+ins+=[{"type":"bitmap","file":f"minecraft:font/nr_voice_{fid}.png","ascent":8,"height":10,"chars":[chr(cp)]} for fid,_,cp in VOICE]
 ins+=[{"type":"bitmap","file":f"minecraft:font/nr_sym_{fid}.png","ascent":8,"height":10,"chars":[chr(cp)]} for fid,cp in done_syms]
 provs[ti:ti]=ins; data["providers"]=provs
 json.dump(data,open(DEFAULT,"w",encoding="utf-8"),ensure_ascii=False,indent=2)
@@ -193,8 +224,8 @@ for im in prev_plaques: sheet.alpha_composite(im,(pad,y)); y+=im.height+pad
 x=pad
 for idx,g in enumerate(icons):
     tint=Image.new("RGBA",g.size,(0,0,0,0)); tint.paste((247,250,219,255),(0,0),g.split()[3]); tint.putalpha(g.split()[3])
-    src=g if idx<6 else tint  # ранги цветные, символы — белые→крем
+    src=g if idx<len(RANK)+len(VOICE) else tint  # ранги/микрофоны цветные, символы — белые→крем
     sheet.alpha_composite(src,(x,y)); x+=44+pad
     if x>W: x=pad; y+=44+pad
 sheet.save(os.path.join(ROOT,"logo","_symbols_preview.png"))
-print("staff:",len(STAFF),"| rank icons:",len(RANK),"(crown/gem/star/emerald) | symbols:",len(SYMS),"(religion+ideology)")
+print("staff:",len(STAFF),"| media:",len(MEDIA),"| rank icons:",len(RANK),"| voice:",len(VOICE),"| symbols:",len(SYMS))
