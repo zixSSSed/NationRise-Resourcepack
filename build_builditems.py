@@ -186,6 +186,8 @@ made.append((60000, "nr_blank", _blank))
 EXTRA = [
     (70001, "nr_minion_homeboby"), (70002, "nr_minion_lelouch"), (70003, "nr_minion_cc"),
     (70004, "nr_minion_nekmeng"), (70005, "nr_minion_minion"), (70006, "nr_minion_pudge"),
+    (70007, "nr_minion_cure"), (70008, "nr_minion_kub1ik"),
+    (70009, "nr_minion_pepe"), (70010, "nr_minion_xx4xx"),
     (71001, "nr_minhead_miner"), (71002, "nr_minhead_farmer"),
     (71003, "nr_minhead_lumberjack"), (71004, "nr_minhead_digger"),
 ]

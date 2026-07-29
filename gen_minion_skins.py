@@ -63,6 +63,12 @@ SKINS = {
     "nekmeng":  os.path.join(LOGO,"NekMeng.png"),
     "minion":   os.path.join(LOGO,"minion.png"),
     "pudge":    os.path.join(LOGO,"Pudge.png"),
+    # Скины владельца: сырые файлы лежат в MinionSkins\, а сюда попадают уже
+    # подготовленные (jpeg->png, 64x32->64x64, очищенный второй слой) — см. _minionsrc.
+    "cure":     os.path.join(LOGO,"_minionsrc","cure.png"),
+    "kub1ik":   os.path.join(LOGO,"_minionsrc","kub1ik.png"),
+    "pepe":     os.path.join(LOGO,"_minionsrc","pepe.png"),
+    "xx4xx":    os.path.join(LOGO,"_minionsrc","xx4xx.png"),
 }
 
 # ---- БАЗОВЫЕ миньоны (стиль Hypixel): голова цвета ресурса + лицо, светлый корпус с акцентом, тёмные ноги ----

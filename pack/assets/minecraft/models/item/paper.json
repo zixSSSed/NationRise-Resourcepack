@@ -558,6 +558,30 @@
   },
   {
    "predicate": {
+    "custom_model_data": 70007
+   },
+   "model": "minecraft:item/nr_minion_cure"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 70008
+   },
+   "model": "minecraft:item/nr_minion_kub1ik"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 70009
+   },
+   "model": "minecraft:item/nr_minion_pepe"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 70010
+   },
+   "model": "minecraft:item/nr_minion_xx4xx"
+  },
+  {
+   "predicate": {
     "custom_model_data": 71001
    },
    "model": "minecraft:item/nr_minhead_miner"

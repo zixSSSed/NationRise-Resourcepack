@@ -653,6 +653,34 @@
         }
       },
       {
+        "threshold": 70007,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_cure"
+        }
+      },
+      {
+        "threshold": 70008,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_kub1ik"
+        }
+      },
+      {
+        "threshold": 70009,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_pepe"
+        }
+      },
+      {
+        "threshold": 70010,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_xx4xx"
+        }
+      },
+      {
         "threshold": 71001,
         "model": {
           "type": "minecraft:model",
