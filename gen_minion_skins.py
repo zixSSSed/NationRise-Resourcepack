@@ -69,6 +69,7 @@ SKINS = {
     "kub1ik":   os.path.join(LOGO,"_minionsrc","kub1ik.png"),
     "pepe":     os.path.join(LOGO,"_minionsrc","pepe.png"),
     "xx4xx":    os.path.join(LOGO,"_minionsrc","xx4xx.png"),
+    "lettyrxzx": os.path.join(LOGO,"_minionsrc","lettyrxzx.png"),
 }
 
 # ---- БАЗОВЫЕ миньоны (стиль Hypixel): голова цвета ресурса + лицо, светлый корпус с акцентом, тёмные ноги ----

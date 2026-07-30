@@ -681,6 +681,13 @@
         }
       },
       {
+        "threshold": 70011,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_lettyrxzx"
+        }
+      },
+      {
         "threshold": 71001,
         "model": {
           "type": "minecraft:model",
