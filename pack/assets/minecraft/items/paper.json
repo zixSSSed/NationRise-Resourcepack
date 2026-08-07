@@ -721,6 +721,20 @@
           "type": "minecraft:model",
           "model": "minecraft:item/nr_minion_slot"
         }
+      },
+      {
+        "threshold": 72002,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_totem_shard"
+        }
+      },
+      {
+        "threshold": 72003,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_wonder_blueprint"
+        }
       }
     ]
   }
