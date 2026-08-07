@@ -714,6 +714,13 @@
           "type": "minecraft:model",
           "model": "minecraft:item/nr_minhead_digger"
         }
+      },
+      {
+        "threshold": 72001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/nr_minion_slot"
+        }
       }
     ]
   }
