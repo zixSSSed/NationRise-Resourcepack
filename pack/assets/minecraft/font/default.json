@@ -1360,6 +1360,222 @@
       ]
     },
     {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_temple.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🏛"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_bomb.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "💣"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_globe.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🌐"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_clipboard.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "📋"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_trident.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🔱"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_ballot.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🗳"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_honey.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🍯"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_shield.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🛡"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_worldmap.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🗺"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_waterwave.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🌊"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_turtle.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🐢"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_skullbone.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "💀"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_beer.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🍺"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_eye.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "👁"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_hammer.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🔨"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_calendar.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "📅"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_dove.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🕊"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_crownfull.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "👑"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_picture.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🖼"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_spider.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🕷"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_brick.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🧱"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_meat.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🍖"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_heartbreak.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "💔"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_gui_link.png",
+      "ascent": 8,
+      "height": 10,
+      "chars": [
+        "🔗"
+      ]
+    },
+    {
       "type": "reference",
       "id": "minecraft:include/default"
     }
