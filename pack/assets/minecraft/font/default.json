@@ -16,7 +16,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_crown.png",
-      "ascent": 7,
+      "ascent": 9,
       "height": 11,
       "chars": [
         "♛"
@@ -25,7 +25,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_crystal.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "❖"
@@ -34,7 +34,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_sun.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "☀"
@@ -52,7 +52,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_star4.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "✦"
@@ -61,7 +61,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_bank.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "⛁"
@@ -79,7 +79,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_bolt.png",
-      "ascent": 7,
+      "ascent": 9,
       "height": 11,
       "chars": [
         "⚡"
@@ -88,7 +88,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_diamond.png",
-      "ascent": 6,
+      "ascent": 7,
       "height": 9,
       "chars": [
         "◆"
@@ -97,7 +97,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_diamond_hollow.png",
-      "ascent": 6,
+      "ascent": 7,
       "height": 9,
       "chars": [
         "◇"
@@ -106,7 +106,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_star_circle.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "✪"
@@ -115,7 +115,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_star5.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "★"
@@ -124,7 +124,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_flower.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "✿"
@@ -133,7 +133,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_florette.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "❀"
@@ -142,7 +142,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_skull.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "☠"
@@ -151,7 +151,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_snowflake.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "❄"
@@ -160,7 +160,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_fire.png",
-      "ascent": 7,
+      "ascent": 9,
       "height": 11,
       "chars": [
         "🔥"
@@ -169,7 +169,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_biohazard.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "☣"
@@ -178,7 +178,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_yinyang.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "☯"
@@ -187,7 +187,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_badge.png",
-      "ascent": 7,
+      "ascent": 8,
       "height": 10,
       "chars": [
         "⚜"
