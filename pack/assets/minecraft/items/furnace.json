@@ -1,0 +1,41 @@
+{
+ "model": {
+  "type": "minecraft:range_dispatch",
+  "property": "minecraft:custom_model_data",
+  "index": 0,
+  "fallback": {
+   "type": "minecraft:model",
+   "model": "minecraft:block/furnace"
+  },
+  "entries": [
+   {
+    "threshold": 60711,
+    "model": {
+     "type": "minecraft:model",
+     "model": "minecraft:item/nr_furnace_fast"
+    }
+   },
+   {
+    "threshold": 60712,
+    "model": {
+     "type": "minecraft:model",
+     "model": "minecraft:item/nr_furnace_fuel"
+    }
+   },
+   {
+    "threshold": 60713,
+    "model": {
+     "type": "minecraft:model",
+     "model": "minecraft:item/nr_furnace_both"
+    }
+   },
+   {
+    "threshold": 60714,
+    "model": {
+     "type": "minecraft:model",
+     "model": "minecraft:item/nr_furnace_deep"
+    }
+   }
+  ]
+ }
+}
