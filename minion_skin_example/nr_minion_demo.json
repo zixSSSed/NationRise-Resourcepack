@@ -1,0 +1,67 @@
+{
+  "__comment": "Пример-шаблон скина миньона. Открой в Blockbench (File > Import > Generic Model) вместе с nr_minion_demo.png. Маленький блочный персонаж: тело + голова + 2 руки. Текстура одна на все грани (для реального скина в Blockbench делаешь нормальную UV-развёртку).",
+  "textures": {
+    "tex": "minecraft:item/nr_minion_demo",
+    "particle": "minecraft:item/nr_minion_demo"
+  },
+  "elements": [
+    {
+      "name": "body",
+      "from": [5, 0, 5],
+      "to": [11, 8, 11],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "west":  {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "east":  {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "up":    {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "down":  {"uv": [0, 0, 16, 16], "texture": "#tex"}
+      }
+    },
+    {
+      "name": "head",
+      "from": [4, 8, 4],
+      "to": [12, 16, 12],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "west":  {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "east":  {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "up":    {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "down":  {"uv": [0, 0, 16, 16], "texture": "#tex"}
+      }
+    },
+    {
+      "name": "armL",
+      "from": [3, 3, 6],
+      "to": [5, 8, 10],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "west":  {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "east":  {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "up":    {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "down":  {"uv": [0, 0, 16, 16], "texture": "#tex"}
+      }
+    },
+    {
+      "name": "armR",
+      "from": [11, 3, 6],
+      "to": [13, 8, 10],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "west":  {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "east":  {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "up":    {"uv": [0, 0, 16, 16], "texture": "#tex"},
+        "down":  {"uv": [0, 0, 16, 16], "texture": "#tex"}
+      }
+    }
+  ],
+  "display": {
+    "head":   {"translation": [0, -12, 0], "scale": [1.2, 1.2, 1.2]},
+    "gui":    {"rotation": [30, 225, 0], "scale": [0.55, 0.55, 0.55]},
+    "ground": {"scale": [0.4, 0.4, 0.4]},
+    "fixed":  {"scale": [1.0, 1.0, 1.0]}
+  }
+}

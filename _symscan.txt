@@ -1,0 +1,106 @@
+U+02694  x41   CROSSED SWORDS   <DuelService.java,ProtectionListener.java,RaidService.java,Sh>
+U+02693  x30   ANCHOR   <AdminCommand.java,CauldronCrafting.java,EnchantRituals.java,>
+U+02726  x29   BLACK FOUR POINTED STAR [MAPPED]   <CrateService.java,FishMenus.java,FishTrader.java,FishingServ>
+U+02212  x28   MINUS SIGN   <BuildService.java,CasinoService.java,DonateMenu.java,Fishing>
+U+02756  x23   BLACK DIAMOND MINUS WHITE X [MAPPED]   <ActivityService.java,BossService.java,CrateService.java,Crys>
+U+02620  x16   SKULL AND CROSSBONES [MAPPED]   <BlueMapService.java,BossService.java,BuyerService.java,DuelS>
+U+1F3A3  x14   FISHING POLE AND FISH   <FishMenus.java,FishingMinigame.java,FishingService.java>
+U+02691  x11   BLACK FLAG [MAPPED]   <ChatListener.java,FlagService.java,LeaderboardService.java,P>
+U+1F3C6  x11   TROPHY   <TournamentService.java>
+U+02605  x10   BLACK STAR [MAPPED]   <FishMenus.java,WarService.java>
+U+026A1  x9    HIGH VOLTAGE SIGN [MAPPED]   <BuildService.java,CasinoService.java,CauldronCrafting.java,E>
+U+1F3D7  x9    BUILDING CONSTRUCTION   <BuildService.java,MenuService.java,TownCommand.java>
+U+02588  x8    FULL BLOCK   <FishingMinigame.java,NationCommand.java,TownCommand.java>
+U+0265B  x8    BLACK CHESS QUEEN [MAPPED]   <Brand.java,KothService.java,Msg.java>
+U+02696  x7    SCALES [MAPPED]   <AuctionService.java,Ideology.java,MenuService.java>
+U+02248  x7    ALMOST EQUAL TO   <FishMenus.java,TackleItems.java>
+U+02638  x7    WHEEL OF DHARMA [MAPPED]   <MenuService.java,Religion.java,ReligionService.java>
+U+1F3B0  x6    SLOT MACHINE   <CasinoService.java>
+U+026D3  x6    CHAINS   <PrisonService.java,TownCommand.java>
+U+02692  x6    HAMMER AND PICK   <JobService.java,MenuService.java>
+U+027A4  x6    BLACK RIGHTWARDS ARROWHEAD   <DonateMenu.java>
+U+1F511  x6    KEY   <CrateService.java,DonateMenu.java>
+U+1F3EA  x6    CONVENIENCE STORE   <ShopService.java>
+U+1FA78  x5    DROP OF BLOOD   <FishingService.java,KillMessageService.java>
+U+025C6  x4    BLACK DIAMOND [MAPPED]   <MoveListener.java,RankService.java,ScoreboardService.java>
+U+02600  x4    BLACK SUN WITH RAYS [MAPPED]   <LeaderboardService.java,ScoreboardService.java,ShopService.j>
+U+1F4E6  x4    PACKAGE   <AuctionService.java,BuyerService.java,StorageService.java>
+U+02591  x4    LIGHT SHADE   <FishingMinigame.java,TownCommand.java>
+U+1FAB1  x4    WORM   <FishMenus.java,FishingService.java,TackleItems.java>
+U+1F578  x4    SPIDER WEB   <FishMenus.java,FishingService.java>
+U+1F991  x4    SQUID   <FishMenus.java,FishingService.java>
+U+1F4D6  x4    OPEN BOOK   <FishMenus.java>
+U+0271D  x4    LATIN CROSS [MAPPED]   <Ideology.java,Religion.java,ReligionService.java>
+U+026D4  x4    NO ENTRY   <ProtectionListener.java,PunishmentService.java,SpawnService.>
+U+026CF  x4    PICK   <BuyerService.java,CrateService.java,PrisonService.java>
+U+0262E  x4    PEACE SYMBOL   <WarService.java>
+U+025C7  x3    WHITE DIAMOND [MAPPED]   <MoveListener.java,ScoreboardService.java>
+U+02302  x3    HOUSE [MAPPED]   <ChatListener.java,LeaderboardService.java,ScoreboardService.>
+U+025BC  x3    BLACK DOWN-POINTING TRIANGLE   <CasinoService.java,LiftService.java>
+U+025B2  x3    BLACK UP-POINTING TRIANGLE   <CasinoService.java,LiftService.java>
+U+02265  x3    GREATER-THAN OR EQUAL TO   <AdminCommand.java,CrystalService.java,KitService.java>
+U+1F525  x3    FIRE [MAPPED]   <BossService.java,FishMenus.java,TackleItems.java>
+U+1F52E  x3    CRYSTAL BALL   <EvaluatorMenu.java>
+U+025B0  x3    BLACK PARALLELOGRAM   <EvaluatorMenu.java,FishingMinigame.java>
+U+1F512  x3    LOCK   <FishMenus.java,MenuService.java>
+U+1F9ED  x3    COMPASS   <MenuService.java,RtpService.java>
+U+02699  x3    GEAR   <MenuService.java,ShopService.java>
+U+02604  x3    COMET   <MaceService.java>
+U+0262A  x3    STAR AND CRESCENT [MAPPED]   <Religion.java,ReligionService.java>
+U+026E9  x3    SHINTO SHRINE [MAPPED]   <Religion.java,ReligionService.java>
+U+02709  x3    ENVELOPE   <ReportService.java,WarService.java>
+U+1F510  x3    CLOSED LOCK WITH KEY   <TelegramService.java,TwoFactorService.java>
+U+025B6  x2    BLACK RIGHT-POINTING TRIANGLE   <CasinoService.java>
+U+026A0  x2    WARNING SIGN   <CheckService.java>
+U+025C8  x2    WHITE DIAMOND CONTAINING BLACK SMALL DIAMOND   <TownCommand.java>
+U+025BA  x2    BLACK RIGHT-POINTING POINTER   <MenuService.java,TownCommand.java>
+U+02764  x2    HEAVY BLACK HEART   <BossService.java>
+U+0231B  x2    HOURGLASS   <LeaderboardService.java>
+U+1F41F  x2    FISH   <FishMenus.java,FishingService.java>
+U+1F30C  x2    MILKY WAY   <FishMenus.java,TackleItems.java>
+U+1F3AD  x2    PERFORMING ARTS   <MenuService.java>
+U+025CF  x2    BLACK CIRCLE   <MenuService.java>
+U+02716  x2    HEAVY MULTIPLICATION X   <PrisonService.java,ReportService.java>
+U+1F35E  x2    BREAD   <BuyerService.java>
+U+1F4A5  x2    COLLISION SYMBOL   <FlagService.java>
+U+023F8  x2    DOUBLE VERTICAL BAR   <WarService.java>
+U+0E010  x1    ?   <ScoreboardService.java>
+U+0269C  x1    FLEUR-DE-LIS [MAPPED]   <ScoreboardService.java>
+U+026C1  x1    WHITE DRAUGHTS KING [MAPPED]   <ScoreboardService.java>
+U+0262F  x1    YIN YANG [MAPPED]   <ScoreboardService.java>
+U+1F4E2  x1    PUBLIC ADDRESS LOUDSPEAKER   <AuctionService.java>
+U+1F3D9  x1    CITYSCAPE   <TownCommand.java>
+U+02623  x1    BIOHAZARD SIGN [MAPPED]   <BossService.java>
+U+02744  x1    SNOWFLAKE [MAPPED]   <BossService.java>
+U+02460  x1    CIRCLED DIGIT ONE   <LeaderboardService.java>
+U+02461  x1    CIRCLED DIGIT TWO   <LeaderboardService.java>
+U+02462  x1    CIRCLED DIGIT THREE   <LeaderboardService.java>
+U+1F5D1  x1    WASTEBASKET   <FishingService.java>
+U+1F381  x1    WRAPPED PRESENT   <FishingService.java>
+U+1F4CA  x1    BAR CHART   <FishMenus.java>
+U+0262D  x1    HAMMER AND SICKLE [MAPPED]   <Ideology.java>
+U+02720  x1    MALTESE CROSS [MAPPED]   <Ideology.java>
+U+02655  x1    WHITE CHESS QUEEN [MAPPED]   <Ideology.java>
+U+1F44B  x1    WAVING HAND SIGN   <JoinListener.java>
+U+1F3F0  x1    EUROPEAN CASTLE   <BlueMapService.java>
+U+02139  x1    INFORMATION SOURCE   <MenuService.java>
+U+1F4B0  x1    MONEY BAG   <MenuService.java>
+U+1F465  x1    BUSTS IN SILHOUETTE   <MenuService.java>
+U+1F464  x1    BUST IN SILHOUETTE   <MenuService.java>
+U+1F30D  x1    EARTH GLOBE EUROPE-AFRICA   <RtpService.java>
+U+1F3B2  x1    GAME DIE   <RtpService.java>
+U+02721  x1    STAR OF DAVID [MAPPED]   <Religion.java>
+U+1F507  x1    SPEAKER WITH CANCELLATION STROKE   <PunishmentService.java>
+U+1F50D  x1    LEFT-POINTING MAGNIFYING GLASS   <ReportService.java>
+U+1F392  x1    SCHOOL SATCHEL   <BackpackService.java>
+U+1F48E  x1    GEM STONE   <DonateMenu.java>
+U+1F4A4  x1    SLEEPING SYMBOL   <PrivService.java>
+U+0272A  x1    CIRCLED WHITE STAR [MAPPED]   <RankService.java>
+U+0273F  x1    BLACK FLORETTE [MAPPED]   <RankService.java>
+U+02740  x1    WHITE FLORETTE [MAPPED]   <RankService.java>
+U+0221E  x1    INFINITY   <StaffRole.java>
+U+1F947  x1    FIRST PLACE MEDAL   <TournamentService.java>
+U+1F948  x1    SECOND PLACE MEDAL   <TournamentService.java>
+U+1F949  x1    THIRD PLACE MEDAL   <TournamentService.java>
+U+02705  x1    WHITE HEAVY CHECK MARK   <TelegramService.java>
+U+1F91D  x1    HANDSHAKE   <WarService.java>

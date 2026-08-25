@@ -1,0 +1,35 @@
+{
+  "__comment": "Скин миньона «Хоумлендер» (The Boys). Цельный персонаж на слоте ГОЛОВЫ армор-стенда (через CustomModelData). Когда скин стоит — плагин снимает броню с тела, чтобы модель не клиппилась. Текстура nr_minion_homelander.png пока наложена на все грани (заглушка-UV) — открой в Blockbench и сделай нормальную развёртку.",
+  "textures": {
+    "tex": "minecraft:item/nr_minion_homelander",
+    "particle": "minecraft:item/nr_minion_homelander"
+  },
+  "elements": [
+    { "name": "legs", "from": [5, 0, 5], "to": [11, 4, 11], "faces": {
+      "north": {"uv":[1,12,7,16],"texture":"#tex"}, "south": {"uv":[1,12,7,16],"texture":"#tex"},
+      "west":  {"uv":[1,12,7,16],"texture":"#tex"}, "east":  {"uv":[1,12,7,16],"texture":"#tex"},
+      "up":    {"uv":[1,12,7,16],"texture":"#tex"}, "down":  {"uv":[1,12,7,16],"texture":"#tex"} } },
+    { "name": "body", "from": [5, 4, 5], "to": [11, 9, 11], "faces": {
+      "north": {"uv":[1,11,7,16],"texture":"#tex"}, "south": {"uv":[1,11,7,16],"texture":"#tex"},
+      "west":  {"uv":[1,11,7,16],"texture":"#tex"}, "east":  {"uv":[1,11,7,16],"texture":"#tex"},
+      "up":    {"uv":[1,11,7,16],"texture":"#tex"}, "down":  {"uv":[1,11,7,16],"texture":"#tex"} } },
+    { "name": "armL", "from": [3, 4, 6], "to": [5, 9, 10], "faces": {
+      "north": {"uv":[12,12,16,16],"texture":"#tex"}, "south": {"uv":[12,12,16,16],"texture":"#tex"},
+      "west":  {"uv":[12,12,16,16],"texture":"#tex"}, "east":  {"uv":[12,12,16,16],"texture":"#tex"},
+      "up":    {"uv":[12,12,16,16],"texture":"#tex"}, "down":  {"uv":[12,12,16,16],"texture":"#tex"} } },
+    { "name": "armR", "from": [11, 4, 6], "to": [13, 9, 10], "faces": {
+      "north": {"uv":[12,12,16,16],"texture":"#tex"}, "south": {"uv":[12,12,16,16],"texture":"#tex"},
+      "west":  {"uv":[12,12,16,16],"texture":"#tex"}, "east":  {"uv":[12,12,16,16],"texture":"#tex"},
+      "up":    {"uv":[12,12,16,16],"texture":"#tex"}, "down":  {"uv":[12,12,16,16],"texture":"#tex"} } },
+    { "name": "head", "from": [4, 9, 4], "to": [12, 16, 12], "faces": {
+      "north": {"uv":[0,0,16,16],"texture":"#tex"}, "south": {"uv":[0,0,16,16],"texture":"#tex"},
+      "west":  {"uv":[0,0,16,16],"texture":"#tex"}, "east":  {"uv":[0,0,16,16],"texture":"#tex"},
+      "up":    {"uv":[0,0,16,16],"texture":"#tex"}, "down":  {"uv":[0,0,16,16],"texture":"#tex"} } }
+  ],
+  "display": {
+    "head":   {"translation": [0, -13.5, 0], "scale": [1.15, 1.15, 1.15]},
+    "gui":    {"rotation": [30, 225, 0], "scale": [0.55, 0.55, 0.55]},
+    "ground": {"scale": [0.4, 0.4, 0.4]},
+    "fixed":  {"scale": [1.0, 1.0, 1.0]}
+  }
+}
