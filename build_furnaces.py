@@ -2,18 +2,28 @@
 """
 Модели особых печей: три донатных и одна крафтовая.
 
-Печь в инвентаре рисуется не плоским спрайтом, а кубом, поэтому модель наследуется от
-minecraft:block/orientable и подменяет три текстуры — перед, бок и верх. Так предмет в
-руке и в меню выглядит настоящей печью, только своей.
+Откуда текстуры
+---------------
+Мои рисованные версии выглядели самоделкой: осмысленная структура там была, но
+попиксельная живопись без опыта даёт ровно то, за что её и ругали. Поэтому корпус
+берётся из присланного .bbmodel — три готовые грани (перед, бок, верх), сделанные
+художником. Их не перерисовываем.
 
-Текстуры собираются здесь же, попиксельно: брать ванильные и перекрашивать нельзя —
-их нет в репозитории, а тащить ресурсы игры в свой пак не стоит. Камень поэтому
-рисуется шумом с фиксированным зерном (одинаковый результат при каждом запуске),
-а перед — тёмная топка со свечением своего цвета и значком сверху.
+Остальные три печи — те же самые грани с перекрашенной акцентной полосой. Так вся
+четвёрка выглядит одной серией, а не набором разных блоков: меняется только цвет
+свечения, геометрия и камень остаются авторскими.
+
+Перекраска идёт по тону: у исходной текстуры акцент фиолетовый, и мы переносим
+его пиксели в нужный оттенок, сохраняя их светлоту и насыщенность. Заменять по
+списку конкретных цветов нельзя — в текстуре десятки оттенков фиолетового с
+разной тенью, и половина осталась бы неперекрашенной.
+
+Модель наследуется от minecraft:block/orientable: north = перед, up/down = верх,
+остальное — бок. Ровно так же, как в присланном .bbmodel.
 
 Запуск: py -3.13 build_furnaces.py  (после него pack_zip.py)
 """
-import os, json, random
+import os, json, base64, io, colorsys
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -21,93 +31,80 @@ MC = os.path.join(ROOT, "pack", "assets", "minecraft")
 TEX = os.path.join(MC, "textures", "block")
 MODELS = os.path.join(MC, "models", "item")
 ITEMS = os.path.join(MC, "items")
+SRC = os.path.join(os.path.expanduser("~"), "Downloads", "GlubinPech.bbmodel")
 for d in (TEX, MODELS, ITEMS):
     os.makedirs(d, exist_ok=True)
 
-S = 16
+# Какая текстура из .bbmodel какой гранью работает (по faces в самом файле).
+ROLE = {"ofen_forne_off.png": "front", "ofen_oben.png": "top", "ofen_seite.png": "side"}
 
-# id -> (CMD, цвет свечения, цвет камня, значок)
+# id -> (CMD, целевой тон акцента в градусах HSV; None — оставить как в оригинале)
 KINDS = {
-    "fast": (60711, (255, 150, 40), (104, 104, 108), "bolt"),
-    "fuel": (60712, (90, 200, 110), (100, 106, 100), "drop"),
-    "both": (60713, (215, 130, 255), (110, 104, 118), "star"),
-    "deep": (60714, (90, 210, 220), (74, 74, 82), "gem"),
+    "deep": (60714, None),   # авторский фиолетовый
+    "fast": (60711, 25),     # оранжевый
+    "fuel": (60712, 120),    # зелёный
+    "both": (60713, 305),    # пурпурный
 }
 
-# Значки 5x5 в окне печи — те же формы, что на плашках ролей, только крупнее пикселем.
-GLYPH = {
-    "bolt": ["..#..", ".##..", "#####", "..##.", "..#.."],
-    "drop": ["..#..", ".###.", "#####", "#####", ".###."],
-    "star": ["..#..", "#####", ".###.", "#####", "..#.."],
-    "gem":  [".###.", "#####", "#####", ".###.", "..#.."],
-}
+# Границы «фиолетового» в исходнике: всё, что попадает сюда, считается акцентом.
+# Окно намеренно широкое: светлый блик на верхнем ребре полосы уходит в розовато-
+# лавандовый, и при узком окне он оставался розовым на зелёной и оранжевой печи.
+# Серый камень сюда не попадает — его спасает порог насыщенности.
+ACCENT_HUE = (0.60, 0.95)
+ACCENT_MIN_SAT = 0.12
 
 
-def stone(base, seed):
-    """Шершавый камень: базовый тон плюс детерминированный шум."""
-    rnd = random.Random(seed)
-    im = Image.new("RGBA", (S, S))
-    px = im.load()
-    for y in range(S):
-        for x in range(S):
-            d = rnd.randint(-14, 14)
-            px[x, y] = (max(0, base[0] + d), max(0, base[1] + d), max(0, base[2] + d), 255)
-    return im
+def load_sources():
+    with io.open(SRC, encoding="utf-8") as f:
+        model = json.load(f)
+    out = {}
+    for t in model["textures"]:
+        role = ROLE.get(t["name"])
+        if role is None:
+            continue
+        raw = t["source"].split(",", 1)[1]
+        out[role] = Image.open(io.BytesIO(base64.b64decode(raw))).convert("RGBA")
+    missing = set(ROLE.values()) - set(out)
+    if missing:
+        raise SystemExit("в .bbmodel нет граней: " + ", ".join(sorted(missing)))
+    return out
 
 
-def bordered(im):
-    """Тёмная рамка по краю — без неё соседние блоки сливаются в кашу."""
-    px = im.load()
-    for i in range(S):
-        for x, y in ((i, 0), (i, S - 1), (0, i), (S - 1, i)):
-            r, g, b, _ = px[x, y]
-            px[x, y] = (int(r * 0.72), int(g * 0.72), int(b * 0.72), 255)
-    return im
+def recolor(im, hue_deg):
+    """Перекрасить акцентные пиксели в заданный тон, сохранив их светлоту."""
+    if hue_deg is None:
+        return im.copy()
+    target = hue_deg / 360.0
+    out = im.copy()
+    px = out.load()
+    for x in range(out.width):
+        for y in range(out.height):
+            r, g, b, a = px[x, y]
+            if a == 0:
+                continue
+            h, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+            if not (ACCENT_HUE[0] <= h <= ACCENT_HUE[1] and s >= ACCENT_MIN_SAT):
+                continue
+            nr, ng, nb = colorsys.hsv_to_rgb(target, s, v)
+            px[x, y] = (int(nr * 255), int(ng * 255), int(nb * 255), a)
+    return out
 
 
-def front(base, glow, glyph, seed):
-    """Перед печи: топка с подсветкой и значком вида."""
-    im = bordered(stone(base, seed))
-    px = im.load()
-    # ниша топки
-    for y in range(8, 14):
-        for x in range(3, 13):
-            edge = y == 8 or y == 13 or x == 3 or x == 12
-            px[x, y] = (26, 22, 20, 255) if edge else (14, 12, 12, 255)
-    # огонь внутри — три языка разной высоты
-    for x, h in ((5, 2), (7, 3), (9, 2)):
-        for k in range(h):
-            y = 12 - k
-            f = 1.0 - k * 0.22
-            px[x, y] = (int(glow[0] * f), int(glow[1] * f), int(glow[2] * f), 255)
-            px[x + 1, y] = (int(glow[0] * f * 0.7), int(glow[1] * f * 0.7), int(glow[2] * f * 0.7), 255)
-    # значок вида сверху
-    rows = GLYPH[glyph]
-    ox, oy = (S - 5) // 2, 2
-    for y, row in enumerate(rows):
-        for x, ch in enumerate(row):
-            if ch == "#":
-                px[ox + x, oy + y] = (glow[0], glow[1], glow[2], 255)
-    return im
-
-
-def top(base, glow, seed):
-    """Верх: камень с прорезями, чтобы не путался с боком."""
-    im = bordered(stone(base, seed))
-    px = im.load()
-    for x in range(4, 12):
-        px[x, 5] = (int(base[0] * 0.55), int(base[1] * 0.55), int(base[2] * 0.55), 255)
-        px[x, 10] = (int(base[0] * 0.55), int(base[1] * 0.55), int(base[2] * 0.55), 255)
-    px[7, 7] = px[8, 8] = (glow[0], glow[1], glow[2], 255)
-    return im
-
+src = load_sources()
+accent_px = sum(
+    1
+    for x in range(src["front"].width)
+    for y in range(src["front"].height)
+    for h, s, _ in [colorsys.rgb_to_hsv(*[c / 255 for c in src["front"].getpixel((x, y))[:3]])]
+    if ACCENT_HUE[0] <= h <= ACCENT_HUE[1] and s >= ACCENT_MIN_SAT
+)
+print("акцентных пикселей на передней грани:", accent_px)
 
 entries = []
-for kind, (cmd, glow, base, glyph) in KINDS.items():
+for kind, (cmd, hue) in KINDS.items():
     name = "nr_furnace_" + kind
-    front(base, glow, glyph, hash(kind) & 0xFFFF).save(os.path.join(TEX, name + "_front.png"))
-    bordered(stone(base, (hash(kind) >> 3) & 0xFFFF)).save(os.path.join(TEX, name + "_side.png"))
-    top(base, glow, (hash(kind) >> 7) & 0xFFFF).save(os.path.join(TEX, name + "_top.png"))
+    for role in ("front", "side", "top"):
+        recolor(src[role], hue).save(os.path.join(TEX, "%s_%s.png" % (name, role)))
     with open(os.path.join(MODELS, name + ".json"), "w", encoding="utf-8") as f:
         json.dump({
             "parent": "minecraft:block/orientable",
