@@ -1,0 +1,82 @@
+{
+  "cerberus.growl1": {
+    "sounds": [
+      "cerberus/growl1"
+    ]
+  },
+  "cerberus.growl2": {
+    "sounds": [
+      "cerberus/growl2"
+    ]
+  },
+  "cerberus.growl3": {
+    "sounds": [
+      "cerberus/growl3"
+    ]
+  },
+  "cerberus.bark1": {
+    "sounds": [
+      "cerberus/bark1"
+    ]
+  },
+  "cerberus.bark2": {
+    "sounds": [
+      "cerberus/bark2"
+    ]
+  },
+  "cerberus.bark3": {
+    "sounds": [
+      "cerberus/bark3"
+    ]
+  },
+  "cerberus.chain1": {
+    "sounds": [
+      "cerberus/chain1"
+    ]
+  },
+  "cerberus.chain2": {
+    "sounds": [
+      "cerberus/chain2"
+    ]
+  },
+  "cerberus.chain3": {
+    "sounds": [
+      "cerberus/chain3"
+    ]
+  },
+  "cerberus.chainswing": {
+    "sounds": [
+      "cerberus/chainswing"
+    ]
+  },
+  "cerberus.impact_ground": {
+    "sounds": [
+      "cerberus/impact_ground"
+    ]
+  },
+  "cerberus.impact_ground_big": {
+    "sounds": [
+      "cerberus/impact_ground_big"
+    ]
+  },
+  "cerberus.styx_rumble": {
+    "sounds": [
+      "cerberus/styx_rumble"
+    ]
+  },
+  "cerberus.wake": {
+    "sounds": [
+      "cerberus/wake"
+    ]
+  },
+  "cerberus.whimper": {
+    "sounds": [
+      "cerberus/whimper"
+    ]
+  },
+  "cerberus.poof": {
+    "sounds": [
+      "cerberus/poof"
+    ]
+  }
+}
