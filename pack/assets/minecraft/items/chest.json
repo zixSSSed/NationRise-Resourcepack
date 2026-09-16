@@ -1,0 +1,53 @@
+{
+ "model": {
+  "type": "minecraft:range_dispatch",
+  "property": "minecraft:custom_model_data",
+  "index": 0,
+  "fallback": {
+   "type": "minecraft:select",
+   "property": "minecraft:local_time",
+   "pattern": "MM-dd",
+   "cases": [
+    {
+     "when": [
+      "12-24",
+      "12-25",
+      "12-26"
+     ],
+     "model": {
+      "type": "minecraft:special",
+      "base": "minecraft:item/chest",
+      "model": {
+       "type": "minecraft:chest",
+       "texture": "minecraft:christmas"
+      }
+     }
+    }
+   ],
+   "fallback": {
+    "type": "minecraft:special",
+    "base": "minecraft:item/chest",
+    "model": {
+     "type": "minecraft:chest",
+     "texture": "minecraft:normal"
+    }
+   }
+  },
+  "entries": [
+   {
+    "threshold": 60721,
+    "model": {
+     "type": "minecraft:model",
+     "model": "minecraft:item/nr_royal_chest_base"
+    }
+   },
+   {
+    "threshold": 60722,
+    "model": {
+     "type": "minecraft:model",
+     "model": "minecraft:item/nr_royal_chest_lid"
+    }
+   }
+  ]
+ }
+}

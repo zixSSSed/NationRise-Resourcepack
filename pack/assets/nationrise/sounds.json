@@ -1,0 +1,562 @@
+{
+  "cerberus.growl1": {
+    "sounds": [
+      "cerberus/growl1"
+    ]
+  },
+  "cerberus.growl2": {
+    "sounds": [
+      "cerberus/growl2"
+    ]
+  },
+  "cerberus.growl3": {
+    "sounds": [
+      "cerberus/growl3"
+    ]
+  },
+  "cerberus.bark1": {
+    "sounds": [
+      "cerberus/bark1"
+    ]
+  },
+  "cerberus.bark2": {
+    "sounds": [
+      "cerberus/bark2"
+    ]
+  },
+  "cerberus.bark3": {
+    "sounds": [
+      "cerberus/bark3"
+    ]
+  },
+  "cerberus.chain1": {
+    "sounds": [
+      "cerberus/chain1"
+    ]
+  },
+  "cerberus.chain2": {
+    "sounds": [
+      "cerberus/chain2"
+    ]
+  },
+  "cerberus.chain3": {
+    "sounds": [
+      "cerberus/chain3"
+    ]
+  },
+  "cerberus.chainswing": {
+    "sounds": [
+      "cerberus/chainswing"
+    ]
+  },
+  "cerberus.impact_ground": {
+    "sounds": [
+      "cerberus/impact_ground"
+    ]
+  },
+  "cerberus.impact_ground_big": {
+    "sounds": [
+      "cerberus/impact_ground_big"
+    ]
+  },
+  "cerberus.styx_rumble": {
+    "sounds": [
+      "cerberus/styx_rumble"
+    ]
+  },
+  "cerberus.wake": {
+    "sounds": [
+      "cerberus/wake"
+    ]
+  },
+  "cerberus.whimper": {
+    "sounds": [
+      "cerberus/whimper"
+    ]
+  },
+  "cerberus.poof": {
+    "sounds": [
+      "cerberus/poof"
+    ]
+  },
+  "yeti.swing1": {
+    "sounds": [
+      "yeti/swing1"
+    ]
+  },
+  "yeti.swing2": {
+    "sounds": [
+      "yeti/swing2"
+    ]
+  },
+  "yeti.swing3": {
+    "sounds": [
+      "yeti/swing3"
+    ]
+  },
+  "yeti.swing4": {
+    "sounds": [
+      "yeti/swing4"
+    ]
+  },
+  "yeti.swing5": {
+    "sounds": [
+      "yeti/swing5"
+    ]
+  },
+  "yeti.impact1": {
+    "sounds": [
+      "yeti/impact1"
+    ]
+  },
+  "yeti.impact2": {
+    "sounds": [
+      "yeti/impact2"
+    ]
+  },
+  "yeti.impact3": {
+    "sounds": [
+      "yeti/impact3"
+    ]
+  },
+  "yeti.impact4": {
+    "sounds": [
+      "yeti/impact4"
+    ]
+  },
+  "yeti.ground_impact1": {
+    "sounds": [
+      "yeti/ground_impact1"
+    ]
+  },
+  "yeti.ground_impact2": {
+    "sounds": [
+      "yeti/ground_impact2"
+    ]
+  },
+  "yeti.grunt1": {
+    "sounds": [
+      "yeti/grunt1"
+    ]
+  },
+  "yeti.grunt2": {
+    "sounds": [
+      "yeti/grunt2"
+    ]
+  },
+  "yeti.grunt3": {
+    "sounds": [
+      "yeti/grunt3"
+    ]
+  },
+  "yeti.rage1": {
+    "sounds": [
+      "yeti/rage1"
+    ]
+  },
+  "yeti.rage2": {
+    "sounds": [
+      "yeti/rage2"
+    ]
+  },
+  "yeti.rage3": {
+    "sounds": [
+      "yeti/rage3"
+    ]
+  },
+  "yeti.snow_grab1": {
+    "sounds": [
+      "yeti/snow_grab1"
+    ]
+  },
+  "yeti.snow_grab2": {
+    "sounds": [
+      "yeti/snow_grab2"
+    ]
+  },
+  "yeti.snowball_roll": {
+    "sounds": [
+      "yeti/snowball_roll"
+    ]
+  },
+  "yeti.snowball_impact": {
+    "sounds": [
+      "yeti/snowball_impact"
+    ]
+  },
+  "yeti.yeti_dig": {
+    "sounds": [
+      "yeti/yeti_dig"
+    ]
+  },
+  "yeti.yeti_wind": {
+    "sounds": [
+      "yeti/yeti_wind"
+    ]
+  },
+  "yeti.poof": {
+    "sounds": [
+      "yeti/poof"
+    ]
+  },
+  "merloc.scream_1": {
+    "sounds": [
+      "merloc/scream_1"
+    ]
+  },
+  "merloc.scream_2": {
+    "sounds": [
+      "merloc/scream_2"
+    ]
+  },
+  "merloc.scream_3": {
+    "sounds": [
+      "merloc/scream_3"
+    ]
+  },
+  "merloc.trident_impact_1": {
+    "sounds": [
+      "merloc/trident_impact_1"
+    ]
+  },
+  "merloc.trident_impact_2": {
+    "sounds": [
+      "merloc/trident_impact_2"
+    ]
+  },
+  "merloc.trident_impact_3": {
+    "sounds": [
+      "merloc/trident_impact_3"
+    ]
+  },
+  "merloc.trident_impact_4": {
+    "sounds": [
+      "merloc/trident_impact_4"
+    ]
+  },
+  "merloc.trident_impact_5": {
+    "sounds": [
+      "merloc/trident_impact_5"
+    ]
+  },
+  "merloc.bubbles_1": {
+    "sounds": [
+      "merloc/bubbles_1"
+    ]
+  },
+  "merloc.bubbles_2": {
+    "sounds": [
+      "merloc/bubbles_2"
+    ]
+  },
+  "merloc.bubbles_3": {
+    "sounds": [
+      "merloc/bubbles_3"
+    ]
+  },
+  "merloc.pfish_pop_1": {
+    "sounds": [
+      "merloc/pfish_pop_1"
+    ]
+  },
+  "merloc.pfish_pop_2": {
+    "sounds": [
+      "merloc/pfish_pop_2"
+    ]
+  },
+  "merloc.pfish_pop_3": {
+    "sounds": [
+      "merloc/pfish_pop_3"
+    ]
+  },
+  "minotaur.bull1": {
+    "sounds": [
+      "minotaur/bull1"
+    ]
+  },
+  "minotaur.wind1": {
+    "sounds": [
+      "minotaur/wind1"
+    ]
+  },
+  "minotaur.chain1": {
+    "sounds": [
+      "minotaur/chain1"
+    ]
+  },
+  "minotaur.chain2": {
+    "sounds": [
+      "minotaur/chain2"
+    ]
+  },
+  "minotaur.chain3": {
+    "sounds": [
+      "minotaur/chain3"
+    ]
+  },
+  "minotaur.chain4": {
+    "sounds": [
+      "minotaur/chain4"
+    ]
+  },
+  "minotaur.ground1": {
+    "sounds": [
+      "minotaur/ground1"
+    ]
+  },
+  "minotaur.ground2": {
+    "sounds": [
+      "minotaur/ground2"
+    ]
+  },
+  "minotaur.ground3": {
+    "sounds": [
+      "minotaur/ground3"
+    ]
+  },
+  "minotaur.grunt1": {
+    "sounds": [
+      "minotaur/grunt1"
+    ]
+  },
+  "minotaur.grunt2": {
+    "sounds": [
+      "minotaur/grunt2"
+    ]
+  },
+  "minotaur.grunt3": {
+    "sounds": [
+      "minotaur/grunt3"
+    ]
+  },
+  "minotaur.grunt4": {
+    "sounds": [
+      "minotaur/grunt4"
+    ]
+  },
+  "minotaur.impact1": {
+    "sounds": [
+      "minotaur/impact1"
+    ]
+  },
+  "minotaur.impact2": {
+    "sounds": [
+      "minotaur/impact2"
+    ]
+  },
+  "minotaur.impact3": {
+    "sounds": [
+      "minotaur/impact3"
+    ]
+  },
+  "minotaur.impact4": {
+    "sounds": [
+      "minotaur/impact4"
+    ]
+  },
+  "minotaur.leap1": {
+    "sounds": [
+      "minotaur/leap1"
+    ]
+  },
+  "minotaur.leap2": {
+    "sounds": [
+      "minotaur/leap2"
+    ]
+  },
+  "minotaur.swing1": {
+    "sounds": [
+      "minotaur/swing1"
+    ]
+  },
+  "minotaur.swing2": {
+    "sounds": [
+      "minotaur/swing2"
+    ]
+  },
+  "minotaur.swing3": {
+    "sounds": [
+      "minotaur/swing3"
+    ]
+  },
+  "minotaur.swing4": {
+    "sounds": [
+      "minotaur/swing4"
+    ]
+  },
+  "medusa.glare": {
+    "sounds": [
+      "medusa/glare"
+    ]
+  },
+  "medusa.spin": {
+    "sounds": [
+      "medusa/spin"
+    ]
+  },
+  "medusa.twinsnakes": {
+    "sounds": [
+      "medusa/twinsnakes"
+    ]
+  },
+  "medusa.shoot": {
+    "sounds": [
+      "medusa/shoot"
+    ]
+  },
+  "medusa.rockbreak1": {
+    "sounds": [
+      "medusa/rockbreak1"
+    ]
+  },
+  "medusa.rockbreak2": {
+    "sounds": [
+      "medusa/rockbreak2"
+    ]
+  },
+  "medusa.rockbreak3": {
+    "sounds": [
+      "medusa/rockbreak3"
+    ]
+  },
+  "medusa.death": {
+    "sounds": [
+      "medusa/death"
+    ]
+  },
+  "medusa.deathfall": {
+    "sounds": [
+      "medusa/deathfall"
+    ]
+  },
+  "hydra.bite_1": {
+    "sounds": [
+      "hydra/bite_1"
+    ]
+  },
+  "hydra.bite_2": {
+    "sounds": [
+      "hydra/bite_2"
+    ]
+  },
+  "hydra.growl_1": {
+    "sounds": [
+      "hydra/growl_1"
+    ]
+  },
+  "hydra.growl_2": {
+    "sounds": [
+      "hydra/growl_2"
+    ]
+  },
+  "hydra.growl_3": {
+    "sounds": [
+      "hydra/growl_3"
+    ]
+  },
+  "hydra.grunt_1": {
+    "sounds": [
+      "hydra/grunt_1"
+    ]
+  },
+  "hydra.grunt_2": {
+    "sounds": [
+      "hydra/grunt_2"
+    ]
+  },
+  "hydra.grunt_3": {
+    "sounds": [
+      "hydra/grunt_3"
+    ]
+  },
+  "hydra.grunt_4": {
+    "sounds": [
+      "hydra/grunt_4"
+    ]
+  },
+  "hydra.grunt_5": {
+    "sounds": [
+      "hydra/grunt_5"
+    ]
+  },
+  "hydra.grunt_6": {
+    "sounds": [
+      "hydra/grunt_6"
+    ]
+  },
+  "hydra.hit_1": {
+    "sounds": [
+      "hydra/hit_1"
+    ]
+  },
+  "hydra.hit_2": {
+    "sounds": [
+      "hydra/hit_2"
+    ]
+  },
+  "hydra.hit_3": {
+    "sounds": [
+      "hydra/hit_3"
+    ]
+  },
+  "hydra.hit_4": {
+    "sounds": [
+      "hydra/hit_4"
+    ]
+  },
+  "hydra.ground_crack_1": {
+    "sounds": [
+      "hydra/ground_crack_1"
+    ]
+  },
+  "hydra.ground_crack_2": {
+    "sounds": [
+      "hydra/ground_crack_2"
+    ]
+  },
+  "hydra.ground_crack_3": {
+    "sounds": [
+      "hydra/ground_crack_3"
+    ]
+  },
+  "hydra.flamethrower_40tick": {
+    "sounds": [
+      "hydra/flamethrower_40tick"
+    ]
+  },
+  "hydra.flamethrower_loop": {
+    "sounds": [
+      "hydra/flamethrower_loop"
+    ]
+  },
+  "hydra.dismember_head": {
+    "sounds": [
+      "hydra/dismember_head"
+    ]
+  },
+  "hydra.land": {
+    "sounds": [
+      "hydra/land"
+    ]
+  },
+  "hydra.leap": {
+    "sounds": [
+      "hydra/leap"
+    ]
+  },
+  "hydra.spotted_roar": {
+    "sounds": [
+      "hydra/spotted_roar"
+    ]
+  },
+  "hydra.death": {
+    "sounds": [
+      "hydra/death"
+    ]
+  },
+  "hydra.death_poof": {
+    "sounds": [
+      "hydra/death_poof"
+    ]
+  }
+}

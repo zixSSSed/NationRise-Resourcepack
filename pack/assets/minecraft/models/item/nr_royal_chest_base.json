@@ -1,0 +1,100 @@
+{
+ "credit": "NationRise",
+ "texture_size": [
+  128,
+  128
+ ],
+ "textures": {
+  "0": "minecraft:item/nr_royal_chest",
+  "particle": "minecraft:item/nr_royal_chest"
+ },
+ "elements": [
+  {
+   "from": [
+    -4.0,
+    0,
+    -1.6
+   ],
+   "to": [
+    20.0,
+    10,
+    18.4
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      5.25,
+      2.25,
+      8.25,
+      3.5
+     ],
+     "texture": "#0"
+    },
+    "east": {
+     "uv": [
+      5.0,
+      7.25,
+      7.5,
+      8.5
+     ],
+     "texture": "#0"
+    },
+    "south": {
+     "uv": [
+      5.25,
+      3.5,
+      8.25,
+      4.75
+     ],
+     "texture": "#0"
+    },
+    "west": {
+     "uv": [
+      7.5,
+      0.0,
+      10.0,
+      1.25
+     ],
+     "texture": "#0"
+    },
+    "up": {
+     "uv": [
+      3.0,
+      2.5,
+      0.0,
+      0.0
+     ],
+     "texture": "#0"
+    },
+    "down": {
+     "uv": [
+      3.0,
+      2.5,
+      0.0,
+      5.0
+     ],
+     "texture": "#0"
+    }
+   }
+  }
+ ],
+ "display": {
+  "fixed": {
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "translation": [
+    0,
+    0,
+    0
+   ],
+   "scale": [
+    1,
+    1,
+    1
+   ]
+  }
+ }
+}

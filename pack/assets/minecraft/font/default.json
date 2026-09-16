@@ -7,7 +7,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_chat_bubble.png",
-      "ascent": 8,
+      "ascent": 9,
       "height": 10,
       "chars": [
         ""
@@ -16,7 +16,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_chat_globe.png",
-      "ascent": 8,
+      "ascent": 9,
       "height": 10,
       "chars": [
         ""
@@ -25,7 +25,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_chat_star.png",
-      "ascent": 8,
+      "ascent": 9,
       "height": 10,
       "chars": [
         ""
@@ -34,7 +34,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:font/nr_chat_crown.png",
-      "ascent": 8,
+      "ascent": 9,
       "height": 10,
       "chars": [
         ""
