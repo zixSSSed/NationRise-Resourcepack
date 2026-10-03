@@ -24,7 +24,7 @@ SHEETS = [
     "👥💀💎💔💣💤💥💰📅📊📋📖📢📦🔇🔍🔐🔑🔒🔗",
     "🔨🔮🔱🕊🕷🕸🖼🗑🗳🗺🛡🤝🥇🥈🥉🦑🧭🧱🩸🪱",
 ]
-OUTPUT_SIZE = 16
+OUTPUT_SIZE = 20   # 03.10.2026: было 16 — при высоте 10 в строке это 1,6 текселя на точку, пиксели дублировались («двоятся»); 20 = ровно 2 на точку
 
 
 def chroma(im):
@@ -88,10 +88,10 @@ def fit_game_icon(source):
     target_inner = OUTPUT_SIZE - 2
     scale = min(target_inner / source.width, target_inner / source.height)
     width = max(1, round(source.width * scale)); height = max(1, round(source.height * scale))
-    resized = source.resize((width, height), Image.Resampling.LANCZOS)
+    resized = source.resize((width, height), Image.Resampling.BOX)   # BOX без ореолов LANCZOS
     resized = ImageEnhance.Contrast(resized).enhance(1.08)
     resized = ImageEnhance.Color(resized).enhance(1.06)
-    resized = resized.filter(ImageFilter.UnsharpMask(radius=0.7, percent=145, threshold=2))
+    resized = resized.filter(ImageFilter.UnsharpMask(radius=0.6, percent=120, threshold=2))
     out = Image.new("RGBA", (OUTPUT_SIZE, OUTPUT_SIZE), (0, 0, 0, 0))
     out.alpha_composite(resized, ((OUTPUT_SIZE - width) // 2, (OUTPUT_SIZE - height) // 2))
     return out
@@ -126,11 +126,11 @@ def main(outdir, preview=None, font_json=None):
     print("иконок:", len(tiles))
     for p in problems: print("ВНИМАНИЕ:", p)
     if preview and tiles:
-        cols, s = 14, 4; cell = 16 * s + 8
+        cols, s = 14, 4; cell = OUTPUT_SIZE * s + 8
         rows = (len(tiles) + cols - 1) // cols
         bg = Image.new("RGBA", (cols * cell + 8, rows * cell + 8), (16, 0, 16, 255))
         for k, (_, _, icon) in enumerate(tiles):
-            bg.alpha_composite(icon.resize((16 * s, 16 * s), Image.NEAREST), (8 + (k % cols) * cell, 8 + (k // cols) * cell))
+            bg.alpha_composite(icon.resize((OUTPUT_SIZE * s, OUTPUT_SIZE * s), Image.NEAREST), (8 + (k % cols) * cell, 8 + (k // cols) * cell))
         bg.save(preview)
 
 
