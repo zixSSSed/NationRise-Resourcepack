@@ -7,7 +7,8 @@
 
 Оси (проверено по встроенной анимации roll): перед модели — −Z (грань north = лицо);
 правая рука — +X. Поворот кости X<0 наклоняет вперёд (к лицу); для свисающей руки/ноги X>0
-выносит её вперёд. Z>0 у правой руки — в сторону (наружу), у левой наружу — Z<0.
+выносит её вперёд. Z>0 у правой руки — в сторону (наружу), у левой наружу — Z<0; у ПОДНЯТОЙ
+вверх руки знак обратный (Z поворачивает уже после X): правая наружу — Z<0.
 
   py -3.13 statue_poses.py preview <steve.bbmodel> <out.png> [skin.png]
   py -3.13 statue_poses.py write   <steve.bbmodel>          — дописать/обновить анимации statue_*
@@ -59,7 +60,7 @@ POSES = {
     "statue_wave": {
         "h_ph_head": (6, -12, 0),
         "pc_chest": (0, -6, 0),
-        "pra_right_arm": (150, 0, 42), "prfa_right_forearm": (25, 0, 0),
+        "pra_right_arm": (150, 0, -25), "prfa_right_forearm": (25, 0, 0),
         "pla_left_arm": (-18, 0, -38), "plfa_left_forearm": (82, 0, 0),
         "pll_left_leg": (8, 0, -4), "plfl_left_foreleg": (-10, 0, 0),
     },
@@ -78,12 +79,79 @@ POSES = {
         "pla_left_arm": (38, 0, 22), "plfa_left_forearm": (88, 0, 34),
         "prl_right_leg": (4, 0, 4), "pll_left_leg": (-8, 0, -8), "plfl_left_foreleg": (14, 0, 0),
     },
+    # Герой: руки на поясе, грудь вперёд, подбородок вверх.
+    "statue_hero": {
+        "h_ph_head": (12, 0, 0), "pc_chest": (4, 0, 0),
+        "pra_right_arm": (-14, 0, 42), "prfa_right_forearm": (88, 0, 0),
+        "pla_left_arm": (-14, 0, -42), "plfa_left_forearm": (88, 0, 0),
+        "prl_right_leg": (0, 0, 7), "pll_left_leg": (0, 0, -7),
+    },
+    # Триумф: обе руки вскинуты буквой V.
+    "statue_triumph": {
+        "h_ph_head": (22, 0, 0), "pc_chest": (6, 0, 0),
+        "pra_right_arm": (165, 0, -32), "prfa_right_forearm": (8, 0, 0),
+        "pla_left_arm": (165, 0, 32), "plfa_left_forearm": (8, 0, 0),
+        "prl_right_leg": (0, 0, 6), "pll_left_leg": (0, 0, -6),
+    },
+    # Вперёд!: правая рука указывает вперёд, левая на поясе, шаг вперёд.
+    "statue_point": {
+        "h_ph_head": (4, 0, 0),
+        "pra_right_arm": (90, 0, 0), "prfa_right_forearm": (0, 0, 0),
+        "pla_left_arm": (-14, 0, -42), "plfa_left_forearm": (88, 0, 0),
+        "prl_right_leg": (22, 0, 0), "prfl_right_foreleg": (-10, 0, 0), "pll_left_leg": (-14, 0, 0),
+    },
+    # Поклон: поклон в пояс, правая ладонь на груди, левая за спиной.
+    "statue_bow": {
+        "pw_waist": (-18, 0, 0), "pc_chest": (-14, 0, 0), "h_ph_head": (-12, 0, 0),
+        "pra_right_arm": (44, 0, -26), "prfa_right_forearm": (105, 0, 0),
+        "pla_left_arm": (-26, 0, 8), "plfa_left_forearm": (70, 0, 0),
+    },
+    # Дозорный: ладонь козырьком у лба — вглядывается вдаль; левая на поясе.
+    "statue_lookout": {
+        "h_ph_head": (10, -8, 0),
+        "pra_right_arm": (112, -24, 18), "prfa_right_forearm": (100, 0, 0),
+        "pla_left_arm": (-14, 0, -42), "plfa_left_forearm": (88, 0, 0),
+        "prl_right_leg": (0, 0, 6), "pll_left_leg": (6, 0, -6),
+    },
+    # Отдых: руки за головой, локти в стороны.
+    "statue_relax": {
+        "h_ph_head": (14, 0, 0),
+        "pra_right_arm": (200, 0, -45), "prfa_right_forearm": (125, 0, 0),
+        "pla_left_arm": (200, 0, 45), "plfa_left_forearm": (125, 0, 0),
+        "prl_right_leg": (0, 0, 6), "pll_left_leg": (8, 0, -4), "plfl_left_foreleg": (-8, 0, 0),
+    },
+    # Защитник: левая рука со щитом впереди, правая с мечом наготове, боевая стойка.
+    "statue_guard": {
+        "pc_chest": (-6, -14, 0), "h_ph_head": (0, 12, 0),
+        "pla_left_arm": (72, 0, 8), "plfa_left_forearm": (38, 0, 0),
+        "pra_right_arm": (-24, 0, 22), "prfa_right_forearm": (62, 0, 0),
+        "pll_left_leg": (22, 0, -4), "plfl_left_foreleg": (-18, 0, 0), "prl_right_leg": (-16, 0, 4),
+    },
+    # Сидит: на краю блока (ставьте на полублок), руки на коленях.
+    "statue_sit": {
+        "@root_pos": (0, -3.75, 0),
+        "h_ph_head": (4, 0, 0),
+        "prl_right_leg": (90, 0, 4), "prfl_right_foreleg": (-90, 0, 0),
+        "pll_left_leg": (90, 0, -4), "plfl_left_foreleg": (-90, 0, 0),
+        "pra_right_arm": (44, 0, -4), "prfa_right_forearm": (34, 0, 0),
+        "pla_left_arm": (44, 0, 4), "plfa_left_forearm": (34, 0, 0),
+    },
+    # Меч на плече: правая рука держит меч, лежащий на плече; левая расслаблена.
+    "statue_shoulder": {
+        "h_ph_head": (6, 10, 0),
+        "pra_right_arm": (40, 0, 10), "prfa_right_forearm": (125, 0, 0),
+        "pla_left_arm": (6, 0, -8), "plfa_left_forearm": (12, 0, 0),
+        "prl_right_leg": (0, 0, 6), "pll_left_leg": (10, 0, -4), "plfl_left_foreleg": (-10, 0, 0),
+    },
 }
 
 NAMES = {
     "statue_victory": "Победитель", "statue_salute": "Честь", "statue_knight": "Рыцарь",
     "statue_crossed": "Руки на груди", "statue_commander": "Полководец", "statue_wave": "Приветствие",
     "statue_banner": "Знаменосец", "statue_thinker": "Мыслитель",
+    "statue_hero": "Герой", "statue_triumph": "Триумф", "statue_point": "Вперёд!", "statue_bow": "Поклон",
+    "statue_lookout": "Дозорный", "statue_relax": "Отдых", "statue_guard": "Защитник", "statue_sit": "Сидит",
+    "statue_shoulder": "Меч на плече",
 }
 
 
@@ -214,13 +282,13 @@ def preview(model, out, skinpath=None):
     skin = Image.open(skinpath).convert("RGBA") if skinpath else skin_from_model(d)
     poses = list(POSES.items())
     cell_w, cell_h = 300, 440
-    sheet = Image.new("RGBA", (cell_w * 4, cell_h * 2 * ((len(poses) + 3) // 4)), (238, 232, 246, 255))
+    sheet = Image.new("RGBA", (cell_w * 6, cell_h * 2 * ((len(poses) + 5) // 6)), (238, 232, 246, 255))
     dr = ImageDraw.Draw(sheet)
     from PIL import ImageFont
     try: font = ImageFont.truetype("C:/Windows/Fonts/arialbd.ttf", 22)
     except Exception: font = None
     for i, (name, pose) in enumerate(poses):
-        col, row = i % 4, i // 4
+        col, row = i % 6, i // 6
         for k, yaw in enumerate((-28, 62)):
             im = render(d, pose, skin, yaw_deg=yaw)
             sheet.alpha_composite(im, (col * cell_w, (row * 2 + k) * cell_h))
