@@ -119,12 +119,20 @@ POSES = {
         "plfa_left_forearm": (38, 0, 0), "pra_right_arm": (-24, 0, 22), "prfa_right_forearm": (62, 0, 0),
         "pll_left_leg": (22, 0, -4), "plfl_left_foreleg": (-18, 0, 0), "prl_right_leg": (-16, 0, 4),
     },
-    # Сидит: на краю блока (ставьте на полублок), руки на коленях.
+    # Сидит на краю: попой на блоке (корень опущен ровно до его верха), ноги свешиваются — ставьте у края.
     "statue_sit": {
-        "@root_pos": (0, -3.75, 0), "h_ph_head": (4, 0, 0), "prl_right_leg": (90, -4, 0),
+        "@root_pos": (0, -9.2, 0), "h_ph_head": (4, 0, 0), "prl_right_leg": (90, -4, 0),
         "prfl_right_foreleg": (-90, 0, 0), "pll_left_leg": (90, 4, 0), "plfl_left_foreleg": (-90, 0, 0),
         "pra_right_arm": (44, 0, 1), "prfa_right_forearm": (34, 0, 0), "pla_left_arm": (44, 0, -1),
         "plfa_left_forearm": (34, 0, 0),
+    },
+    # Сидит на земле: ноги вытянуты вперёд по блоку, ладони на коленях. В любом размере прижат к блоку.
+    "statue_sit_ground": {
+        "h_ph_head": (4, 0, 0), "pc_chest": (-4, 0, 0), "prl_right_leg": (90, -5, 0),
+        "pll_left_leg": (90, 5, 0), "prfl_right_foreleg": (0, 0, 0), "plfl_left_foreleg": (0, 0, 0),
+        "pra_right_arm": (18.6, 20.7, 20), "prfa_right_forearm": (56.3, 30.9, 0),
+        "pla_left_arm": (11.1, -8.9, -14.5), "plfa_left_forearm": (61.5, -30.2, 0),
+        "@root_pos": (0, -9.2, 0),
     },
     # Меч на плече: правая рука держит меч, лежащий на плече; левая расслаблена.
     "statue_shoulder": {
@@ -146,8 +154,8 @@ NAMES = {
     "statue_crossed": "Руки на груди", "statue_commander": "Полководец", "statue_wave": "Приветствие",
     "statue_banner": "Знаменосец", "statue_thinker": "Мыслитель",
     "statue_hero": "Герой", "statue_triumph": "Триумф", "statue_point": "Вперёд!", "statue_bow": "Поклон",
-    "statue_lookout": "Дозорный", "statue_relax": "Отдых", "statue_guard": "Защитник", "statue_sit": "Сидит",
-    "statue_shoulder": "Меч на плече", "statue_chief": "Главный",
+    "statue_lookout": "Дозорный", "statue_relax": "Отдых", "statue_guard": "Защитник", "statue_sit": "Сидит на краю",
+    "statue_shoulder": "Меч на плече", "statue_chief": "Главный", "statue_sit_ground": "Сидит на земле",
 }
 
 
@@ -206,6 +214,17 @@ JOINT_BONES = ("prfa_right_forearm", "plfa_left_forearm", "prfl_right_foreleg", 
                "prl_right_leg", "pll_left_leg")
 
 
+# Вторая беда сустава — рябь: при сгибе по X боковые грани предплечья лежат в ОДНОЙ плоскости
+# с гранями плеча (то же голень/бедро, бедро/таз), и там, где коробки перекрываются, две текстуры
+# мерцают тонкими полосками вдоль локтя. Нижние кости чуть уже — на 3% по толщине (≈0.05 пикселя):
+# их грани уходят внутрь верхних, совпадающих плоскостей нет. На глаз разницы в толщине не видно.
+JOINT_SCALE = {b: (0.97, 1.0, 0.97) for b in JOINT_BONES}
+
+
+def diag(v):
+    return [[v[0], 0, 0], [0, v[1], 0], [0, 0, v[2]]]
+
+
 def joint_offsets(d, pose, margin=0.1):
     groups = {g["name"]: g for g in d["groups"]}
     elems = {e["uuid"]: e for e in d["elements"]}
@@ -260,6 +279,7 @@ def collect(d, pose):
         add = pose.get(name, (0, 0, 0))
         off = pose.get("@root_pos", (0, 0, 0)) if name == "player_root" else jo.get(name, (0, 0, 0))
         R = euler([rot[i] + add[i] for i in range(3)])
+        if name in JOINT_SCALE: R = mm(R, diag(JOINT_SCALE[name]))
         x2 = xf.then_local(R, g["origin"], off)
         for ch in node.get("children", []):
             if isinstance(ch, str):
@@ -361,6 +381,13 @@ def write(model):
                             "uuid": str(uuid.uuid4()), "time": t, "color": -1, "interpolation": "linear"})
             animators[gid] = {"name": bone, "type": "bone", "rotation_global": False,
                               "quaternion_interpolation": False, "keyframes": kfs}
+        for bone, sc in JOINT_SCALE.items():
+            if bone not in groups: continue
+            gid = groups[bone]
+            kfs = [{"channel": "scale", "data_points": [{"x": str(sc[0]), "y": str(sc[1]), "z": str(sc[2])}],
+                    "uuid": str(uuid.uuid4()), "time": t, "color": -1, "interpolation": "linear"} for t in (0, 1)]
+            animators.setdefault(gid, {"name": bone, "type": "bone", "rotation_global": False,
+                                       "quaternion_interpolation": False, "keyframes": []})["keyframes"] += kfs
         for bone, off in joint_offsets(d, pose).items():
             gid = groups[bone]
             kfs = [{"channel": "position", "data_points": [{"x": str(round(off[0], 4)), "y": str(round(off[1], 4)), "z": str(round(off[2], 4))}],
@@ -410,7 +437,9 @@ def boxes(d, pose, layer="skin"):
         rot = [float(v) for v in (g.get("rotation") or [0, 0, 0])]
         add = pose.get(name, (0, 0, 0))
         off = pose.get("@root_pos", (0, 0, 0)) if name == "player_root" else jo.get(name, (0, 0, 0))
-        x2 = xf.then_local(euler([rot[i] + add[i] for i in range(3)]), g["origin"], off)
+        M = euler([rot[i] + add[i] for i in range(3)])
+        if name in JOINT_SCALE: M = mm(M, diag(JOINT_SCALE[name]))
+        x2 = xf.then_local(M, g["origin"], off)
         for ch in node.get("children", []):
             if isinstance(ch, str):
                 e = elems.get(ch)
@@ -419,7 +448,11 @@ def boxes(d, pose, layer="skin"):
                 f, t = e["from"], e["to"]
                 mid = [(f[i] + t[i]) / 2 for i in range(3)]
                 half = [(t[i] - f[i]) / 2 + inf for i in range(3)]
-                axes = [[x2.R[0][j], x2.R[1][j], x2.R[2][j]] for j in range(3)]
+                axes = []
+                for j in range(3):
+                    col = [x2.R[0][j], x2.R[1][j], x2.R[2][j]]
+                    n = math.sqrt(sum(c * c for c in col))
+                    axes.append([c / n for c in col]); half[j] *= n
                 out.append((name, x2.apply(mid), axes, half))
             else:
                 walk(ch, x2)
