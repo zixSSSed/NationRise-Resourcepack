@@ -61,7 +61,7 @@ POSES = {
     # Приветствие: правая рука поднята ладонью вперёд, левая на поясе.
     "statue_wave": {
         "h_ph_head": (6, -12, 0), "pc_chest": (0, -6, 0), "pra_right_arm": (150, 0, -25),
-        "prfa_right_forearm": (25, 0, 0), "pla_left_arm": (-18, 0, -38), "plfa_left_forearm": (82, 0, 0),
+        "prfa_right_forearm": (25, 0, 0), "pla_left_arm": (-16.6, 0.1, -39.6), "plfa_left_forearm": (82, 0, 0),
         "pll_left_leg": (8, 0, -4), "plfl_left_foreleg": (-10, 0, 0),
     },
     # Знаменосец: правая рука с древком вверх, левая — ладонь на груди, шаг вперёд.
@@ -73,7 +73,7 @@ POSES = {
     # Мыслитель: подбородок на кулаке, вторая рука поддерживает локоть.
     "statue_thinker": {
         "h_ph_head": (-10, 0, 0), "pc_chest": (-6, 0, 0), "pra_right_arm": (58.6, -0.1, 5.5),
-        "prfa_right_forearm": (95.9, 56.8, 0), "pla_left_arm": (54.9, -9.5, -8.3),
+        "prfa_right_forearm": (95.2, 56.8, 0), "pla_left_arm": (54.9, -9.5, -8.3),
         "plfa_left_forearm": (76, -93.2, 0), "prl_right_leg": (4, 0, 4), "pll_left_leg": (-8, 0, -8),
         "plfl_left_foreleg": (14, 0, 0),
     },
@@ -98,8 +98,8 @@ POSES = {
     # Поклон: поклон в пояс, правая ладонь на груди, левая за спиной.
     "statue_bow": {
         "pw_waist": (-18, 0, 0), "pc_chest": (-14, 0, 0), "h_ph_head": (-12, 0, 0),
-        "pra_right_arm": (66.9, 4.4, -12.9), "prfa_right_forearm": (81, 98.1, 0),
-        "pla_left_arm": (-58.7, 13.7, -4.3), "plfa_left_forearm": (73.1, -70, 0),
+        "pra_right_arm": (74.7, 4.3, -13.2), "prfa_right_forearm": (81, 98.1, 0),
+        "pla_left_arm": (-59, 12, -9.3), "plfa_left_forearm": (73.1, -70, 0),
     },
     # Дозорный: ладонь козырьком у лба — вглядывается вдаль; левая на поясе.
     "statue_lookout": {
@@ -119,18 +119,18 @@ POSES = {
         "plfa_left_forearm": (38, 0, 0), "pra_right_arm": (-24, 0, 22), "prfa_right_forearm": (62, 0, 0),
         "pll_left_leg": (22, 0, -4), "plfl_left_foreleg": (-18, 0, 0), "prl_right_leg": (-16, 0, 4),
     },
-    # Сидит на краю: попой на блоке (корень опущен ровно до его верха), ноги свешиваются — ставьте у края.
+    # Сидит на краю: попой на блоке, ноги свешиваются — ставьте у края; руки опущены, ладони у бёдер.
     "statue_sit": {
         "@root_pos": (0, -9.2, 0), "h_ph_head": (4, 0, 0), "prl_right_leg": (90, -4, 0),
         "prfl_right_foreleg": (-90, 0, 0), "pll_left_leg": (90, 4, 0), "plfl_left_foreleg": (-90, 0, 0),
-        "pra_right_arm": (44, 0, 1), "prfa_right_forearm": (34, 0, 0), "pla_left_arm": (44, 0, -1),
-        "plfa_left_forearm": (34, 0, 0),
+        "pra_right_arm": (-10, -4.1, 5.9), "prfa_right_forearm": (73.5, 13.5, 0),
+        "pla_left_arm": (-9.5, 6.5, -5), "plfa_left_forearm": (69.3, -13.8, 0),
     },
     # Сидит на земле: ноги вытянуты вперёд по блоку, ладони на коленях. В любом размере прижат к блоку.
     "statue_sit_ground": {
         "h_ph_head": (4, 0, 0), "pc_chest": (-4, 0, 0), "prl_right_leg": (90, -5, 0),
         "pll_left_leg": (90, 5, 0), "prfl_right_foreleg": (0, 0, 0), "plfl_left_foreleg": (0, 0, 0),
-        "pra_right_arm": (18.6, 20.7, 20), "prfa_right_forearm": (56.3, 30.9, 0),
+        "pra_right_arm": (18.6, 16.5, 20.7), "prfa_right_forearm": (56.3, 31, 0.1),
         "pla_left_arm": (11.1, -8.9, -14.5), "plfa_left_forearm": (61.5, -30.2, 0),
         "@root_pos": (0, -9.2, 0),
     },
@@ -144,8 +144,8 @@ POSES = {
     # Предплечья лежат на пояснице на ~1 пиксель (см. CONTACT): иначе локти торчали бы высоко назад.
     "statue_chief": {
         "h_ph_head": (8, 0, 0), "pc_chest": (3, 0, 0), "prl_right_leg": (0, 0, 5), "pll_left_leg": (0, 0, -5),
-        "pra_right_arm": (-37.8, -10.7, 8.1), "prfa_right_forearm": (54.9, 89.3, 0),
-        "pla_left_arm": (-38.9, 9, -6.8), "plfa_left_forearm": (59.1, -73.8, 0),
+        "pra_right_arm": (-37.8, -10.2, 8.1), "prfa_right_forearm": (54.9, 89.3, 0),
+        "pla_left_arm": (-38.9, 8.3, -6.9), "plfa_left_forearm": (59.1, -73.8, 0),
     },
 }
 
@@ -263,13 +263,55 @@ def joint_offsets(d, pose, margin=0.1):
         moved = [[mv(R, [c[i] - P[i] for i in range(3)])[i] + P[i] for i in range(3)] for c in cap]
         delta = sup(cap) - sup(moved) - margin
         if delta > 0: out[bone] = (u[0] * delta, 0.0, u[2] * delta)
+    out.update(up_joint_offsets(d, pose, skin_box))
     return out
+
+
+# Суставы «вверх»: шея (голова на груди), грудь на талии, талия на тазу. Кость стоит на соседе снизу
+# и при наклоне приподнимает один край низа — в щель под подбородком/на пояснице видно фон
+# (на скрине 05.10.2026 — светлая полоска под головой у «Триумфа»). Опускаем кость ровно на этот
+# подъём (+0.05): низ ложится на соседа, противоположный край уходит внутрь — его не видно.
+UP_JOINTS = {"h_ph_head": "pc_chest", "pc_chest": "pw_waist", "pw_waist": "phip_hip"}
+UP_SCALE = (0.98, 1.0, 0.98)     # и чуть уже: иначе боковые грани легли бы в плоскость соседа и рябили
+
+
+def up_joint_offsets(d, pose, skin_box):
+    groups = {g["name"]: g for g in d["groups"]}
+    out = {}
+    for bone, below in UP_JOINTS.items():
+        rot = pose.get(bone)
+        if not rot or (abs(rot[0]) < 1 and abs(rot[2]) < 1): continue
+        e, pe = skin_box(bone), skin_box(below)
+        if e is None or pe is None: continue
+        R = euler(rot)
+        P = groups[bone]["origin"]
+        f, t = e["from"], e["to"]
+        top = pe["to"][1]
+        x0, x1 = max(f[0], pe["from"][0]), min(t[0], pe["to"][0])
+        z0, z1 = max(f[2], pe["from"][2]), min(t[2], pe["to"][2])
+        if x0 >= x1 or z0 >= z1: continue
+        nrm = mv(R, [0, -1, 0])
+        if abs(nrm[1]) < 0.2: continue
+        q = [mv(R, [f[0] - P[0], f[1] - P[1], f[2] - P[2]])[i] + P[i] for i in range(3)]
+        def height(x, z): return q[1] - (nrm[0] * (x - q[0]) + nrm[2] * (z - q[2])) / nrm[1]
+        lift = max(height(x, z) for x in (x0, x1) for z in (z0, z1)) - top
+        if lift > 0.02: out[bone] = (0.0, -(lift + 0.05), 0.0)
+    return out
+
+
+def joint_scale(d, pose):
+    """Сужение костей: нижние в сгибах — всегда, «верхние» суставы — когда их пришлось опустить."""
+    sc = dict(JOINT_SCALE)
+    for bone, off in joint_offsets(d, pose).items():
+        if bone in UP_JOINTS and off[1] < 0: sc[bone] = UP_SCALE
+    return sc
 
 
 def collect(d, pose):
     groups = {g["uuid"]: g for g in d["groups"]}
     elems = {e["uuid"]: e for e in d["elements"]}
     jo = joint_offsets(d, pose)
+    js = joint_scale(d, pose)
     out = []
     def walk(node, xf):
         g = groups[node["uuid"]]
@@ -279,7 +321,7 @@ def collect(d, pose):
         add = pose.get(name, (0, 0, 0))
         off = pose.get("@root_pos", (0, 0, 0)) if name == "player_root" else jo.get(name, (0, 0, 0))
         R = euler([rot[i] + add[i] for i in range(3)])
-        if name in JOINT_SCALE: R = mm(R, diag(JOINT_SCALE[name]))
+        if name in js: R = mm(R, diag(js[name]))
         x2 = xf.then_local(R, g["origin"], off)
         for ch in node.get("children", []):
             if isinstance(ch, str):
@@ -306,9 +348,9 @@ def face_quads(e):
     }
 
 
-def render(d, pose, skin, yaw_deg=-28, scale=9, size=(300, 420)):
+def render(d, pose, skin, yaw_deg=-28, scale=9, size=(300, 420), pitch_deg=0):
     img = Image.new("RGBA", size, (0, 0, 0, 0))
-    view = ry(math.radians(yaw_deg))
+    view = mm(rx(math.radians(-pitch_deg)), ry(math.radians(yaw_deg)))   # pitch > 0 — взгляд сверху
     tris = []
     for e, xf in collect(d, pose):
         for fname, quad in face_quads(e).items():
@@ -381,7 +423,7 @@ def write(model):
                             "uuid": str(uuid.uuid4()), "time": t, "color": -1, "interpolation": "linear"})
             animators[gid] = {"name": bone, "type": "bone", "rotation_global": False,
                               "quaternion_interpolation": False, "keyframes": kfs}
-        for bone, sc in JOINT_SCALE.items():
+        for bone, sc in joint_scale(d, pose).items():
             if bone not in groups: continue
             gid = groups[bone]
             kfs = [{"channel": "scale", "data_points": [{"x": str(sc[0]), "y": str(sc[1]), "z": str(sc[2])}],
@@ -394,7 +436,10 @@ def write(model):
                     "uuid": str(uuid.uuid4()), "time": t, "color": -1, "interpolation": "linear"} for t in (0, 1)]
             animators.setdefault(gid, {"name": bone, "type": "bone", "rotation_global": False,
                                        "quaternion_interpolation": False, "keyframes": []})["keyframes"] += kfs
-        if "@root_pos" in pose:
+        if "@root_pos" in pose and False:
+            # Опускание всей модели (сидит, рыцарь) больше НЕ пишется в анимацию: на статуе-манекене
+            # BetterModel ключ позиции корня не применял (05.10.2026) — сидящие висели в воздухе.
+            # Плагин сам ставит модель ниже: FameService.poseDrop() = −@root_pos / 16 блока.
             p = pose["@root_pos"]
             gid = groups["player_root"]
             kfs = [{"channel": "position", "data_points": [{"x": str(p[0]), "y": str(p[1]), "z": str(p[2])}],
@@ -407,6 +452,8 @@ def write(model):
                                 "animators": animators})
     json.dump(d, open(model, "w", encoding="utf-8"), ensure_ascii=False)
     print("позы записаны:", ", ".join(POSES))
+    drops = {n: -p["@root_pos"][1] for n, p in POSES.items() if "@root_pos" in p}
+    if drops: print("опускание (впиши в FameService.poseDrop, пикселей):", drops)
 
 
 # ---------------- проверка: не проходят ли части тела друг сквозь друга ----------------
@@ -429,6 +476,7 @@ def boxes(d, pose, layer="skin"):
     groups = {g["uuid"]: g for g in d["groups"]}
     elems = {e["uuid"]: e for e in d["elements"]}
     jo = joint_offsets(d, pose)
+    js = joint_scale(d, pose)
     out = []
     def walk(node, xf):
         g = groups[node["uuid"]]
@@ -438,7 +486,7 @@ def boxes(d, pose, layer="skin"):
         add = pose.get(name, (0, 0, 0))
         off = pose.get("@root_pos", (0, 0, 0)) if name == "player_root" else jo.get(name, (0, 0, 0))
         M = euler([rot[i] + add[i] for i in range(3)])
-        if name in JOINT_SCALE: M = mm(M, diag(JOINT_SCALE[name]))
+        if name in js: M = mm(M, diag(js[name]))
         x2 = xf.then_local(M, g["origin"], off)
         for ch in node.get("children", []):
             if isinstance(ch, str):
