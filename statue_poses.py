@@ -15,6 +15,10 @@
 целиком развёрнута на 180° вокруг вертикали (лицом на юг, как сущность с yaw 0), а сама поза
 та же, что в этом предпросмотре: он рисует ровно то, что будет в игре.
 
+Локти — чистые шарниры (05.10.2026): предплечье только сгибается по X (проворот по Y — не больше ±20°),
+нужное направление кисти даёт поворот плеча. С проворотом предплечья его квадратное сечение вставало
+наискось к плечу и углы коробки торчали на локте.
+
 Пересечения (05.10.2026): там, где рука проходит сквозь голову или кисти друг сквозь друга,
 в игре рябь — две текстуры спорят за один пиксель. Перед записью — check: ни одного «!!».
 
@@ -30,7 +34,7 @@ POSES = {
     # Победитель: подбородок вверх, правая рука вскинута к небу, левая — кулак на поясе.
     "statue_victory": {
         "h_ph_head": (14, 12, 0), "pc_chest": (4, 6, 0), "pra_right_arm": (175.5, 15.9, -8.8),
-        "prfa_right_forearm": (0, 6.8, 0), "pla_left_arm": (-18, 0, -38), "plfa_left_forearm": (82, 0, 0),
+        "prfa_right_forearm": (0, 0, 0), "pla_left_arm": (-18, 0, -38), "plfa_left_forearm": (82, 0, 0),
         "prl_right_leg": (-4, 0, 5), "pll_left_leg": (10, 0, -5), "plfl_left_foreleg": (-10, 0, 0),
     },
     # Отдание чести: прямая стойка, правая ладонь у виска, левая рука по шву.
@@ -42,20 +46,20 @@ POSES = {
     "statue_knight": {
         "@root_pos": (0, -4.6, 0), "pc_chest": (-6, 0, 0), "h_ph_head": (-14, 0, 0),
         "prl_right_leg": (-8, 0, 0), "prfl_right_foreleg": (-84, 0, 0), "pll_left_leg": (84, 0, 0),
-        "plfl_left_foreleg": (-86, 0, 0), "pra_right_arm": (64.7, 4.5, -12.6),
-        "prfa_right_forearm": (80.6, 97.2, 0), "pla_left_arm": (29.5, -4.1, -20),
-        "plfa_left_forearm": (54.7, -60, 0),
+        "plfl_left_foreleg": (-86, 0, 0), "pra_right_arm": (91.6, 22.6, 89.7),
+        "prfa_right_forearm": (85.4, 0.2, 0), "pla_left_arm": (39.2, -45.1, -55.6),
+        "plfa_left_forearm": (60.6, -9.9, 0),
     },
     # Руки на груди: уверенная стойка, ноги на ширине плеч, взгляд чуть сверху вниз.
     "statue_crossed": {
-        "h_ph_head": (-4, -8, 0), "pra_right_arm": (58.7, 0.6, -15),
-        "prfa_right_forearm": (82.9, 110.5, 0), "pla_left_arm": (44.7, 20.2, -6.1),
-        "plfa_left_forearm": (96.2, -95.8, 0), "prl_right_leg": (0, 0, 7), "pll_left_leg": (0, 0, -7),
+        "h_ph_head": (-4, -8, 0), "pra_right_arm": (78.3, 42.2, 70.8),
+        "prfa_right_forearm": (88.9, 0, 0), "pla_left_arm": (58.5, -43.4, -88.1),
+        "plfa_left_forearm": (103.8, 0, 0), "prl_right_leg": (0, 0, 7), "pll_left_leg": (0, 0, -7),
     },
     # Полководец: обе руки на рукояти меча перед собой, остриё в землю.
     "statue_commander": {
-        "h_ph_head": (6, 0, 0), "pra_right_arm": (42.9, 10.7, 12.1), "prfa_right_forearm": (28.7, 90, 0),
-        "pla_left_arm": (42, -10, -11.9), "plfa_left_forearm": (29.8, -90, 0), "prl_right_leg": (0, 0, 7),
+        "h_ph_head": (6, 0, 0), "pra_right_arm": (105.3, 61.8, 127.1), "prfa_right_forearm": (54, -20, 0),
+        "pla_left_arm": (75.2, -52.1, -88.3), "plfa_left_forearm": (45.4, 0, 0), "prl_right_leg": (0, 0, 7),
         "pll_left_leg": (0, 0, -7),
     },
     # Приветствие: правая рука поднята ладонью вперёд, левая на поясе.
@@ -66,15 +70,15 @@ POSES = {
     },
     # Знаменосец: правая рука с древком вверх, левая — ладонь на груди, шаг вперёд.
     "statue_banner": {
-        "h_ph_head": (10, 0, 0), "pra_right_arm": (151.6, 12.2, -9.8), "prfa_right_forearm": (2.7, 12, 0),
-        "pla_left_arm": (67, -7, 10.5), "plfa_left_forearm": (85.5, -108.6, 0),
+        "h_ph_head": (10, 0, 0), "pra_right_arm": (150.7, -3.2, -1.1), "prfa_right_forearm": (5.6, -19.8, 0),
+        "pla_left_arm": (88.8, -31.2, -79.3), "plfa_left_forearm": (90, -5.5, 0),
         "prl_right_leg": (-14, 0, 0), "pll_left_leg": (18, 0, 0), "plfl_left_foreleg": (-14, 0, 0),
     },
     # Мыслитель: подбородок на кулаке, вторая рука поддерживает локоть.
     "statue_thinker": {
-        "h_ph_head": (-10, 0, 0), "pc_chest": (-6, 0, 0), "pra_right_arm": (58.6, -0.1, 5.5),
-        "prfa_right_forearm": (95.2, 56.8, 0), "pla_left_arm": (54.9, -9.5, -8.3),
-        "plfa_left_forearm": (76, -93.2, 0), "prl_right_leg": (4, 0, 4), "pll_left_leg": (-8, 0, -8),
+        "h_ph_head": (-10, 0, 0), "pc_chest": (-6, 0, 0), "pra_right_arm": (67.8, 31.5, 80.1),
+        "prfa_right_forearm": (101.3, -14.8, 0), "pla_left_arm": (60.8, -44.4, -76.7),
+        "plfa_left_forearm": (95.8, 0, 0), "prl_right_leg": (4, 0, 4), "pll_left_leg": (-8, 0, -8),
         "plfl_left_foreleg": (14, 0, 0),
     },
     # Герой: руки на поясе, грудь вперёд, подбородок вверх.
@@ -98,14 +102,14 @@ POSES = {
     # Поклон: поклон в пояс, правая ладонь на груди, левая за спиной.
     "statue_bow": {
         "pw_waist": (-18, 0, 0), "pc_chest": (-14, 0, 0), "h_ph_head": (-12, 0, 0),
-        "pra_right_arm": (74.7, 4.3, -13.2), "prfa_right_forearm": (81, 98.1, 0),
-        "pla_left_arm": (-59, 12, -9.3), "plfa_left_forearm": (73.1, -70, 0),
+        "pra_right_arm": (89.1, 16, 83.5), "prfa_right_forearm": (85.8, 0.8, 0),
+        "pla_left_arm": (-72.7, -22.1, 48.6), "plfa_left_forearm": (78.6, -2.8, 0),
     },
     # Дозорный: ладонь козырьком у лба — вглядывается вдаль; левая на поясе.
     "statue_lookout": {
-        "h_ph_head": (10, -8, 0), "pra_right_arm": (115.7, 1.3, -4.7),
-        "prfa_right_forearm": (67.5, 63.1, 0), "pla_left_arm": (-14, 0, -42),
-        "plfa_left_forearm": (88, 0, 0), "prl_right_leg": (0, 0, 6), "pll_left_leg": (6, 0, -6),
+        "h_ph_head": (10, -8, 0), "pra_right_arm": (82.8, -32.6, 76.1),
+        "prfa_right_forearm": (74.2, 0, 0), "pla_left_arm": (-14.4, -5.5, -44),
+        "plfa_left_forearm": (88.2, 0, 0), "prl_right_leg": (0, 0, 6), "pll_left_leg": (6, 0, -6),
     },
     # Отдых: руки за головой, локти в стороны.
     "statue_relax": {
@@ -123,15 +127,15 @@ POSES = {
     "statue_sit": {
         "@root_pos": (0, -9.2, 0), "h_ph_head": (4, 0, 0), "prl_right_leg": (90, -4, 0),
         "prfl_right_foreleg": (-90, 0, 0), "pll_left_leg": (90, 4, 0), "plfl_left_foreleg": (-90, 0, 0),
-        "pra_right_arm": (-10, -4.1, 5.9), "prfa_right_forearm": (73.5, 13.5, 0),
-        "pla_left_arm": (-9.5, 6.5, -5), "plfa_left_forearm": (69.3, -13.8, 0),
+        "pra_right_arm": (-10.1, 9.2, 3.5), "prfa_right_forearm": (73.5, 0, 0),
+        "pla_left_arm": (-9.5, -7.1, -2.7), "plfa_left_forearm": (69.3, 0, 0),
     },
     # Сидит на земле: ноги вытянуты вперёд по блоку, ладони на коленях. В любом размере прижат к блоку.
     "statue_sit_ground": {
         "h_ph_head": (4, 0, 0), "pc_chest": (-4, 0, 0), "prl_right_leg": (90, -5, 0),
         "pll_left_leg": (90, 5, 0), "prfl_right_foreleg": (0, 0, 0), "plfl_left_foreleg": (0, 0, 0),
-        "pra_right_arm": (18.6, 16.5, 20.7), "prfa_right_forearm": (56.3, 31, 0.1),
-        "pla_left_arm": (11.1, -8.9, -14.5), "plfa_left_forearm": (61.5, -30.2, 0),
+        "pra_right_arm": (25.8, 52.1, 46), "prfa_right_forearm": (62.6, 0, 0),
+        "pla_left_arm": (2.7, -34.6, -21.9), "plfa_left_forearm": (69.5, 0, 0),
         "@root_pos": (0, -9.2, 0),
     },
     # Меч на плече: правая рука держит меч, лежащий на плече; левая расслаблена.
@@ -144,8 +148,8 @@ POSES = {
     # Предплечья лежат на пояснице на ~1 пиксель (см. CONTACT): иначе локти торчали бы высоко назад.
     "statue_chief": {
         "h_ph_head": (8, 0, 0), "pc_chest": (3, 0, 0), "prl_right_leg": (0, 0, 5), "pll_left_leg": (0, 0, -5),
-        "pra_right_arm": (-37.8, -10.2, 8.1), "prfa_right_forearm": (54.9, 89.3, 0),
-        "pla_left_arm": (-38.9, 8.3, -6.9), "plfa_left_forearm": (59.1, -73.8, 0),
+        "pra_right_arm": (-73.4, 34.1, -50.9), "prfa_right_forearm": (64.6, -0.3, 0),
+        "pla_left_arm": (-75.4, -36.2, 52.9), "plfa_left_forearm": (63.9, 1.2, 0),
     },
 }
 
@@ -546,7 +550,7 @@ def collisions(d, pose, layer="skin", tol=0.05, allow=()):
             if a[0] == b[0] or frozenset((a[0], b[0])) in ADJACENT: continue
             o = overlap(a, b)
             # верх плеча у самой головы задевает её и в ванили — это не брак, если неглубоко
-            lim = 0.5 if {a[0], b[0]} & {"h_ph_head"} and {a[0], b[0]} & {"pra_right_arm", "pla_left_arm"} else tol
+            lim = 0.65 if {a[0], b[0]} & {"h_ph_head"} and {a[0], b[0]} & {"pra_right_arm", "pla_left_arm"} else tol
             if frozenset((a[0], b[0])) in allow:
                 if o > tol and not (CONTACT_BAND[0] <= o <= CONTACT_BAND[1]): hits.append((a[0], b[0], o))
             elif o > lim: hits.append((a[0], b[0], o))
