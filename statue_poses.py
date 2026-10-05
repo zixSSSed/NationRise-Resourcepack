@@ -39,27 +39,28 @@ POSES = {
     },
     # Отдание чести: прямая стойка, правая ладонь у виска, левая рука по шву.
     "statue_salute": {
-        "h_ph_head": (2, 0, 0), "pra_right_arm": (55, -55, 55), "prfa_right_forearm": (125, 0, 0),
-        "pla_left_arm": (0, 0, -3),
+        "h_ph_head": (2, 0, 0), "pra_right_arm": (50.5, -68.5, 78.8), "prfa_right_forearm": (126.7, 6.1, 0),
+        "pla_left_arm": (-0.5, -2.4, -3),
+        "plfa_left_forearm": (0.3, -4.9, 0),
     },
     # Рыцарь на одном колене: правое колено в землю, левая нога согнута, голова склонена.
     "statue_knight": {
         "@root_pos": (0, -4.6, 0), "pc_chest": (-6, 0, 0), "h_ph_head": (-14, 0, 0),
         "prl_right_leg": (-8, 0, 0), "prfl_right_foreleg": (-84, 0, 0), "pll_left_leg": (84, 0, 0),
-        "plfl_left_foreleg": (-86, 0, 0), "pra_right_arm": (91.6, 22.6, 89.7),
-        "prfa_right_forearm": (85.4, 0.2, 0), "pla_left_arm": (39.2, -45.1, -55.6),
-        "plfa_left_forearm": (60.6, -9.9, 0),
+        "plfl_left_foreleg": (-86, 0, 0), "pra_right_arm": (68.6, 26.4, 73.9),
+        "prfa_right_forearm": (57.7, 17.4, 0), "pla_left_arm": (27.1, -48.5, -54.1),
+        "plfa_left_forearm": (51.5, -19.4, 0),
     },
     # Руки на груди: уверенная стойка, ноги на ширине плеч, взгляд чуть сверху вниз.
     "statue_crossed": {
-        "h_ph_head": (-4, -8, 0), "pra_right_arm": (78.3, 42.2, 70.8),
-        "prfa_right_forearm": (88.9, 0, 0), "pla_left_arm": (58.5, -43.4, -88.1),
-        "plfa_left_forearm": (103.8, 0, 0), "prl_right_leg": (0, 0, 7), "pll_left_leg": (0, 0, -7),
+        "h_ph_head": (-4, -8, 0), "pra_right_arm": (81.6, 30, 86.3),
+        "prfa_right_forearm": (54.6, 19.9, 0), "pla_left_arm": (31.4, -46.9, -73.2),
+        "plfa_left_forearm": (80.4, -19.1, 0), "prl_right_leg": (0, 0, 7), "pll_left_leg": (0, 0, -7),
     },
     # Полководец: обе руки на рукояти меча перед собой, остриё в землю.
     "statue_commander": {
-        "h_ph_head": (6, 0, 0), "pra_right_arm": (105.3, 61.8, 127.1), "prfa_right_forearm": (54, -20, 0),
-        "pla_left_arm": (75.2, -52.1, -88.3), "plfa_left_forearm": (45.4, 0, 0), "prl_right_leg": (0, 0, 7),
+        "h_ph_head": (6, 0, 0), "pra_right_arm": (125.5, 59.5, 148.7), "prfa_right_forearm": (22.6, -19.8, 0),
+        "pla_left_arm": (67.2, -59.1, -81.2), "plfa_left_forearm": (21.8, -6.2, 0), "prl_right_leg": (0, 0, 7),
         "pll_left_leg": (0, 0, -7),
     },
     # Приветствие: правая рука поднята ладонью вперёд, левая на поясе.
@@ -70,15 +71,15 @@ POSES = {
     },
     # Знаменосец: правая рука с древком вверх, левая — ладонь на груди, шаг вперёд.
     "statue_banner": {
-        "h_ph_head": (10, 0, 0), "pra_right_arm": (150.7, -3.2, -1.1), "prfa_right_forearm": (5.6, -19.8, 0),
-        "pla_left_arm": (88.8, -31.2, -79.3), "plfa_left_forearm": (90, -5.5, 0),
+        "h_ph_head": (10, 0, 0), "pra_right_arm": (151.4, 1.3, 0.2), "prfa_right_forearm": (2.7, -6, 0),
+        "pla_left_arm": (69, -31.7, -80.5), "plfa_left_forearm": (59.3, -16.2, 0),
         "prl_right_leg": (-14, 0, 0), "pll_left_leg": (18, 0, 0), "plfl_left_foreleg": (-14, 0, 0),
     },
     # Мыслитель: подбородок на кулаке, вторая рука поддерживает локоть.
     "statue_thinker": {
-        "h_ph_head": (-10, 0, 0), "pc_chest": (-6, 0, 0), "pra_right_arm": (67.8, 31.5, 80.1),
-        "prfa_right_forearm": (101.3, -14.8, 0), "pla_left_arm": (60.8, -44.4, -76.7),
-        "plfa_left_forearm": (95.8, 0, 0), "prl_right_leg": (4, 0, 4), "pll_left_leg": (-8, 0, -8),
+        "h_ph_head": (-10, 0, 0), "pc_chest": (-6, 0, 0), "pra_right_arm": (57.5, 49, 74.9),
+        "prfa_right_forearm": (78.2, -19.5, 0), "pla_left_arm": (47.6, -43.5, -68.9),
+        "plfa_left_forearm": (60, -4.8, 0), "prl_right_leg": (4, 0, 4), "pll_left_leg": (-8, 0, -8),
         "plfl_left_foreleg": (14, 0, 0),
     },
     # Герой: руки на поясе, грудь вперёд, подбородок вверх.
@@ -102,19 +103,19 @@ POSES = {
     # Поклон: поклон в пояс, правая ладонь на груди, левая за спиной.
     "statue_bow": {
         "pw_waist": (-18, 0, 0), "pc_chest": (-14, 0, 0), "h_ph_head": (-12, 0, 0),
-        "pra_right_arm": (89.1, 16, 83.5), "prfa_right_forearm": (85.8, 0.8, 0),
-        "pla_left_arm": (-72.7, -22.1, 48.6), "plfa_left_forearm": (78.6, -2.8, 0),
+        "pra_right_arm": (70, 26.1, 70.4), "prfa_right_forearm": (55.2, 13, 0),
+        "pla_left_arm": (-94, -6.7, 61.8), "plfa_left_forearm": (76.4, -0.4, 0),
     },
     # Дозорный: ладонь козырьком у лба — вглядывается вдаль; левая на поясе.
     "statue_lookout": {
-        "h_ph_head": (10, -8, 0), "pra_right_arm": (82.8, -32.6, 76.1),
-        "prfa_right_forearm": (74.2, 0, 0), "pla_left_arm": (-14.4, -5.5, -44),
-        "plfa_left_forearm": (88.2, 0, 0), "prl_right_leg": (0, 0, 6), "pll_left_leg": (6, 0, -6),
+        "h_ph_head": (10, -8, 0), "pra_right_arm": (80.7, -20.7, 73.8),
+        "prfa_right_forearm": (57, 7.8, 0), "pla_left_arm": (-16.6, -27.4, -38.8),
+        "plfa_left_forearm": (84.6, 15, 0), "prl_right_leg": (0, 0, 6), "pll_left_leg": (6, 0, -6),
     },
     # Отдых: руки за головой, локти в стороны.
     "statue_relax": {
-        "h_ph_head": (14, 0, 0), "pra_right_arm": (200, 0, -45), "prfa_right_forearm": (125, 0, 0),
-        "pla_left_arm": (200, 0, 45), "plfa_left_forearm": (125, 0, 0), "prl_right_leg": (0, 0, 6),
+        "h_ph_head": (14, 0, 0), "pra_right_arm": (205.9, -14.8, -15.2), "prfa_right_forearm": (122.8, -8.3, 0),
+        "pla_left_arm": (199.4, 15.7, 34.1), "plfa_left_forearm": (120.1, 16.9, 0), "prl_right_leg": (0, 0, 6),
         "pll_left_leg": (8, 0, -4), "plfl_left_foreleg": (-8, 0, 0),
     },
     # Защитник: левая рука со щитом впереди, правая с мечом наготове, боевая стойка.
@@ -127,29 +128,29 @@ POSES = {
     "statue_sit": {
         "@root_pos": (0, -9.2, 0), "h_ph_head": (4, 0, 0), "prl_right_leg": (90, -4, 0),
         "prfl_right_foreleg": (-90, 0, 0), "pll_left_leg": (90, 4, 0), "plfl_left_foreleg": (-90, 0, 0),
-        "pra_right_arm": (-10.1, 9.2, 3.5), "prfa_right_forearm": (73.5, 0, 0),
-        "pla_left_arm": (-9.5, -7.1, -2.7), "plfa_left_forearm": (69.3, 0, 0),
+        "pra_right_arm": (-14.6, 18.4, 7.9), "prfa_right_forearm": (77.7, -3.3, 0),
+        "pla_left_arm": (-15.1, -5.3, -2.9), "plfa_left_forearm": (76.7, 0.7, 0),
     },
     # Сидит на земле: ноги вытянуты вперёд по блоку, ладони на коленях. В любом размере прижат к блоку.
     "statue_sit_ground": {
         "h_ph_head": (4, 0, 0), "pc_chest": (-4, 0, 0), "prl_right_leg": (90, -5, 0),
         "pll_left_leg": (90, 5, 0), "prfl_right_foreleg": (0, 0, 0), "plfl_left_foreleg": (0, 0, 0),
-        "pra_right_arm": (25.8, 52.1, 46), "prfa_right_forearm": (62.6, 0, 0),
-        "pla_left_arm": (2.7, -34.6, -21.9), "plfa_left_forearm": (69.5, 0, 0),
+        "pra_right_arm": (26.1, 27.6, 46.4), "prfa_right_forearm": (55.2, 20, 0),
+        "pla_left_arm": (-8.6, -26.5, -14.1), "plfa_left_forearm": (69.9, 3.6, 0),
         "@root_pos": (0, -9.2, 0),
     },
     # Меч на плече: правая рука держит меч, лежащий на плече; левая расслаблена.
     "statue_shoulder": {
-        "h_ph_head": (6, 10, 0), "pra_right_arm": (40, 0, 10), "prfa_right_forearm": (125, 0, 0),
-        "pla_left_arm": (6, 0, -8), "plfa_left_forearm": (12, 0, 0), "prl_right_leg": (0, 0, 6),
+        "h_ph_head": (6, 10, 0), "pra_right_arm": (44.3, 13.1, 10.6), "prfa_right_forearm": (122.1, -8.4, 0),
+        "pla_left_arm": (5.4, -7.6, -8.3), "plfa_left_forearm": (12.3, 4.2, 0), "prl_right_leg": (0, 0, 6),
         "pll_left_leg": (10, 0, -4), "plfl_left_foreleg": (-10, 0, 0),
     },
     # Главный: руки сцеплены за спиной на пояснице, грудь вперёд, подбородок вверх — хозяин положения.
     # Предплечья лежат на пояснице на ~1 пиксель (см. CONTACT): иначе локти торчали бы высоко назад.
     "statue_chief": {
         "h_ph_head": (8, 0, 0), "pc_chest": (3, 0, 0), "prl_right_leg": (0, 0, 5), "pll_left_leg": (0, 0, -5),
-        "pra_right_arm": (-73.4, 34.1, -50.9), "prfa_right_forearm": (64.6, -0.3, 0),
-        "pla_left_arm": (-75.4, -36.2, 52.9), "plfa_left_forearm": (63.9, 1.2, 0),
+        "pra_right_arm": (-62.9, 3.6, -24.7), "prfa_right_forearm": (37.7, 9.4, 0),
+        "pla_left_arm": (-77.9, -22.8, 58.6), "plfa_left_forearm": (53.4, 1.1, 0),
     },
 }
 
@@ -229,6 +230,11 @@ def diag(v):
     return [[v[0], 0, 0], [0, v[1], 0], [0, 0, v[2]]]
 
 
+HINGE_PARENT = {"prfa_right_forearm": "pra_right_arm", "plfa_left_forearm": "pla_left_arm",
+                "prfl_right_foreleg": "prl_right_leg", "plfl_left_foreleg": "pll_left_leg"}
+HINGE_INSET = 0.06
+
+
 def joint_offsets(d, pose, margin=0.1):
     groups = {g["name"]: g for g in d["groups"]}
     elems = {e["uuid"]: e for e in d["elements"]}
@@ -260,6 +266,20 @@ def joint_offsets(d, pose, margin=0.1):
             if abs(dv[2]) < 0.02: continue
             u = [0, 0, -1 if dv[2] > 0 else 1]
         P = groups[bone]["origin"]
+        if bone in HINGE_PARENT:
+            # Локоть и колено: сгиб вокруг нижнего ВНЕШНЕГО ребра верхней кости (Q). Тогда открытый торец
+            # нижней кости уходит внутрь верхней, а открытый низ верхней закрывает тело нижней — дыр нет.
+            pe = skin_box(HINGE_PARENT[bone])
+            if pe is None: continue
+            pf, pt = pe["from"], pe["to"]
+            cx, cz = (pf[0] + pt[0]) / 2, (pf[2] + pt[2]) / 2
+            hu = max((x - cx) * u[0] + (z - cz) * u[2] for x in (pf[0], pt[0]) for z in (pf[2], pt[2]))
+            hu -= HINGE_INSET                                   # чуть внутрь — без общих плоскостей
+            Q = [cx + u[0] * hu, pf[1] + HINGE_INSET, cz + u[2] * hu]
+            qp = [Q[i] - P[i] for i in range(3)]
+            rq = mv(R, qp)
+            out[bone] = tuple(qp[i] - rq[i] for i in range(3))
+            continue
         f, t = e["from"], e["to"]
         A = [(f[0] + t[0]) / 2, t[1], (f[2] + t[2]) / 2]     # ось кости на уровне торца
         cap = [(x, t[1], z) for x in (f[0], t[0]) for z in (f[2], t[2])]
@@ -329,7 +349,7 @@ def collect(d, pose):
         x2 = xf.then_local(R, g["origin"], off)
         for ch in node.get("children", []):
             if isinstance(ch, str):
-                if ch in elems: out.append((elems[ch], x2))
+                if ch in elems: out.append((elems[ch], x2, name))
             else:
                 walk(ch, x2)
     for root in d["outliner"]:
@@ -352,25 +372,61 @@ def face_quads(e):
     }
 
 
-def render(d, pose, skin, yaw_deg=-28, scale=9, size=(300, 420), pitch_deg=0):
+# В паке BetterModel части тела — «трубки» из пиксельных граней, и у кусков в суставах торцов НЕТ
+# (снято с build.zip 05.10.2026): плечо и бедро открыты снизу, предплечье и голень — сверху, таз
+# открыт сверху, талия — с обоих концов, грудь — снизу. Голова закрыта. Открытый конец, вышедший
+# наружу в сгибе, видно насквозь — это и есть «пустоты на сгибах». Предпросмотр рисует так же.
+OPEN_ENDS = {
+    "pra_right_arm": ("down",), "pla_left_arm": ("down",), "prl_right_leg": ("down",), "pll_left_leg": ("down",),
+    "prfa_right_forearm": ("up",), "plfa_left_forearm": ("up",), "prfl_right_foreleg": ("up",), "plfl_left_foreleg": ("up",),
+    "phip_hip": ("up",), "pw_waist": ("up", "down"), "pc_chest": ("down",),
+}
+
+
+def clip_floor(poly, y0):
+    """Сазерленд–Ходжмен: часть многоугольника (мировые координаты) не ниже пола y0."""
+    out = []
+    for i in range(len(poly)):
+        a, b = poly[i], poly[(i + 1) % len(poly)]
+        ina, inb = a[1] >= y0, b[1] >= y0
+        if ina: out.append(a)
+        if ina != inb:
+            t = (y0 - a[1]) / (b[1] - a[1])
+            out.append([a[k] + (b[k] - a[k]) * t for k in range(3)])
+    return out
+
+
+def render(d, pose, skin, yaw_deg=-28, scale=9, size=(300, 420), pitch_deg=0, floor=None):
+    """floor — высота пола в пикселях модели: всё ниже не рисуется (как блок в игре), сам пол — светлым."""
     img = Image.new("RGBA", size, (0, 0, 0, 0))
     view = mm(rx(math.radians(-pitch_deg)), ry(math.radians(yaw_deg)))   # pitch > 0 — взгляд сверху
+    def proj(p3): return (size[0] / 2 + p3[0] * scale * -1, size[1] - 30 - p3[1] * scale)
+    if floor is not None:
+        fq = [[-40, floor, -40], [40, floor, -40], [40, floor, 40], [-40, floor, 40]]
+        ImageDraw.Draw(img).polygon([proj(mv(view, p)) for p in fq], fill=(214, 236, 236, 255))
     tris = []
-    for e, xf in collect(d, pose):
+    for e, xf, bone in collect(d, pose):
         for fname, quad in face_quads(e).items():
             fc = e["faces"].get(fname)
             if not fc or fc.get("texture") is None: continue
-            pts3 = [mv(view, xf.apply(list(p))) for p in quad]
+            if fname in OPEN_ENDS.get(bone, ()): continue      # как в паке BetterModel: торца нет
+            world = [xf.apply(list(p)) for p in quad]
+            clipped = None
+            if floor is not None:
+                cl = clip_floor(world, floor)
+                if len(cl) < 3: continue
+                clipped = [proj(mv(view, p)) for p in cl]
+            pts3 = [mv(view, p) for p in world]
             # нормаль после поворотов; зритель смотрит из −Z
             a, b, c = pts3[0], pts3[1], pts3[3]
             u = [b[i] - a[i] for i in range(3)]; v = [c[i] - a[i] for i in range(3)]
             n = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]]
             if n[2] <= 0: continue          # грань от зрителя (у лицевой при таком обходе n.z > 0)
             depth = sum(p[2] for p in pts3) / 4
-            pts2 = [(size[0] / 2 + p[0] * scale * -1, size[1] - 30 - p[1] * scale) for p in pts3]
-            tris.append((depth, pts2, fc["uv"], e["name"]))
+            pts2 = [proj(p) for p in pts3]
+            tris.append((depth, pts2, fc["uv"], e["name"], clipped))
     tris.sort(key=lambda t: -t[0])          # дальние первыми
-    for depth, pts, uv, nm in tris:
+    for depth, pts, uv, nm, clipped in tris:
         u0, v0, u1, v1 = uv
         su, sv = 64 / 64, 64 / 64
         # аффинное: экран → текстура по трём углам (лв, пв, лн)
@@ -385,7 +441,7 @@ def render(d, pose, skin, yaw_deg=-28, scale=9, size=(300, 420), pitch_deg=0):
         d_ = inv[1][0] * dv; e_ = inv[1][1] * dv; f_ = v0 * sv - d_ * X0 - e_ * Y0
         tex = skin.transform(size, Image.AFFINE, (a_, b_, c_, d_, e_, f_), resample=Image.NEAREST)
         mask = Image.new("L", size, 0)
-        ImageDraw.Draw(mask).polygon(pts, fill=255)
+        ImageDraw.Draw(mask).polygon(clipped or pts, fill=255)
         alpha = tex.getchannel("A").point(lambda v: 255 if v > 0 else 0)
         from PIL import ImageChops
         img.paste(tex, (0, 0), ImageChops.multiply(mask, alpha))
@@ -539,6 +595,8 @@ CONTACT = {
                                            ("plfa_left_forearm", "phip_hip"), ("plfa_left_forearm", "pw_waist")]},
 }
 CONTACT_BAND = (0.75, 1.25)
+# Касания, которых не видно вовсе: голень, поднятая шарниром колена, уходит внутрь таза (у таза есть дно).
+HIDDEN_OK = {frozenset(p) for p in [("prfl_right_foreleg", "phip_hip"), ("plfl_left_foreleg", "phip_hip")]}
 
 
 def collisions(d, pose, layer="skin", tol=0.05, allow=()):
@@ -551,6 +609,7 @@ def collisions(d, pose, layer="skin", tol=0.05, allow=()):
             o = overlap(a, b)
             # верх плеча у самой головы задевает её и в ванили — это не брак, если неглубоко
             lim = 0.65 if {a[0], b[0]} & {"h_ph_head"} and {a[0], b[0]} & {"pra_right_arm", "pla_left_arm"} else tol
+            if frozenset((a[0], b[0])) in HIDDEN_OK: continue
             if frozenset((a[0], b[0])) in allow:
                 if o > tol and not (CONTACT_BAND[0] <= o <= CONTACT_BAND[1]): hits.append((a[0], b[0], o))
             elif o > lim: hits.append((a[0], b[0], o))
