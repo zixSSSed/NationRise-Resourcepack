@@ -121,8 +121,8 @@ POSES = {
     },
     # Сидит: на краю блока (ставьте на полублок), руки на коленях.
     "statue_sit": {
-        "@root_pos": (0, -3.8, 0), "h_ph_head": (4, 0, 0), "prl_right_leg": (90, 0, 4),
-        "prfl_right_foreleg": (-90, 0, 0), "pll_left_leg": (90, 0, -4), "plfl_left_foreleg": (-90, 0, 0),
+        "@root_pos": (0, -3.75, 0), "h_ph_head": (4, 0, 0), "prl_right_leg": (90, -4, 0),
+        "prfl_right_foreleg": (-90, 0, 0), "pll_left_leg": (90, 4, 0), "plfl_left_foreleg": (-90, 0, 0),
         "pra_right_arm": (44, 0, 1), "prfa_right_forearm": (34, 0, 0), "pla_left_arm": (44, 0, -1),
         "plfa_left_forearm": (34, 0, 0),
     },
@@ -132,12 +132,12 @@ POSES = {
         "pla_left_arm": (6, 0, -8), "plfa_left_forearm": (12, 0, 0), "prl_right_leg": (0, 0, 6),
         "pll_left_leg": (10, 0, -4), "plfl_left_foreleg": (-10, 0, 0),
     },
-    # Главный: руки сцеплены за спиной, грудь вперёд, подбородок вверх — хозяин положения.
+    # Главный: руки сцеплены за спиной на пояснице, грудь вперёд, подбородок вверх — хозяин положения.
+    # Предплечья лежат на пояснице на ~1 пиксель (см. CONTACT): иначе локти торчали бы высоко назад.
     "statue_chief": {
-        "h_ph_head": (8, 0, 0), "pc_chest": (3, 0, 0), "prl_right_leg": (0, 0, 5),
-        "pll_left_leg": (0, 0, -5), "pra_right_arm": (-55, 0.6, 10.1),
-        "prfa_right_forearm": (75.6, 95.7, 0), "pla_left_arm": (-55, 2, -14),
-        "plfa_left_forearm": (70, -87, 0),
+        "h_ph_head": (8, 0, 0), "pc_chest": (3, 0, 0), "prl_right_leg": (0, 0, 5), "pll_left_leg": (0, 0, -5),
+        "pra_right_arm": (-37.8, -10.7, 8.1), "prfa_right_forearm": (54.9, 89.3, 0),
+        "pla_left_arm": (-38.9, 9, -6.8), "plfa_left_forearm": (59.1, -73.8, 0),
     },
 }
 
@@ -195,9 +195,62 @@ def skin_from_model(d):
     return Image.open(io.BytesIO(base64.b64decode(src))).convert("RGBA")
 
 
+# ---------------- суставы: локоть, колено, бедро без «выломанного» угла ----------------
+# Кость сгибается вокруг оси посреди своей толщины. На 90° у такого сустава внешний угол
+# пустеет: верхняя коробка кончается, нижняя ушла вперёд — в игре локоть выглядит
+# «вывернутым», с вырезом (жалоба 05.10.2026). Лечится сдвигом нижней кости НАРУЖУ сгиба
+# ровно настолько, чтобы её торец дошёл до внешней грани верхней: угол становится сплошным,
+# а лишнее уходит внутрь верхней коробки (его не видно). 0.1 пикселя не доводим — иначе
+# торец лёг бы в одну плоскость с гранью верхней коробки и рябил бы.
+JOINT_BONES = ("prfa_right_forearm", "plfa_left_forearm", "prfl_right_foreleg", "plfl_left_foreleg",
+               "prl_right_leg", "pll_left_leg")
+
+
+def joint_offsets(d, pose, margin=0.1):
+    groups = {g["name"]: g for g in d["groups"]}
+    elems = {e["uuid"]: e for e in d["elements"]}
+    def skin_box(gname):
+        def find(node):
+            if isinstance(node, dict):
+                if node["uuid"] == groups[gname]["uuid"]:
+                    for ch in node.get("children", []):
+                        if isinstance(ch, str) and elems.get(ch, {}).get("name") == "skin": return elems[ch]
+                for ch in node.get("children", []):
+                    r = find(ch)
+                    if r: return r
+            return None
+        for r in d["outliner"]:
+            got = find(r)
+            if got: return got
+    out = {}
+    for bone in JOINT_BONES:
+        rot = pose.get(bone)
+        if not rot: continue
+        e = skin_box(bone)
+        if e is None: continue
+        R = euler(rot)
+        dv = mv(R, [0, -1, 0])
+        n = math.hypot(dv[0], dv[2])
+        if n < 0.02: continue
+        u = [-dv[0] / n, 0, -dv[2] / n]                     # наружу от сгиба
+        if "leg" in bone:                                   # ноги стоят вплотную: вбок не двигаем, только вперёд/назад
+            if abs(dv[2]) < 0.02: continue
+            u = [0, 0, -1 if dv[2] > 0 else 1]
+        P = groups[bone]["origin"]
+        f, t = e["from"], e["to"]
+        A = [(f[0] + t[0]) / 2, t[1], (f[2] + t[2]) / 2]     # ось кости на уровне торца
+        cap = [(x, t[1], z) for x in (f[0], t[0]) for z in (f[2], t[2])]
+        def sup(pts): return max((p[0] - A[0]) * u[0] + (p[2] - A[2]) * u[2] for p in pts)
+        moved = [[mv(R, [c[i] - P[i] for i in range(3)])[i] + P[i] for i in range(3)] for c in cap]
+        delta = sup(cap) - sup(moved) - margin
+        if delta > 0: out[bone] = (u[0] * delta, 0.0, u[2] * delta)
+    return out
+
+
 def collect(d, pose):
     groups = {g["uuid"]: g for g in d["groups"]}
     elems = {e["uuid"]: e for e in d["elements"]}
+    jo = joint_offsets(d, pose)
     out = []
     def walk(node, xf):
         g = groups[node["uuid"]]
@@ -205,7 +258,7 @@ def collect(d, pose):
         if name in ("shadow", "tag_name"): return
         rot = [float(v) for v in (g.get("rotation") or [0, 0, 0])]
         add = pose.get(name, (0, 0, 0))
-        off = pose.get("@root_pos", (0, 0, 0)) if name == "player_root" else (0, 0, 0)
+        off = pose.get("@root_pos", (0, 0, 0)) if name == "player_root" else jo.get(name, (0, 0, 0))
         R = euler([rot[i] + add[i] for i in range(3)])
         x2 = xf.then_local(R, g["origin"], off)
         for ch in node.get("children", []):
@@ -308,6 +361,12 @@ def write(model):
                             "uuid": str(uuid.uuid4()), "time": t, "color": -1, "interpolation": "linear"})
             animators[gid] = {"name": bone, "type": "bone", "rotation_global": False,
                               "quaternion_interpolation": False, "keyframes": kfs}
+        for bone, off in joint_offsets(d, pose).items():
+            gid = groups[bone]
+            kfs = [{"channel": "position", "data_points": [{"x": str(round(off[0], 4)), "y": str(round(off[1], 4)), "z": str(round(off[2], 4))}],
+                    "uuid": str(uuid.uuid4()), "time": t, "color": -1, "interpolation": "linear"} for t in (0, 1)]
+            animators.setdefault(gid, {"name": bone, "type": "bone", "rotation_global": False,
+                                       "quaternion_interpolation": False, "keyframes": []})["keyframes"] += kfs
         if "@root_pos" in pose:
             p = pose["@root_pos"]
             gid = groups["player_root"]
@@ -342,6 +401,7 @@ def boxes(d, pose, layer="skin"):
     """[(кость, центр, оси, полуразмеры)] — ориентированные боксы элементов слоя в позе."""
     groups = {g["uuid"]: g for g in d["groups"]}
     elems = {e["uuid"]: e for e in d["elements"]}
+    jo = joint_offsets(d, pose)
     out = []
     def walk(node, xf):
         g = groups[node["uuid"]]
@@ -349,7 +409,7 @@ def boxes(d, pose, layer="skin"):
         if name in ("shadow", "tag_name"): return
         rot = [float(v) for v in (g.get("rotation") or [0, 0, 0])]
         add = pose.get(name, (0, 0, 0))
-        off = pose.get("@root_pos", (0, 0, 0)) if name == "player_root" else (0, 0, 0)
+        off = pose.get("@root_pos", (0, 0, 0)) if name == "player_root" else jo.get(name, (0, 0, 0))
         x2 = xf.then_local(euler([rot[i] + add[i] for i in range(3)]), g["origin"], off)
         for ch in node.get("children", []):
             if isinstance(ch, str):
@@ -387,7 +447,16 @@ def overlap(a, b):
     return best
 
 
-def collisions(d, pose, layer="skin", tol=0.05):
+# Задуманные касания: часть тела «лежит» на другой. Глубина — ровно около 1 пикселя: при 0–0.5 грань
+# предплечья совпала бы по плоскости с гранью тела или его второго слоя (+0.25) и рябила бы.
+CONTACT = {
+    "statue_chief": {frozenset(p) for p in [("prfa_right_forearm", "phip_hip"), ("prfa_right_forearm", "pw_waist"),
+                                           ("plfa_left_forearm", "phip_hip"), ("plfa_left_forearm", "pw_waist")]},
+}
+CONTACT_BAND = (0.75, 1.25)
+
+
+def collisions(d, pose, layer="skin", tol=0.05, allow=()):
     bx = boxes(d, pose, layer)
     hits = []
     for i in range(len(bx)):
@@ -397,7 +466,9 @@ def collisions(d, pose, layer="skin", tol=0.05):
             o = overlap(a, b)
             # верх плеча у самой головы задевает её и в ванили — это не брак, если неглубоко
             lim = 0.5 if {a[0], b[0]} & {"h_ph_head"} and {a[0], b[0]} & {"pra_right_arm", "pla_left_arm"} else tol
-            if o > lim: hits.append((a[0], b[0], o))
+            if frozenset((a[0], b[0])) in allow:
+                if o > tol and not (CONTACT_BAND[0] <= o <= CONTACT_BAND[1]): hits.append((a[0], b[0], o))
+            elif o > lim: hits.append((a[0], b[0], o))
     return hits
 
 
@@ -405,7 +476,7 @@ def check(model):
     d = load(model)
     bad = 0
     for name, pose in POSES.items():
-        hits = collisions(d, pose)
+        hits = collisions(d, pose, allow=CONTACT.get(name, ()))
         mark = "OK " if not hits else "!! "
         bad += bool(hits)
         print(mark + NAMES.get(name, name).ljust(14) + "  ".join(f"{a}×{b} {o:.2f}px" for a, b, o in hits))
