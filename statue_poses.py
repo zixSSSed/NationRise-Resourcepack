@@ -39,9 +39,8 @@ POSES = {
     },
     # Отдание чести: прямая стойка, правая ладонь у виска, левая рука по шву.
     "statue_salute": {
-        "h_ph_head": (2, 0, 0), "pra_right_arm": (50.5, -68.5, 78.8), "prfa_right_forearm": (126.7, 6.1, 0),
-        "pla_left_arm": (-0.5, -2.4, -3),
-        "plfa_left_forearm": (0.3, -4.9, 0),
+        "h_ph_head": (2, 0, 0), "pla_left_arm": (-0.5, -2.4, -3), "plfa_left_forearm": (0.3, -4.9, 0),
+        "pra_right_arm": (60, -24.5, 91.8), "prfa_right_forearm": (61.3, -20, 0),
     },
     # Рыцарь на одном колене: правое колено в землю, левая нога согнута, голова склонена.
     "statue_knight": {
@@ -145,6 +144,14 @@ POSES = {
         "pla_left_arm": (5.4, -7.6, -8.3), "plfa_left_forearm": (12.3, 4.2, 0), "prl_right_leg": (0, 0, 6),
         "pll_left_leg": (10, 0, -4), "plfl_left_foreleg": (-10, 0, 0),
     },
+    # Меч в землю: меч воткнут перед собой, ладони на рукояти по обе стороны, корпус чуть наклонён — опирается.
+    # Сам меч рисует плагин (FameService: предмет перед статуей остриём в землю), не кость руки.
+    "statue_sword": {
+        "h_ph_head": (10, 0, 0), "pw_waist": (-3, 0, 0), "pc_chest": (-6, 0, 0),
+        "prl_right_leg": (0, 0, 7), "pll_left_leg": (0, 0, -7), "pra_right_arm": (52.7, 14.1, 14.8),
+        "prfa_right_forearm": (13.9, 19.6, 0), "pla_left_arm": (53.1, -14.2, -15),
+        "plfa_left_forearm": (17.1, -20, 0),
+    },
     # Главный: руки сцеплены за спиной на пояснице, грудь вперёд, подбородок вверх — хозяин положения.
     # Предплечья лежат на пояснице на ~1 пиксель (см. CONTACT): иначе локти торчали бы высоко назад.
     "statue_chief": {
@@ -160,7 +167,7 @@ NAMES = {
     "statue_banner": "Знаменосец", "statue_thinker": "Мыслитель",
     "statue_hero": "Герой", "statue_triumph": "Триумф", "statue_point": "Вперёд!", "statue_bow": "Поклон",
     "statue_lookout": "Дозорный", "statue_relax": "Отдых", "statue_guard": "Защитник", "statue_sit": "Сидит на краю",
-    "statue_shoulder": "Меч на плече", "statue_chief": "Главный", "statue_sit_ground": "Сидит на земле",
+    "statue_shoulder": "Меч на плече", "statue_chief": "Главный", "statue_sit_ground": "Сидит на земле", "statue_sword": "Меч в землю",
 }
 
 
