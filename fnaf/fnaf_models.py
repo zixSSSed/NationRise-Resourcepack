@@ -202,7 +202,9 @@ class Model:
                                                                 "z": str(round(v[2], 3))}],
                                 "uuid": uid(), "time": round(t, 4), "color": -1, "interpolation": interp})
             animators[self.groups[bone]["uuid"]] = {"name": bone, "type": "bone", "keyframes": kfs}
-        self.animations.append({"uuid": uid(), "name": name, "loop": loop, "override": False, "length": length,
+        # Имена с приставкой fn_: «idle» и «walk» BetterModel играет сам (встроенные анимации трекера)
+        # со своим приоритетом — и они перебивали наши вызовы, модель вечно стояла в idle.
+        self.animations.append({"uuid": uid(), "name": "fn_" + name, "loop": loop, "override": False, "length": length,
                                 "snapping": 24, "selected": False, "saved": True, "path": "", "anim_time_update": "",
                                 "blend_weight": "", "start_delay": "", "loop_delay": "", "animators": animators})
 

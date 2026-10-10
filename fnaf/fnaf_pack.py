@@ -35,6 +35,33 @@ def texture_png(m):
     return base64.b64decode(m["textures"][0]["source"].split(",", 1)[1])
 
 
+# Вид от первого лица: где хотим видеть локоть и кончик лапы (блоки от камеры; камера смотрит в −Z).
+# Ванильная точка руки — (0.56, −0.52, −0.72); модель предмета центрирована в (8, 8, 8).
+FP_ANCHOR = (0.56, -0.52, -0.72)
+FP_ELBOW = (0.80, -0.82, -0.18)    # за краем кадра справа снизу
+FP_TIP = (0.40, -0.24, -0.88)      # кисть — в правой нижней четверти экрана
+
+
+def first_person(paw_y, elbow_y):
+    """display firstperson_righthand. Ось лапы — +Y модели: кисть внизу (paw_y), локоть вверху (elbow_y),
+    в px от центра модели. Ставим локоть в FP_ELBOW, кисть — в FP_TIP.
+
+    Ванильный порядок: translate → rotationXYZ(x, y, z) → scale; при y = 0 ось +Y уходит в
+    (−sin z, cos z·cos x, cos z·sin x). Левую руку игра зеркалит сама из правой.
+    """
+    import math
+    d = [FP_ELBOW[i] - FP_TIP[i] for i in range(3)]
+    length = math.sqrt(sum(c * c for c in d))
+    u = [c / length for c in d]
+    s = length * 16 / (elbow_y - paw_y)
+    rz = math.asin(-u[0])
+    rx = math.atan2(u[2] / math.cos(rz), u[1] / math.cos(rz))
+    # сдвиг: точка кисти (paw_y·s по оси) должна оказаться в FP_TIP
+    t = [(FP_TIP[i] - FP_ANCHOR[i]) * 16 - paw_y * s * u[i] for i in range(3)]
+    return {"rotation": [round(math.degrees(rx), 2), 0, round(math.degrees(rz), 2)],
+            "translation": [round(v, 2) for v in t], "scale": [round(s, 3)] * 3}
+
+
 def arm_model(m, name):
     """Предплечье+кисть правой руки → модель предмета (UV в шкале 0..16 при атласе 128)."""
     groups = {}
@@ -62,13 +89,14 @@ def arm_model(m, name):
             u0, v0, u1, v1 = fd["uv"]
             faces[fn] = {"uv": [round(u0 / 8, 3), round(v0 / 8, 3), round(u1 / 8, 3), round(v1 / 8, 3)], "texture": "#0"}
         out.append({"from": [round(v, 3) for v in f], "to": [round(v, 3) for v in t], "faces": faces})
+    top = max(ys) + dy
+    right = first_person(0 - 8, top - 8)
     return {
         "textures": {"0": f"nationrise:item/fnaf/{name}", "particle": f"nationrise:item/fnaf/{name}"},
         "elements": out,
         "display": {
-            # Лапа идёт снизу справа вперёд, кисть — дальше от камеры, пальцами вниз.
-            "firstperson_righthand": {"rotation": [-62, -8, 4], "translation": [2.5, -1.5, -2.5], "scale": [0.95, 0.95, 0.95]},
-            "firstperson_lefthand": {"rotation": [-62, 8, -4], "translation": [2.5, -1.5, -2.5], "scale": [0.95, 0.95, 0.95]},
+            # Лапа идёт из-за правого нижнего края кадра вперёд-вверх, кисть — в правой нижней четверти.
+            "firstperson_righthand": right,
             "thirdperson_righthand": {"rotation": [0, 0, 0], "translation": [0, 0, 0], "scale": [0.01, 0.01, 0.01]},
             "gui": {"rotation": [20, -35, 0], "translation": [0, -1, 0], "scale": [0.8, 0.8, 0.8]},
             "ground": {"scale": [0.4, 0.4, 0.4]},
@@ -79,7 +107,7 @@ def arm_model(m, name):
 def jumpscare_png(m):
     """Морда крупным планом, пасть раскрыта; фон прозрачный, по краю — тёмная виньетка."""
     tex = Image.open(io.BytesIO(texture_png(m))).convert("RGBA")
-    pose = preview.pose_of(m, "jumpscare@0.5")
+    pose = preview.pose_of(m, "fn_jumpscare@0.5")
     pose = {k: v for k, v in pose.items()}   # голова, челюсть, руки — берём как есть
     img = preview.render(m, tex, 0, 2, size=(256, 256), pose=pose, bg=(0, 0, 0, 0), only="h_head")
     return img
