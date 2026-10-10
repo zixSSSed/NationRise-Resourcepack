@@ -101,9 +101,11 @@ FACE_IDX = {  # углы граней (индексы в списке 8 угло
 LIGHT = {"north": 0.9, "south": 0.7, "east": 0.8, "west": 0.75, "up": 1.0, "down": 0.5}
 
 
-def render(m, tex, yaw, pitch, size=(300, 380), pose=None, center=None, scale=None):
+def render(m, tex, yaw, pitch, size=(300, 380), pose=None, center=None, scale=None, bg=(34, 34, 40, 255), only=None):
     pose = pose or {}
     cubes = collect(m, pose)
+    if only:
+        cubes = [c for c in cubes if any(g["name"] == only for g in c[1])]
     polys = []
     W, H = size
     cy = math.radians(yaw)
@@ -159,7 +161,7 @@ def render(m, tex, yaw, pitch, size=(300, 380), pose=None, center=None, scale=No
             depth = sum(q[2] for q in quad) / 4
             polys.append((depth, quad, (u0, v0, u1, v1), LIGHT[face]))
     polys.sort(key=lambda p: -p[0])
-    img = Image.new("RGBA", size, (34, 34, 40, 255))
+    img = Image.new("RGBA", size, bg)
     d = ImageDraw.Draw(img)
     N = 4
     for depth, quad, uv, light in polys:
