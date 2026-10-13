@@ -1,0 +1,226 @@
+{
+ "clock": {
+  "member": "2000+ ê¬«¡«¬/boss_bar/clock_icon.png",
+  "k": 1,
+  "native": [
+   10,
+   10
+  ],
+  "bbox": [
+   0,
+   0,
+   10,
+   10
+  ]
+ },
+ "person": {
+  "member": "2000+ ê¬«¡«¬/human.png",
+  "k": 1,
+  "native": [
+   9,
+   9
+  ],
+  "bbox": [
+   0,
+   0,
+   9,
+   9
+  ]
+ },
+ "sword": {
+  "member": "2000+ ê¬«¡«¬/salvage_indicator.png",
+  "k": 1,
+  "native": [
+   10,
+   10
+  ],
+  "bbox": [
+   0,
+   0,
+   10,
+   10
+  ]
+ },
+ "skull": {
+  "member": "2000+ ê¬«¡«¬/death_skull.png",
+  "k": 1,
+  "native": [
+   9,
+   9
+  ],
+  "bbox": [
+   0,
+   0,
+   9,
+   9
+  ]
+ },
+ "coin": {
+  "member": "2000+ ê¬«¡«¬/currency.png",
+  "k": 1,
+  "native": [
+   10,
+   10
+  ],
+  "bbox": [
+   1,
+   1,
+   10,
+   10
+  ]
+ },
+ "gem": {
+  "member": "2000+ ê¬«¡«¬/shell_icon.png",
+  "k": 1,
+  "native": [
+   11,
+   11
+  ],
+  "bbox": [
+   0,
+   0,
+   11,
+   11
+  ]
+ },
+ "hourglass": {
+  "member": "2000+ ê¬«¡«¬/hourglass_icon.png",
+  "k": 1,
+  "native": [
+   10,
+   10
+  ],
+  "bbox": [
+   0,
+   0,
+   10,
+   10
+  ]
+ },
+ "rook": {
+  "member": "2000+ ê¬«¡«¬/castle.png",
+  "k": 1,
+  "native": [
+   7,
+   7
+  ],
+  "bbox": [
+   1,
+   0,
+   6,
+   7
+  ]
+ },
+ "earth": {
+  "member": "2000+ ê¬«¡«¬/earth2.png",
+  "k": 1,
+  "native": [
+   9,
+   9
+  ],
+  "bbox": [
+   0,
+   0,
+   9,
+   9
+  ]
+ },
+ "chat": {
+  "member": "2000+ ê¬«¡«¬/speech.png",
+  "k": 1,
+  "native": [
+   7,
+   7
+  ],
+  "bbox": [
+   0,
+   0,
+   7,
+   7
+  ]
+ },
+ "star": {
+  "member": "2000+ ê¬«¡«¬/crop_star.png",
+  "k": 1,
+  "native": [
+   8,
+   8
+  ],
+  "bbox": [
+   0,
+   0,
+   8,
+   8
+  ]
+ },
+ "heart": {
+  "member": "2000+ ê¬«¡«¬/heart_full.png",
+  "k": 1,
+  "native": [
+   9,
+   9
+  ],
+  "bbox": [
+   0,
+   0,
+   9,
+   9
+  ]
+ },
+ "key": {
+  "member": "2000+ ê¬«¡«¬/boss_keys_icon.png",
+  "k": 1,
+  "native": [
+   8,
+   10
+  ],
+  "bbox": [
+   0,
+   0,
+   8,
+   10
+  ]
+ },
+ "trophy": {
+  "member": "2000+ ê¬«¡«¬/img_6.png",
+  "k": 1,
+  "native": [
+   8,
+   8
+  ],
+  "bbox": [
+   0,
+   0,
+   8,
+   8
+  ]
+ },
+ "crown": {
+  "member": "2000+ ê¬«¡«¬/elder_spirit_icon.png",
+  "k": 1,
+  "native": [
+   11,
+   11
+  ],
+  "bbox": [
+   0,
+   0,
+   11,
+   11
+  ]
+ },
+ "money": {
+  "member": "2000+ ê¬«¡«¬/money_with_wings.png",
+  "k": 1,
+  "native": [
+   10,
+   10
+  ],
+  "bbox": [
+   0,
+   0,
+   10,
+   10
+  ]
+ }
+}
