@@ -1612,6 +1612,321 @@
       ]
     },
     {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_anvil.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_book.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_candy.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_cave.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_chef_hat.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_chest.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_coins.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_crown.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_diamond.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_earth.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_experience_orb.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_floating_island.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_fountain.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_heart.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_hourglass.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_house.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_judge_gavel.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_key.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_level_up.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_lock.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_magnifying_glass.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_mana.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_money.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_moon.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_plant.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_potion.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_purple_orb.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_scroll.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_shield.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_skull.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_star.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_sun.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_sword.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_trees.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/nr_icon_wizard_tower.png",
+      "ascent": 10,
+      "height": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
       "type": "reference",
       "id": "minecraft:include/default"
     }
