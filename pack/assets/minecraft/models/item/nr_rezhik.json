@@ -1,0 +1,7 @@
+{
+ "credit": "NationRise — Режик (16.10.2026)",
+ "parent": "minecraft:item/handheld",
+ "textures": {
+  "layer0": "minecraft:item/nr_rezhik"
+ }
+}
